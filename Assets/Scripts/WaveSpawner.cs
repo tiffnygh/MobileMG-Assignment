@@ -22,10 +22,6 @@ public class WaveSpawner : MonoBehaviour
     private float spawnInterval;
     private float spawnTimer;
 
-    [Header("Enemy Position")]
-    [SerializeField] private float xRandomPosition = 5f;
-    [SerializeField] private float yRandomPosition = 5f;
-    private Vector3 enemyRandomPosition;
 
 
     // Start is called before the first frame update
@@ -48,9 +44,10 @@ public class WaveSpawner : MonoBehaviour
         {
             if(enemiesToSpawn.Count > 0)
             {
-                enemyRandomPosition.x = Random.Range(-xRandomPosition, xRandomPosition);
-                enemyRandomPosition.y = Random.Range(-yRandomPosition, yRandomPosition);
-                GameObject newEnemy = Instantiate(enemiesToSpawn[0], transform.position + enemyRandomPosition, Quaternion.identity);
+                int randomIndex = Random.Range(0, spawnPoints.Count);
+                Transform spawnPoint = spawnPoints[randomIndex];
+
+                GameObject newEnemy = Instantiate(enemiesToSpawn[0], spawnPoint.position, Quaternion.identity);
                 newEnemy.transform.parent = this.transform;
                 spawnedEnemies.Add(newEnemy);
                 enemiesToSpawn.RemoveAt(0);
@@ -121,11 +118,6 @@ public class WaveSpawner : MonoBehaviour
         return false;
     }
 
-    private void OnDrawGizmos()
-    {
-        Gizmos.color = Color.yellow;
-        Gizmos.DrawWireCube(transform.position, new Vector3(xRandomPosition,yRandomPosition, 2));
-    }
 
     [System.Serializable]
     public class Enemy
