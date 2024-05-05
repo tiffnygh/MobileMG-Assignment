@@ -16,13 +16,15 @@ public class PlayerProjectile : MonoBehaviour
     // Returns the direction of this projectile    
     public Vector3 Direction { get; set; }
 
+    public Vector3 SpawnPosition { get; set; }
+
     // Returns the speed of the projectile    
     public float Speed { get; set; }
 
 
 
     // Internal
-    private Cha_Input characterInput;
+    private CharacterAttack characterAttack;
     private Rigidbody2D myRigidbody2D;
     private Collider2D collider2D;
     private SpriteRenderer spriteRenderer;
@@ -39,12 +41,10 @@ public class PlayerProjectile : MonoBehaviour
     {
         Speed = speed;
 
-        characterInput = GameObject.FindGameObjectWithTag("Player").GetComponent<Cha_Input>();
+        characterAttack = GameObject.FindGameObjectWithTag("Player").GetComponent<CharacterAttack>();
         myRigidbody2D = GetComponent<Rigidbody2D>();
         spriteRenderer = GetComponent<SpriteRenderer>();
         collider2D = GetComponent<Collider2D>();
-
-        EnableProjectile();
     }
 
     private void Update()
@@ -86,6 +86,12 @@ public class PlayerProjectile : MonoBehaviour
 
     }
 
+    private void SetPositionAndRotation()
+    {
+        transform.position = SpawnPosition;
+        transform.rotation = GameObject.FindGameObjectWithTag("Player").transform.rotation;
+    }
+
 
     public void DisableProjectile()
     {
@@ -99,7 +105,12 @@ public class PlayerProjectile : MonoBehaviour
         canMove = true;
         spriteRenderer.enabled = true;
         collider2D.enabled = true;
-        Direction = characterInput.direction;
+        Direction = characterAttack.direction;
+        SpawnPosition = characterAttack.ProjectileSpawnPosition;
+
+        SetPositionAndRotation();
+        this.gameObject.SetActive(true);
+
 
     }
 

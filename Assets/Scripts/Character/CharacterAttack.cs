@@ -3,17 +3,22 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 
-public class Cha_Input : MonoBehaviour
+public class CharacterAttack : MonoBehaviour
 {
     public GameObject prefab;
+    public ObjectPooler Pooler;
 
     private Camera mainCamera;
-    private Vector3 directionPosition;
+    private Vector3 newMousePosition;
     private Vector3 mousePosition;
 
     public Vector3 ProjectileSpawnPosition { get; private set; }
-    public Vector3 direction {  get; private set; }
+    public Vector3 direction {  get; set; }
 
+    private void Awake()
+    {
+        Pooler = Pooler.GetComponent<ObjectPooler>();
+    }
 
     // Start is called before the first frame update
     void Start()
@@ -24,13 +29,18 @@ public class Cha_Input : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        ProjectileSpawnPosition = GetSpawnProjectilePosition(GetWorldPosition());
         if (Input.GetKeyDown(KeyCode.Q))
         {
-            Instantiate(prefab, ProjectileSpawnPosition, transform.rotation);
+            GameObject projectile = Pooler.GetObjectFromPool();
+            projectile.GetComponent<PlayerProjectile>().EnableProjectile();
         }
     }
 
+    private void FixedUpdate()
+    {
+        ProjectileSpawnPosition = GetSpawnProjectileDirectionAndPosition(GetWorldPosition());
+
+    }
     public Vector3 GetWorldPosition()
     {
         mousePosition = Vector3.zero;
@@ -45,16 +55,16 @@ public class Cha_Input : MonoBehaviour
         {
             mousePosition = Input.mousePosition;          
         }
-        mousePosition.z = 1; // Ensure the z-position is not changing if you're using 2D
-        directionPosition = mainCamera.ScreenToWorldPoint(mousePosition);
-        return directionPosition;
+        mousePosition.z = 1; 
+        newMousePosition = mainCamera.ScreenToWorldPoint(mousePosition);
+        return newMousePosition;
     }
 
 
 
-    public Vector3 GetSpawnProjectilePosition(Vector3 targetPosition)
+    public Vector3 GetSpawnProjectileDirectionAndPosition(Vector3 mousePosition)
     {
-        direction = (targetPosition - transform.position).normalized;
+        direction = (mousePosition - transform.position).normalized;
         Vector3 spawnPosition = (transform.position + direction * 2).normalized;
         return spawnPosition;
     }
