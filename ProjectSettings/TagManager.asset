@@ -3,7 +3,9 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - Enemy
+  - Bullet
   layers:
   - Default
   - TransparentFX
@@ -38,6 +40,36 @@ TagManager:
   - 
   - 
   m_SortingLayers:
+  - name: Background
+    uniqueID: 108005445
+    locked: 0
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: Map
+    uniqueID: 1749449031
+    locked: 0
+  - name: LevelComponent
+    uniqueID: 1963957605
+    locked: 0
+  - name: Collectable
+    uniqueID: 1320506099
+    locked: 0
+  - name: NPC
+    uniqueID: 2843825575
+    locked: 0
+  - name: 'Enemy '
+    uniqueID: 3991468923
+    locked: 0
+  - name: 'Player '
+    uniqueID: 3411586379
+    locked: 0
+  - name: Weapon
+    uniqueID: 3166853649
+    locked: 0
+  - name: Projectile
+    uniqueID: 2060075693
+    locked: 0
+  - name: TOP
+    uniqueID: 3771344685
     locked: 0

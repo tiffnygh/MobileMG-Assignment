@@ -29,7 +29,7 @@ public class CharacterAttack : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Q))
+        if (Input.GetMouseButtonDown(0))
         {
             GameObject projectile = Pooler.GetObjectFromPool();
             projectile.GetComponent<PlayerProjectile>().EnableProjectile();
