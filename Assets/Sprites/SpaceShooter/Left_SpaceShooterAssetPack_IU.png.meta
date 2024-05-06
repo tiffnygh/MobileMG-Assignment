@@ -121,7 +121,1897 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: Left_SpaceShooterAssetPack_IU_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 96
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 018ce847adffbdc49b772a6c63979e41
+      internalID: 805762377
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Left_SpaceShooterAssetPack_IU_25
+      rect:
+        serializedVersion: 2
+        x: 49
+        y: 10
+        width: 6
+        height: 5
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2858245e86a41954087ce2fc2484254e
+      internalID: 2085265664
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Left_SpaceShooterAssetPack_IU_26
+      rect:
+        serializedVersion: 2
+        x: 57
+        y: 10
+        width: 6
+        height: 5
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 82875047ffd4e0d4fb5f84854762f80c
+      internalID: -79601584
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Left_SpaceShooterAssetPack_IU_28
+      rect:
+        serializedVersion: 2
+        x: 73
+        y: 10
+        width: 6
+        height: 5
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0a8ea2563fcdbc64eba813124b5a6c3b
+      internalID: -112747327
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Left_SpaceShooterAssetPack_IU_29
+      rect:
+        serializedVersion: 2
+        x: 81
+        y: 10
+        width: 6
+        height: 5
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f364a566ed8298d429a588b2f34bac07
+      internalID: 1562231392
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Left_SpaceShooterAssetPack_IU_33
+      rect:
+        serializedVersion: 2
+        x: 50
+        y: 1
+        width: 4
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 89dc4503394fab444b68125e2fb4c865
+      internalID: -1892714963
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Left_SpaceShooterAssetPack_IU_34
+      rect:
+        serializedVersion: 2
+        x: 58
+        y: 1
+        width: 4
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 13d7c9faaddb3f34ba687a7f13c9d3f8
+      internalID: -819691103
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Left_SpaceShooterAssetPack_IU_35
+      rect:
+        serializedVersion: 2
+        x: 74
+        y: 1
+        width: 4
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3171cda27ca198b4a8931a537c2ef8a2
+      internalID: -952957195
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Left_SpaceShooterAssetPack_IU_36
+      rect:
+        serializedVersion: 2
+        x: 82
+        y: 1
+        width: 4
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8cdc17e31f0c15e4cb290e64ca51f235
+      internalID: 1160364233
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Left_SpaceShooterAssetPack_IU_1
+      rect:
+        serializedVersion: 2
+        x: 16
+        y: 96
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a04283e7e1bf18c469cf160d3cb438cf
+      internalID: 1751598577
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Left_SpaceShooterAssetPack_IU_2
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 80
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 238adbc7575cb1e4884cb2c2a93a52b5
+      internalID: -1761952859
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Left_SpaceShooterAssetPack_IU_3
+      rect:
+        serializedVersion: 2
+        x: 16
+        y: 80
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5b3b8b150bb95e149aa0c94c9092c666
+      internalID: -1214598179
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Left_SpaceShooterAssetPack_IU_5
+      rect:
+        serializedVersion: 2
+        x: 16
+        y: 64
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 56a8e082bf609944b9344b47f4501a28
+      internalID: 1343490234
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Left_SpaceShooterAssetPack_IU_6
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 64
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8c053e0eaeca1e040bee30798b9e79d3
+      internalID: -1316622886
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Left_SpaceShooterAssetPack_IU_7
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 48
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c10477eb57a53aa419e9efc95591de2b
+      internalID: 43614737
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Left_SpaceShooterAssetPack_IU_8
+      rect:
+        serializedVersion: 2
+        x: 16
+        y: 48
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f9e6751ab603c8346a3a8bfaa7ede56a
+      internalID: -2025054884
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Left_SpaceShooterAssetPack_IU_9
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 32
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 573d60f01d1f8744295a57a1724e6696
+      internalID: -41108435
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Left_SpaceShooterAssetPack_IU_10
+      rect:
+        serializedVersion: 2
+        x: 16
+        y: 32
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ee082132f42de284d8d84721f26598ec
+      internalID: 1042360519
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Left_SpaceShooterAssetPack_IU_11
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 25
+        width: 16
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6796e218450dd1d44921cb552e379aac
+      internalID: 1979679836
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Left_SpaceShooterAssetPack_IU_12
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 17
+        width: 16
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5dbc91ecac8e5ab4f9811378c6b7440c
+      internalID: 823959980
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Left_SpaceShooterAssetPack_IU_13
+      rect:
+        serializedVersion: 2
+        x: 17
+        y: 16
+        width: 6
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 02ef6967c66dfba459323336dcf3da94
+      internalID: 1672603256
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Left_SpaceShooterAssetPack_IU_15
+      rect:
+        serializedVersion: 2
+        x: 25
+        y: 16
+        width: 6
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4705b3ebd2a2ae044b9cd34e71fd55a2
+      internalID: 172547482
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Left_SpaceShooterAssetPack_IU_16
+      rect:
+        serializedVersion: 2
+        x: 40
+        y: 8
+        width: 8
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 212b382b65683ea47ad6fd0e1feb499f
+      internalID: 426189662
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Left_SpaceShooterAssetPack_IU_17
+      rect:
+        serializedVersion: 2
+        x: 40
+        y: 0
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 140903634d4e5a44d9726bb35d9bf4dd
+      internalID: -676504403
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Left_SpaceShooterAssetPack_IU_18
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 8
+        width: 8
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2bcfc5e38041d954494f6b7eb935a792
+      internalID: -605519699
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Left_SpaceShooterAssetPack_IU_19
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 0
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: df916f39dc41f07408fbfe8234453c69
+      internalID: 1240499063
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Left_SpaceShooterAssetPack_IU_20
+      rect:
+        serializedVersion: 2
+        x: 40
+        y: 16
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3f440e283cc9f14458cd580385c0e543
+      internalID: -41733291
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Left_SpaceShooterAssetPack_IU_21
+      rect:
+        serializedVersion: 2
+        x: 49
+        y: 16
+        width: 6
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9198b60e687c9134fab5c18e2a2c07ad
+      internalID: -17181430
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Left_SpaceShooterAssetPack_IU_22
+      rect:
+        serializedVersion: 2
+        x: 57
+        y: 17
+        width: 6
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ae62a587a8f8bec4da55095c959d0ad8
+      internalID: 396276088
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Left_SpaceShooterAssetPack_IU_23
+      rect:
+        serializedVersion: 2
+        x: 81
+        y: 17
+        width: 6
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 57e33df82f15c6a488641ce20b6a96f6
+      internalID: 2130000083
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Left_SpaceShooterAssetPack_IU_24
+      rect:
+        serializedVersion: 2
+        x: 73
+        y: 16
+        width: 6
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5ef18628f2d191e46971f8f6fac2bbe8
+      internalID: 1839825935
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Left_SpaceShooterAssetPack_IU_27
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 16
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e88f6fad60e3ed1449e76827ca507395
+      internalID: -1399378376
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Left_SpaceShooterAssetPack_IU_30
+      rect:
+        serializedVersion: 2
+        x: 40
+        y: 24
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 51d26bef9ece898499689a0e3ddaab4b
+      internalID: -1010463522
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Left_SpaceShooterAssetPack_IU_31
+      rect:
+        serializedVersion: 2
+        x: 50
+        y: 24
+        width: 5
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 752a3fba047ce7f4a91a8ba3ddff2256
+      internalID: -578951572
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Left_SpaceShooterAssetPack_IU_32
+      rect:
+        serializedVersion: 2
+        x: 57
+        y: 25
+        width: 6
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c09efdb3b722b0944aa8136cbd901cc4
+      internalID: -1610647992
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Left_SpaceShooterAssetPack_IU_37
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 24
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d1a6d0c2f6d4dd34592d2648ba637a9b
+      internalID: 1103871140
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Left_SpaceShooterAssetPack_IU_38
+      rect:
+        serializedVersion: 2
+        x: 73
+        y: 24
+        width: 6
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cc83c1bdb405eb941a498d1c83b52a5c
+      internalID: 222948794
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Left_SpaceShooterAssetPack_IU_39
+      rect:
+        serializedVersion: 2
+        x: 81
+        y: 26
+        width: 6
+        height: 3
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0cbd82be389d1a9409d4e023c7459eab
+      internalID: -985171465
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Left_SpaceShooterAssetPack_IU_4
+      rect:
+        serializedVersion: 2
+        x: 43
+        y: 34
+        width: 3
+        height: 4
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 395ad9df288dded46b6fd73b58e7ec55
+      internalID: -923148002
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Left_SpaceShooterAssetPack_IU_14
+      rect:
+        serializedVersion: 2
+        x: 34
+        y: 34
+        width: 3
+        height: 4
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e6ad512c6e687ca4b83aa3827c7e1818
+      internalID: 434143416
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Left_SpaceShooterAssetPack_IU_40
+      rect:
+        serializedVersion: 2
+        x: 43
+        y: 42
+        width: 3
+        height: 5
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 24a9fefc00da2224880468eef6c01a0f
+      internalID: 1834178621
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Left_SpaceShooterAssetPack_IU_41
+      rect:
+        serializedVersion: 2
+        x: 34
+        y: 42
+        width: 3
+        height: 5
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9d4d7feef3e4e7643b1246239530ecba
+      internalID: 720773396
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Left_SpaceShooterAssetPack_IU_42
+      rect:
+        serializedVersion: 2
+        x: 43
+        y: 50
+        width: 3
+        height: 5
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3829aadebc3c15a4e9e0f97ee6e1af93
+      internalID: 937862804
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Left_SpaceShooterAssetPack_IU_43
+      rect:
+        serializedVersion: 2
+        x: 34
+        y: 50
+        width: 3
+        height: 5
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bd1301d36b63c3e42b7fe95c33f9efa1
+      internalID: 1816039752
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Left_SpaceShooterAssetPack_IU_44
+      rect:
+        serializedVersion: 2
+        x: 50
+        y: 33
+        width: 5
+        height: 5
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4981e70711a6844428493d7c63e76820
+      internalID: 1380839361
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Left_SpaceShooterAssetPack_IU_45
+      rect:
+        serializedVersion: 2
+        x: 50
+        y: 41
+        width: 5
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2b2d8fe8ceca90b4b9b7d1740bbc7f13
+      internalID: -1668003711
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Left_SpaceShooterAssetPack_IU_46
+      rect:
+        serializedVersion: 2
+        x: 50
+        y: 49
+        width: 5
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dc232f185f62b7b479d56596f1fe3d41
+      internalID: 1646618912
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Left_SpaceShooterAssetPack_IU_47
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 58
+        width: 24
+        height: 5
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cc38a70db8045d442aa4e4ad1b576e95
+      internalID: -687405052
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Left_SpaceShooterAssetPack_IU_48
+      rect:
+        serializedVersion: 2
+        x: 50
+        y: 73
+        width: 5
+        height: 5
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9db661fcac9303a4e9167eb0c4e83a5e
+      internalID: -614674507
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Left_SpaceShooterAssetPack_IU_49
+      rect:
+        serializedVersion: 2
+        x: 43
+        y: 74
+        width: 3
+        height: 4
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b9c0f020f352bbc489cda61deeb13936
+      internalID: 2017734902
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Left_SpaceShooterAssetPack_IU_50
+      rect:
+        serializedVersion: 2
+        x: 34
+        y: 74
+        width: 3
+        height: 4
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: afd9378279d616f4982fa54c8441629e
+      internalID: 1816260480
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Left_SpaceShooterAssetPack_IU_51
+      rect:
+        serializedVersion: 2
+        x: 34
+        y: 82
+        width: 3
+        height: 5
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a01366182719eee4493302864c38183f
+      internalID: 1599129488
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Left_SpaceShooterAssetPack_IU_52
+      rect:
+        serializedVersion: 2
+        x: 43
+        y: 82
+        width: 3
+        height: 5
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 30d8eeae2db403e4eac4b6543b58586c
+      internalID: 549828960
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Left_SpaceShooterAssetPack_IU_53
+      rect:
+        serializedVersion: 2
+        x: 50
+        y: 81
+        width: 5
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 374d5d5103a59fb43ba359a8e29c3348
+      internalID: 219230278
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Left_SpaceShooterAssetPack_IU_54
+      rect:
+        serializedVersion: 2
+        x: 50
+        y: 89
+        width: 5
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 74219c3f15f39f74c8bfdf2783f31bcd
+      internalID: -827561522
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Left_SpaceShooterAssetPack_IU_55
+      rect:
+        serializedVersion: 2
+        x: 43
+        y: 90
+        width: 3
+        height: 5
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 307fb75b1a081df4babbf3e60fd2a361
+      internalID: 634831825
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Left_SpaceShooterAssetPack_IU_56
+      rect:
+        serializedVersion: 2
+        x: 34
+        y: 90
+        width: 3
+        height: 5
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e9f6c05835ba5294e8df60ff1ad31596
+      internalID: -977538062
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Left_SpaceShooterAssetPack_IU_57
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 98
+        width: 24
+        height: 5
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0b931e22ac36c72499bc6721228b840f
+      internalID: 240552397
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Left_SpaceShooterAssetPack_IU_58
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 104
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c0492fed9acae5f4d983d8980110a4b3
+      internalID: 1901680556
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Left_SpaceShooterAssetPack_IU_59
+      rect:
+        serializedVersion: 2
+        x: 40
+        y: 104
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 19dfdbed4559db74f8057cce12147a56
+      internalID: -2011757933
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Left_SpaceShooterAssetPack_IU_60
+      rect:
+        serializedVersion: 2
+        x: 48
+        y: 104
+        width: 8
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 44a3b079e004a1a4f896034a8160572e
+      internalID: -175173631
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Left_SpaceShooterAssetPack_IU_61
+      rect:
+        serializedVersion: 2
+        x: 56
+        y: 104
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 04c49b9f588f52a419890c67a3b82a24
+      internalID: 1795413994
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Left_SpaceShooterAssetPack_IU_62
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 104
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 039e93a894020f347b46e551ee3dbdd9
+      internalID: -1416086716
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Left_SpaceShooterAssetPack_IU_63
+      rect:
+        serializedVersion: 2
+        x: 72
+        y: 104
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f33481e5b8dedee4ea8515ccacb95d2a
+      internalID: -900644300
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Left_SpaceShooterAssetPack_IU_64
+      rect:
+        serializedVersion: 2
+        x: 59
+        y: 80
+        width: 4
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5bdd15d8e510c2e4199d9ef7c2c8888e
+      internalID: 892100774
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Left_SpaceShooterAssetPack_IU_65
+      rect:
+        serializedVersion: 2
+        x: 66
+        y: 98
+        width: 4
+        height: 4
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 01348ec886343b04a9435582c99c35d7
+      internalID: 329673798
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Left_SpaceShooterAssetPack_IU_66
+      rect:
+        serializedVersion: 2
+        x: 66
+        y: 90
+        width: 4
+        height: 4
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6f06a49a8d0804d41aab3ced8ceec737
+      internalID: 1772203979
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Left_SpaceShooterAssetPack_IU_67
+      rect:
+        serializedVersion: 2
+        x: 66
+        y: 81
+        width: 4
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 600b469342aabdd4bb3b59e772b99128
+      internalID: -556825694
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Left_SpaceShooterAssetPack_IU_68
+      rect:
+        serializedVersion: 2
+        x: 74
+        y: 81
+        width: 4
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 07c8390caf17e8945937e08cce2f54c4
+      internalID: -336750329
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Left_SpaceShooterAssetPack_IU_69
+      rect:
+        serializedVersion: 2
+        x: 74
+        y: 90
+        width: 4
+        height: 4
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d5059b713c4432f48a52936935e76b08
+      internalID: 1941425153
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Left_SpaceShooterAssetPack_IU_70
+      rect:
+        serializedVersion: 2
+        x: 74
+        y: 98
+        width: 4
+        height: 4
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7b2c8b0d04395f041965a1c71e35ead1
+      internalID: -1040206233
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Left_SpaceShooterAssetPack_IU_71
+      rect:
+        serializedVersion: 2
+        x: 82
+        y: 98
+        width: 4
+        height: 3
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 04279f5c39d69db46baf6133a2fa4f2e
+      internalID: -842330585
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Left_SpaceShooterAssetPack_IU_72
+      rect:
+        serializedVersion: 2
+        x: 82
+        y: 90
+        width: 4
+        height: 3
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d665e1ccf28142c4baef9854105179e0
+      internalID: -251390208
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Left_SpaceShooterAssetPack_IU_73
+      rect:
+        serializedVersion: 2
+        x: 82
+        y: 81
+        width: 4
+        height: 5
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 10a86546bba19fe488d10e5be6147501
+      internalID: 795825616
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Left_SpaceShooterAssetPack_IU_74
+      rect:
+        serializedVersion: 2
+        x: 58
+        y: 40
+        width: 4
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 393d178a751168344bd74c881bafa69b
+      internalID: -1459753675
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Left_SpaceShooterAssetPack_IU_75
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 64
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3c4b08126712df448a1819f220b91c2d
+      internalID: -1165086477
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Left_SpaceShooterAssetPack_IU_76
+      rect:
+        serializedVersion: 2
+        x: 40
+        y: 64
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c31e02bf4041e5e468fd36b60dff69b0
+      internalID: -251501114
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Left_SpaceShooterAssetPack_IU_77
+      rect:
+        serializedVersion: 2
+        x: 48
+        y: 64
+        width: 8
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b02fc2e49c464564eb5a661873beddfc
+      internalID: -461759289
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Left_SpaceShooterAssetPack_IU_78
+      rect:
+        serializedVersion: 2
+        x: 56
+        y: 64
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 03831bbcdaac7564eb50d7371d8a2ad2
+      internalID: -1106231030
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Left_SpaceShooterAssetPack_IU_79
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 64
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f854fb507f1fa9742ad5a3cae8ae5705
+      internalID: 1320187328
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Left_SpaceShooterAssetPack_IU_80
+      rect:
+        serializedVersion: 2
+        x: 72
+        y: 64
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: aeb5db298c46f1e4cb9a7044f0c1c2f6
+      internalID: 1651925001
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Left_SpaceShooterAssetPack_IU_81
+      rect:
+        serializedVersion: 2
+        x: 66
+        y: 41
+        width: 4
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a6b5c835ff7390a418ae289528b78ed9
+      internalID: -872160742
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Left_SpaceShooterAssetPack_IU_82
+      rect:
+        serializedVersion: 2
+        x: 74
+        y: 41
+        width: 4
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 809df287b0f50a943a36cfbdc6cb453a
+      internalID: 488771512
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Left_SpaceShooterAssetPack_IU_83
+      rect:
+        serializedVersion: 2
+        x: 82
+        y: 41
+        width: 4
+        height: 5
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 22e994a44e180e44eaee7161c5479c03
+      internalID: 1339192084
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Left_SpaceShooterAssetPack_IU_84
+      rect:
+        serializedVersion: 2
+        x: 66
+        y: 50
+        width: 4
+        height: 4
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c765d204afd6aae4d8432bb32b9ccd74
+      internalID: -918102235
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Left_SpaceShooterAssetPack_IU_85
+      rect:
+        serializedVersion: 2
+        x: 74
+        y: 50
+        width: 4
+        height: 4
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2290443ae0db3c8498e29d4ac8f102d4
+      internalID: 1734058693
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Left_SpaceShooterAssetPack_IU_86
+      rect:
+        serializedVersion: 2
+        x: 82
+        y: 50
+        width: 4
+        height: 3
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 341f6120ad0db144cb418ed3a16499c9
+      internalID: -1409003141
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Left_SpaceShooterAssetPack_IU_87
+      rect:
+        serializedVersion: 2
+        x: 66
+        y: 58
+        width: 4
+        height: 4
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5d22071e262bab94ca2f4445e8ce3233
+      internalID: 121895025
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Left_SpaceShooterAssetPack_IU_88
+      rect:
+        serializedVersion: 2
+        x: 74
+        y: 58
+        width: 4
+        height: 4
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fd1f3c62ccc67114d98c8f78d2c64bba
+      internalID: -172092901
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Left_SpaceShooterAssetPack_IU_89
+      rect:
+        serializedVersion: 2
+        x: 82
+        y: 58
+        width: 4
+        height: 3
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f2f40dea10fa5644dba74821037685b0
+      internalID: 1842674603
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
@@ -132,7 +2022,97 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Left_SpaceShooterAssetPack_IU_0: 805762377
+      Left_SpaceShooterAssetPack_IU_1: 1751598577
+      Left_SpaceShooterAssetPack_IU_10: 1042360519
+      Left_SpaceShooterAssetPack_IU_11: 1979679836
+      Left_SpaceShooterAssetPack_IU_12: 823959980
+      Left_SpaceShooterAssetPack_IU_13: 1672603256
+      Left_SpaceShooterAssetPack_IU_14: 434143416
+      Left_SpaceShooterAssetPack_IU_15: 172547482
+      Left_SpaceShooterAssetPack_IU_16: 426189662
+      Left_SpaceShooterAssetPack_IU_17: -676504403
+      Left_SpaceShooterAssetPack_IU_18: -605519699
+      Left_SpaceShooterAssetPack_IU_19: 1240499063
+      Left_SpaceShooterAssetPack_IU_2: -1761952859
+      Left_SpaceShooterAssetPack_IU_20: -41733291
+      Left_SpaceShooterAssetPack_IU_21: -17181430
+      Left_SpaceShooterAssetPack_IU_22: 396276088
+      Left_SpaceShooterAssetPack_IU_23: 2130000083
+      Left_SpaceShooterAssetPack_IU_24: 1839825935
+      Left_SpaceShooterAssetPack_IU_25: 2085265664
+      Left_SpaceShooterAssetPack_IU_26: -79601584
+      Left_SpaceShooterAssetPack_IU_27: -1399378376
+      Left_SpaceShooterAssetPack_IU_28: -112747327
+      Left_SpaceShooterAssetPack_IU_29: 1562231392
+      Left_SpaceShooterAssetPack_IU_3: -1214598179
+      Left_SpaceShooterAssetPack_IU_30: -1010463522
+      Left_SpaceShooterAssetPack_IU_31: -578951572
+      Left_SpaceShooterAssetPack_IU_32: -1610647992
+      Left_SpaceShooterAssetPack_IU_33: -1892714963
+      Left_SpaceShooterAssetPack_IU_34: -819691103
+      Left_SpaceShooterAssetPack_IU_35: -952957195
+      Left_SpaceShooterAssetPack_IU_36: 1160364233
+      Left_SpaceShooterAssetPack_IU_37: 1103871140
+      Left_SpaceShooterAssetPack_IU_38: 222948794
+      Left_SpaceShooterAssetPack_IU_39: -985171465
+      Left_SpaceShooterAssetPack_IU_4: -923148002
+      Left_SpaceShooterAssetPack_IU_40: 1834178621
+      Left_SpaceShooterAssetPack_IU_41: 720773396
+      Left_SpaceShooterAssetPack_IU_42: 937862804
+      Left_SpaceShooterAssetPack_IU_43: 1816039752
+      Left_SpaceShooterAssetPack_IU_44: 1380839361
+      Left_SpaceShooterAssetPack_IU_45: -1668003711
+      Left_SpaceShooterAssetPack_IU_46: 1646618912
+      Left_SpaceShooterAssetPack_IU_47: -687405052
+      Left_SpaceShooterAssetPack_IU_48: -614674507
+      Left_SpaceShooterAssetPack_IU_49: 2017734902
+      Left_SpaceShooterAssetPack_IU_5: 1343490234
+      Left_SpaceShooterAssetPack_IU_50: 1816260480
+      Left_SpaceShooterAssetPack_IU_51: 1599129488
+      Left_SpaceShooterAssetPack_IU_52: 549828960
+      Left_SpaceShooterAssetPack_IU_53: 219230278
+      Left_SpaceShooterAssetPack_IU_54: -827561522
+      Left_SpaceShooterAssetPack_IU_55: 634831825
+      Left_SpaceShooterAssetPack_IU_56: -977538062
+      Left_SpaceShooterAssetPack_IU_57: 240552397
+      Left_SpaceShooterAssetPack_IU_58: 1901680556
+      Left_SpaceShooterAssetPack_IU_59: -2011757933
+      Left_SpaceShooterAssetPack_IU_6: -1316622886
+      Left_SpaceShooterAssetPack_IU_60: -175173631
+      Left_SpaceShooterAssetPack_IU_61: 1795413994
+      Left_SpaceShooterAssetPack_IU_62: -1416086716
+      Left_SpaceShooterAssetPack_IU_63: -900644300
+      Left_SpaceShooterAssetPack_IU_64: 892100774
+      Left_SpaceShooterAssetPack_IU_65: 329673798
+      Left_SpaceShooterAssetPack_IU_66: 1772203979
+      Left_SpaceShooterAssetPack_IU_67: -556825694
+      Left_SpaceShooterAssetPack_IU_68: -336750329
+      Left_SpaceShooterAssetPack_IU_69: 1941425153
+      Left_SpaceShooterAssetPack_IU_7: 43614737
+      Left_SpaceShooterAssetPack_IU_70: -1040206233
+      Left_SpaceShooterAssetPack_IU_71: -842330585
+      Left_SpaceShooterAssetPack_IU_72: -251390208
+      Left_SpaceShooterAssetPack_IU_73: 795825616
+      Left_SpaceShooterAssetPack_IU_74: -1459753675
+      Left_SpaceShooterAssetPack_IU_75: -1165086477
+      Left_SpaceShooterAssetPack_IU_76: -251501114
+      Left_SpaceShooterAssetPack_IU_77: -461759289
+      Left_SpaceShooterAssetPack_IU_78: -1106231030
+      Left_SpaceShooterAssetPack_IU_79: 1320187328
+      Left_SpaceShooterAssetPack_IU_8: -2025054884
+      Left_SpaceShooterAssetPack_IU_80: 1651925001
+      Left_SpaceShooterAssetPack_IU_81: -872160742
+      Left_SpaceShooterAssetPack_IU_82: 488771512
+      Left_SpaceShooterAssetPack_IU_83: 1339192084
+      Left_SpaceShooterAssetPack_IU_84: -918102235
+      Left_SpaceShooterAssetPack_IU_85: 1734058693
+      Left_SpaceShooterAssetPack_IU_86: -1409003141
+      Left_SpaceShooterAssetPack_IU_87: 121895025
+      Left_SpaceShooterAssetPack_IU_88: -172092901
+      Left_SpaceShooterAssetPack_IU_89: 1842674603
+      Left_SpaceShooterAssetPack_IU_9: -41108435
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
