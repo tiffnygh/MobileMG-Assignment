@@ -174,7 +174,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 100
   acceleration: 0
-  canHorizontal: 0
+  canHorizontal: 1
   horizontalSpeed: 10
   horizontalDistance: 0.1
 --- !u!95 &6125076024761514905

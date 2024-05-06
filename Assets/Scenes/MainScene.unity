@@ -295,8 +295,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dd6e951b38655774d8e1bbb5075334bb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  numberOfSpawnPoint: 16
-  radius: 2
+  numberOfSpawnPoint: 32
+  radius: 0.8
   positions: []
   player: {fileID: 1242767540}
 --- !u!4 &529156789
@@ -511,7 +511,7 @@ SpriteRenderer:
   m_SortingLayerID: -883380917
   m_SortingLayer: 6
   m_SortingOrder: 0
-  m_Sprite: {fileID: -54733895, guid: 73593ec2e42bbdc499663a2b726c12ed, type: 3}
+  m_Sprite: {fileID: 205520686, guid: 73593ec2e42bbdc499663a2b726c12ed, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
