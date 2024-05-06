@@ -133,6 +133,7 @@ GameObject:
   m_Component:
   - component: {fileID: 18889328}
   - component: {fileID: 18889327}
+  - component: {fileID: 18889329}
   m_Layer: 0
   m_Name: Spawner
   m_TagString: Untagged
@@ -153,12 +154,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   spawnPoints: []
-  enemyList: []
+  enemyList:
+  - enemyPrefab: {fileID: 8731437092521214424, guid: 55b645e815c0b4d4789af26fa2c0e998, type: 3}
+    cost: 1
   enemiesToSpawn: []
   spawnedEnemies: []
-  currWave: 0
-  waveValue: 0
-  waveDuration: 0
+  currWave: 1
+  waveValue: 10
+  waveDuration: 10
 --- !u!4 &18889328
 Transform:
   m_ObjectHideFlags: 0
@@ -168,12 +171,34 @@ Transform:
   m_GameObject: {fileID: 18889326}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.0886841, y: 0.5797218, z: -0.6791748}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &18889329
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 18889326}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dd6e951b38655774d8e1bbb5075334bb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  zeroThreshold: 0.001
+  numberOfSpawnPoint: 16
+  radius: 0.8
+  positions: []
+  allSpawners: []
+  player: {fileID: 1242767540}
+  topSpawners: []
+  downSpawners: []
+  leftSpawners: []
+  rightSpawners: []
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
@@ -261,54 +286,6 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: -1}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &529156787
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 529156789}
-  - component: {fileID: 529156788}
-  m_Layer: 0
-  m_Name: SpawnPoint
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &529156788
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 529156787}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dd6e951b38655774d8e1bbb5075334bb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  numberOfSpawnPoint: 32
-  radius: 0.8
-  positions: []
-  player: {fileID: 1242767540}
---- !u!4 &529156789
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 529156787}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 3.9367766, y: -2.4248686, z: -3.7330456}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -529,4 +506,3 @@ SceneRoots:
   - {fileID: 519420032}
   - {fileID: 1242767542}
   - {fileID: 18889328}
-  - {fileID: 529156789}

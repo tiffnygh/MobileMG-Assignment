@@ -5,6 +5,7 @@ using UnityEngine;
 
 public class CharacterAttack : MonoBehaviour
 {
+    [SerializeField] private float bulletSpawnDistance = 1f;
     public GameObject prefab;
     public ObjectPooler Pooler;
 
@@ -65,7 +66,7 @@ public class CharacterAttack : MonoBehaviour
     public Vector3 GetSpawnProjectileDirectionAndPosition(Vector3 mousePosition)
     {
         direction = (mousePosition - transform.position).normalized;
-        Vector3 spawnPosition = (transform.position + direction * 2).normalized;
+        Vector3 spawnPosition = (transform.position + direction * bulletSpawnDistance);
         return spawnPosition;
     }
 }

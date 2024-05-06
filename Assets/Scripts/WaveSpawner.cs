@@ -6,11 +6,11 @@ using UnityEngine;
 
 public class WaveSpawner : MonoBehaviour
 {
-    public List<Transform> spawnPoints = new List<Transform>();
+    [SerializeField] private List<GameObject> spawnPoints;
 
-    public List<Enemy> enemyList = new List<Enemy>();
-    public List<GameObject> enemiesToSpawn = new List<GameObject>();
-    public List<GameObject> spawnedEnemies = new List<GameObject>();
+    [SerializeField] private List<Enemy> enemyList = new List<Enemy>();
+    [SerializeField] private List<GameObject> enemiesToSpawn = new List<GameObject>();
+    [SerializeField] private List<GameObject> spawnedEnemies = new List<GameObject>();
 
     private bool allEnemiesDestroyed;
 
@@ -22,12 +22,15 @@ public class WaveSpawner : MonoBehaviour
     private float spawnInterval;
     private float spawnTimer;
 
+    private SpawnGenerator spawnGenerator;
 
 
     // Start is called before the first frame update
     void Start()
     {
         GenerateWave();
+        spawnGenerator = GetComponent<SpawnGenerator>();
+        spawnPoints = spawnGenerator.allSpawners;
     }
 
     // Update is called once per frame
@@ -45,9 +48,9 @@ public class WaveSpawner : MonoBehaviour
             if(enemiesToSpawn.Count > 0)
             {
                 int randomIndex = Random.Range(0, spawnPoints.Count);
-                Transform spawnPoint = spawnPoints[randomIndex];
+                GameObject spawnPoint = spawnPoints[randomIndex];
 
-                GameObject newEnemy = Instantiate(enemiesToSpawn[0], spawnPoint.position, Quaternion.identity);
+                GameObject newEnemy = Instantiate(enemiesToSpawn[0], spawnPoint.transform.position, Quaternion.identity);
                 newEnemy.transform.parent = this.transform;
                 spawnedEnemies.Add(newEnemy);
                 enemiesToSpawn.RemoveAt(0);
