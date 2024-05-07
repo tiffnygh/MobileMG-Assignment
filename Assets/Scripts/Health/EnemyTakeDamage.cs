@@ -5,7 +5,8 @@ using UnityEngine;
 public class EnemyTakeDamage : MonoBehaviour
 {
     [SerializeField] private Character.CharacterTypes damageType = Character.CharacterTypes.AI;
-    [SerializeField] public int damageToApply = 1;
+    
+    public int DamageToApply {  get; set; }
 
     private Health enemyHealth;
     private SpriteRenderer spriteRenderer;
@@ -22,7 +23,8 @@ public class EnemyTakeDamage : MonoBehaviour
     {
         if (other.CompareTag("Bullet") && other.gameObject.layer != 10) //PlayerProjectile layer
         {
-            enemyHealth.TakeDamage(damageToApply);
+            DamageToApply = other.GetComponent<PlayerProjectile>().Damage;
+            enemyHealth.TakeDamage(DamageToApply);
             //SoundManager.Instance.PlaySound(SoundManager.Instance.ImpactClip, 0.1f);
         }
     }

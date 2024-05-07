@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class PlayerProjectile : MonoBehaviour
 {
+    [Header("Damage Settings")]
+    [SerializeField] private int damage;
+
     [Header("General Movement Settings")]
     [SerializeField] private float speed = 100f;
     [SerializeField] private float acceleration = 0f;
@@ -20,6 +23,8 @@ public class PlayerProjectile : MonoBehaviour
 
     // Returns the speed of the projectile    
     public float Speed { get; set; }
+
+    public int Damage { get; set; }
 
 
 
@@ -39,6 +44,7 @@ public class PlayerProjectile : MonoBehaviour
 
     private void Awake()
     {
+        Damage = damage;
         Speed = speed;
 
         characterAttack = GameObject.FindGameObjectWithTag("Player").GetComponent<CharacterAttack>();
