@@ -339,7 +339,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 109afad5dc62a7140a7644ffeb6df563, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bulletSpawnDistance: 1
+  bulletSpawnDistance: 0
   prefab: {fileID: 0}
 --- !u!114 &1242767544
 MonoBehaviour:
@@ -456,7 +456,7 @@ SpriteRenderer:
   m_SortingLayerID: -883380917
   m_SortingLayer: 6
   m_SortingOrder: 0
-  m_Sprite: {fileID: 205520686, guid: 73593ec2e42bbdc499663a2b726c12ed, type: 3}
+  m_Sprite: {fileID: 205520686, guid: d0295dc2caa89cf459b09265af10abff, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
