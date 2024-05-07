@@ -31,8 +31,11 @@ public class PlayerProjectile : MonoBehaviour
     // Internal
     private CharacterAttack characterAttack;
     private Rigidbody2D myRigidbody2D;
-    private Collider2D collider2D;
+    private Collider2D myCollider2D;
     private SpriteRenderer spriteRenderer;
+
+    private Health enemyHealth;
+
     private Vector2 movement;
     private Vector2 forwardMovement;
     private Vector2 horizontalMovement;
@@ -50,7 +53,7 @@ public class PlayerProjectile : MonoBehaviour
         characterAttack = GameObject.FindGameObjectWithTag("Player").GetComponent<CharacterAttack>();
         myRigidbody2D = GetComponent<Rigidbody2D>();
         spriteRenderer = GetComponent<SpriteRenderer>();
-        collider2D = GetComponent<Collider2D>();
+        myCollider2D = GetComponent<Collider2D>();
     }
 
     private void Update()
@@ -64,6 +67,16 @@ public class PlayerProjectile : MonoBehaviour
             MoveProjectile();
         }
 
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.CompareTag("Enemy") && collision.gameObject.layer != 9) //PlayerProjectile layer
+        {
+            enemyHealth = collision.GetComponent<Health>();
+            enemyHealth.TakeDamage(Damage);
+            //SoundManager.Instance.PlaySound(SoundManager.Instance.ImpactClip, 0.1f);
+        }
     }
 
     // Moves this projectile  
@@ -103,14 +116,14 @@ public class PlayerProjectile : MonoBehaviour
     {
         canMove = false;
         spriteRenderer.enabled = false;  // If we donÅft disable the spriteRenderer, the bullet will fall down before disappear
-        collider2D.enabled = false;
+        myCollider2D.enabled = false;
     }
 
     public void EnableProjectile()
     {
         canMove = true;
         spriteRenderer.enabled = true;
-        collider2D.enabled = true;
+        myCollider2D.enabled = true;
         Direction = characterAttack.direction;
         SpawnPosition = characterAttack.ProjectileSpawnPosition;
 

@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-/*
+
 public class ReturnToPool : MonoBehaviour
 {
     [Header("Settings")]
@@ -12,26 +12,17 @@ public class ReturnToPool : MonoBehaviour
     [SerializeField] private ParticleSystem impactPS;
 
 
-    private Projectile projectile;
-    private BossProjectile bossProjectile;
-    private EnemyProjectile enemyProjectile;
+    private PlayerProjectile playerProjectile;
 
 
     private void Start()
     {
-        projectile = GetComponent<Projectile>();
-        bossProjectile = GetComponent<BossProjectile>();
-        enemyProjectile = GetComponent<EnemyProjectile>();
+        playerProjectile = GetComponent<PlayerProjectile>();
     }
 
     // Returns this object to the pool
     private void Return()
     {
-        if (projectile != null)
-        {
-            projectile.ResetProjectile();
-        }
-
         gameObject.SetActive(false);
     }
 
@@ -39,36 +30,26 @@ public class ReturnToPool : MonoBehaviour
     {
         if (MyLibrary.CheckLayer(other.gameObject.layer, objectMask))
         {
-            if (enemyProjectile != null)
+
+            if (playerProjectile != null)
             {
-                enemyProjectile.DisableEnemyProjectile();
+                playerProjectile.DisableProjectile();
             }
 
-            if (projectile != null)
-            {
-                projectile.DisableProjectile();
-            }
-
-            if (bossProjectile != null)
-            {
-                bossProjectile.DisableBossProjectile();
-            }
-
-            SoundManager.Instance.PlaySound(SoundManager.Instance.ImpactClip, 0.1f);
-            impactPS.Play();
+            //SoundManager.Instance.PlaySound(SoundManager.Instance.ImpactClip, 0.1f);
+            //impactPS.Play();
             Invoke(nameof(Return), impactPS.main.duration);
         }
     }
 
-    /*  REMOVE this method because we will put this into the MyLibrary class
+    //REMOVE this method because we will put this into the MyLibrary class
     private bool CheckLayer(int layer, LayerMask objectMask)
     {
         return ((1 << layer) & objectMask) != 0;
     }
-    */
+    
 
 
-/*
 
     private void OnEnable()
     {
@@ -85,4 +66,3 @@ public class ReturnToPool : MonoBehaviour
     }
 }
 
-*/

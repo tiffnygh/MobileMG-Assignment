@@ -6,8 +6,8 @@ using UnityEngine;
 public class CharacterAttack : MonoBehaviour
 {
     [SerializeField] private float bulletSpawnDistance = 1f;
-    public GameObject prefab;
-    public ObjectPooler Pooler;
+    [SerializeField] private GameObject prefab;
+    private  ObjectPooler Pooler;
 
     private Camera mainCamera;
     private Vector3 newMousePosition;
@@ -18,7 +18,7 @@ public class CharacterAttack : MonoBehaviour
 
     private void Awake()
     {
-        Pooler = Pooler.GetComponent<ObjectPooler>();
+        Pooler = GetComponent<ObjectPooler>();
     }
 
     // Start is called before the first frame update

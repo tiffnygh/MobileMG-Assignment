@@ -12,7 +12,6 @@ GameObject:
   - component: {fileID: 6630154254978005811}
   - component: {fileID: -606538705920708802}
   - component: {fileID: -4291356661521813280}
-  - component: {fileID: -94884222858124595}
   - component: {fileID: 2869952312185933127}
   - component: {fileID: 5201165466777840674}
   - component: {fileID: -7712048183533396359}
@@ -121,20 +120,6 @@ MonoBehaviour:
   initialHealth: 10
   maxHealth: 10
   destroyObject: 1
---- !u!114 &-94884222858124595
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8731437092521214424}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 694114b8cae999f49822e46dd29515c7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  damageType: 1
-  damageToApply: 1
 --- !u!114 &2869952312185933127
 MonoBehaviour:
   m_ObjectHideFlags: 0

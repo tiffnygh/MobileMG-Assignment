@@ -13,7 +13,7 @@ public class Health : MonoBehaviour
     [SerializeField] private bool destroyObject;
 
     private Character character;
-    private Collider2D collider2D;
+    private Collider2D myCollider2D;
     private SpriteRenderer spriteRenderer;
 
     private EnemyMovement enemyMovement;
@@ -26,7 +26,7 @@ public class Health : MonoBehaviour
     private void Awake()
     {
         character = GetComponent<Character>();
-        collider2D = GetComponent<Collider2D>();
+        myCollider2D = GetComponent<Collider2D>();
         spriteRenderer = GetComponentInChildren<SpriteRenderer>();
         enemyMovement = GetComponentInChildren<EnemyMovement>();
 
@@ -59,7 +59,7 @@ public class Health : MonoBehaviour
         }
 
         CurrentHealth -= damage;
-        //DamageColorFeedback();
+        DamageColorFeedback();
 
         //UIManager.Instance.UpdateHealth(CurrentHealth, maxHealth, CurrentShield, maxShield, isPlayer);
         //UpdateCharacterHealth();
@@ -75,7 +75,7 @@ public class Health : MonoBehaviour
     {
         if (character != null)
         {
-            collider2D.enabled = false;
+            myCollider2D.enabled = false;
             spriteRenderer.enabled = false;
 
             character.enabled = false;
@@ -130,7 +130,7 @@ public class Health : MonoBehaviour
         spriteRenderer.color = newColor;
 
         // Wait for 1 second
-        yield return new WaitForSeconds(0.15f);
+        yield return new WaitForSeconds(0.05f);
 
         // Change the sprite renderer color back to the original color
         spriteRenderer.color = Color.white;
