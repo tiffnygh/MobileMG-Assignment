@@ -12,6 +12,9 @@ public class WaveSpawner : MonoBehaviour
     [SerializeField] private List<GameObject> enemiesToSpawn = new List<GameObject>();
     [SerializeField] private List<GameObject> spawnedEnemies = new List<GameObject>();
 
+    private List<ObjectPooler> poolers = new List<ObjectPooler>();
+
+
     private bool allEnemiesDestroyed;
 
     public int currWave;
@@ -28,6 +31,7 @@ public class WaveSpawner : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        InitializePools();
         GenerateWave();
         spawnGenerator = GetComponent<SpawnGenerator>();
         spawnPoints = spawnGenerator.allSpawners;
@@ -36,12 +40,8 @@ public class WaveSpawner : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
+        CheckAllEnemiesDestroyed();
 
-
-        if (Input.GetKeyDown(KeyCode.O))
-        {
-            CheckAllEnemiesDestroyed();
-        }
 
         if (spawnTimer <= 0)
         {
@@ -49,12 +49,7 @@ public class WaveSpawner : MonoBehaviour
             {
                 int randomIndex = Random.Range(0, spawnPoints.Count);
                 GameObject spawnPoint = spawnPoints[randomIndex];
-
-                GameObject newEnemy = Instantiate(enemiesToSpawn[0], spawnPoint.transform.position, Quaternion.identity);
-                newEnemy.transform.parent = this.transform;
-                spawnedEnemies.Add(newEnemy);
-                enemiesToSpawn.RemoveAt(0);
-                spawnTimer = spawnInterval;
+                SpawnEnemy(spawnPoint);
             }
             else
             {
@@ -65,6 +60,36 @@ public class WaveSpawner : MonoBehaviour
         {
             spawnTimer -= Time.fixedDeltaTime;
             waveTimer -= Time.fixedDeltaTime;
+        }   
+    }
+
+    private void InitializePools()
+    {
+        foreach (var enemy in enemyList)
+        {
+            Transform matchingChild = transform.Find(enemy.enemyPrefab.name);
+            // Assume each enemy prefab has an ObjectPooler component attached
+            var pooler = matchingChild.GetComponent<ObjectPooler>();
+            //pooler.GetObjectFromPool();
+            poolers.Add(pooler);
+        }
+    }
+
+    private void SpawnEnemy(GameObject PositionToSpawn)
+    {
+        var enemyPrefab = enemiesToSpawn[0]; // The prefab to spawn
+        var pooler = poolers.Find(p => p.objectPrefab == enemyPrefab); // Find corresponding pooler
+        var newEnemy = pooler.GetObjectFromPool(); // Get object from pool
+
+        if (newEnemy != null)
+        {
+            newEnemy.transform.position = PositionToSpawn.transform.position;
+            newEnemy.SetActive(true);
+            newEnemy.GetComponent<EnemyMovement>().EnableEnemy();
+            newEnemy.GetComponent<Health>().Revive();
+            spawnedEnemies.Add(newEnemy);
+            enemiesToSpawn.RemoveAt(0);
+            spawnTimer = spawnInterval;
         }
     }
 

@@ -35,7 +35,6 @@ public class EnemyBase : MonoBehaviour
     protected virtual void Start()
     {
         FixPositionRotation();
-        EnableEnemy();
     }
 
     private void Update()
@@ -62,6 +61,7 @@ public class EnemyBase : MonoBehaviour
 
     public void EnableEnemy()
     {
+        FixPositionRotation();
         canMove = true;
         spriteRenderer.enabled = true;
         myCollider2D.enabled = true;

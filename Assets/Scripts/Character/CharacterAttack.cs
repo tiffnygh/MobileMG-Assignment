@@ -6,7 +6,6 @@ using UnityEngine;
 public class CharacterAttack : MonoBehaviour
 {
     [SerializeField] private float bulletSpawnDistance = 1f;
-    [SerializeField] private GameObject prefab;
     private  ObjectPooler Pooler;
 
     private Camera mainCamera;

@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class ObjectPooler : MonoBehaviour
 {
-    [SerializeField] private GameObject objectPrefab;
+    [SerializeField] public GameObject objectPrefab;
     [SerializeField] private int poolSize = 10;
     [SerializeField] private bool poolCanExpand = true;
 
@@ -54,7 +54,6 @@ public class ObjectPooler : MonoBehaviour
         GameObject newObject = Instantiate(objectPrefab);
         newObject.SetActive(false);
         newObject.transform.parent = parentObject.transform;
-
         pooledObjects.Add(newObject);
         return newObject;
     }

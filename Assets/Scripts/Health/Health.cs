@@ -71,6 +71,21 @@ public class Health : MonoBehaviour
 
     }
 
+    public void Revive()
+    {
+        if (character != null)
+        {
+            spriteRenderer.color = Color.white;
+
+            myCollider2D.enabled = true;
+            spriteRenderer.enabled = true;
+
+            character.enabled = true;
+            enemyMovement.enabled = true;
+            CurrentHealth = initialHealth;
+
+        }
+    }
     private void Die()
     {
         if (character != null)
