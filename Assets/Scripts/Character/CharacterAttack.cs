@@ -2,9 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class CharacterAttack : MonoBehaviour
 {
+    [Header("Bullet Type")]
+    [SerializeField] private bool canPierce;
+
     [SerializeField] private float bulletSpawnDistance = 1f;
     private  ObjectPooler Pooler;
 
@@ -29,6 +33,8 @@ public class CharacterAttack : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        CheckBulletType();
+
         if (Input.GetMouseButtonDown(0))
         {
             GameObject projectile = Pooler.GetObjectFromPool();
@@ -60,7 +66,29 @@ public class CharacterAttack : MonoBehaviour
         return newMousePosition;
     }
 
-
+    public void CheckBulletType()
+    {
+        if (canPierce)
+        {
+            foreach (GameObject obj in FindObjectsOfType<GameObject>())
+            {
+                if (obj.layer == LayerMask.NameToLayer("PlayerProjectile"))
+                {
+                    obj.GetComponent<ReturnToPool>().objectMask &= ~(1 << 8);
+                }
+            }
+        }
+        else
+        {
+            foreach (GameObject obj in FindObjectsOfType<GameObject>())
+            {
+                if (obj.layer == LayerMask.NameToLayer("PlayerProjectile"))
+                {
+                    obj.GetComponent<ReturnToPool>().objectMask |= (1 << 8); ;
+                }
+            }
+        }
+    }
 
     public Vector3 GetSpawnProjectileDirectionAndPosition(Vector3 mousePosition)
     {

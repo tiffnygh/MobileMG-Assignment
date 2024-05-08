@@ -107,6 +107,7 @@ MonoBehaviour:
   canHorizontal: 0
   horizontalSpeed: 10
   horizontalDistance: 0.1
+  canPierce: 0
 --- !u!114 &7173730711832227722
 MonoBehaviour:
   m_ObjectHideFlags: 0

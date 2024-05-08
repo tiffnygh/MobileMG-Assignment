@@ -5,7 +5,7 @@ using UnityEngine;
 public class ReturnToPool : MonoBehaviour
 {
     [Header("Settings")]
-    [SerializeField] private LayerMask objectMask;
+    [SerializeField] public LayerMask objectMask;
     [SerializeField] private float lifeTime = 2f;
 
     [Header("Effects")]
@@ -41,13 +41,6 @@ public class ReturnToPool : MonoBehaviour
             Invoke(nameof(Return), impactPS.main.duration);
         }
     }
-
-    //REMOVE this method because we will put this into the MyLibrary class
-    private bool CheckLayer(int layer, LayerMask objectMask)
-    {
-        return ((1 << layer) & objectMask) != 0;
-    }
-    
 
 
 

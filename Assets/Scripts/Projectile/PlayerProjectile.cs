@@ -34,6 +34,8 @@ public class PlayerProjectile : MonoBehaviour
     private Collider2D myCollider2D;
     private SpriteRenderer spriteRenderer;
 
+    private ReturnToPool returnToPool;
+
     private Health enemyHealth;
 
     private Vector2 movement;
@@ -54,12 +56,13 @@ public class PlayerProjectile : MonoBehaviour
         myRigidbody2D = GetComponent<Rigidbody2D>();
         spriteRenderer = GetComponent<SpriteRenderer>();
         myCollider2D = GetComponent<Collider2D>();
+        returnToPool = GetComponent<ReturnToPool>();
     }
 
     private void Update()
     {
-
     }
+
     private void FixedUpdate()
     {
         if (canMove)
@@ -129,8 +132,6 @@ public class PlayerProjectile : MonoBehaviour
 
         SetPositionAndRotation();
         this.gameObject.SetActive(true);
-
-
     }
 
 }
