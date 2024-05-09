@@ -7,6 +7,9 @@ public class EnemyMovement : EnemyBase
     private float currentSpeed;
     private float currentAcceleration;
 
+    [SerializeField] private float sineWaveFrequency = 2.0f;  // Frequency of the wave
+    [SerializeField] private float sineWaveMagnitude = 0.5f;  // Magnitude of the wave
+
     // Start is called before the first frame update
     protected override void Awake()
     {
@@ -33,8 +36,12 @@ public class EnemyMovement : EnemyBase
     {
         forwardMovement = Direction * (currentSpeed / 10f) * Time.fixedDeltaTime;
 
-        movement = forwardMovement;
+        horizontalMovement = Vector2.right * Mathf.Sin(Time.time * sineWaveFrequency) * sineWaveMagnitude;
+        movement = forwardMovement + new Vector2(horizontalMovement.x, 0);
         myRigidbody2D.MovePosition(myRigidbody2D.position + movement);
+
+        //movement = forwardMovement;
+        //myRigidbody2D.MovePosition(myRigidbody2D.position + movement);
 
         currentSpeed += currentAcceleration * Time.deltaTime;
     }
