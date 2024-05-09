@@ -23,6 +23,25 @@ public class SpawnGenerator : MonoBehaviour
     {
         CalculatePositions();
         PositionObjects();
+        CreateBarrierSegments();
+    }
+
+
+    void CreateBarrierSegments()
+    {
+        float segmentAngle = 360.0f / numberOfSpawnPoint;  // Angle per segment
+        for (int i = 0; i < numberOfSpawnPoint; i++)
+        {
+            GameObject segment = new GameObject($"BarrierSegment_{i}");
+            segment.transform.position = player.transform.position; // Position at the player's location
+            segment.transform.parent = this.transform;  // Parent under the generator for organization
+
+            // Add a collider here depending on 2D or 3D game
+            CircleCollider2D collider = segment.AddComponent<CircleCollider2D>();
+            collider.offset = new Vector2(Mathf.Cos(Mathf.Deg2Rad * segmentAngle * i) * radius, Mathf.Sin(Mathf.Deg2Rad * segmentAngle * i) * radius);
+            collider.radius = radius / numberOfSpawnPoint;  // Adjust radius as needed for your game mechanics
+
+        }
     }
 
     void CalculatePositions()
