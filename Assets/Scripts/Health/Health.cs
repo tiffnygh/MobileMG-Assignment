@@ -95,7 +95,6 @@ public class Health : MonoBehaviour
 
             character.enabled = false;
             enemyMovement.enabled = false;
-            this.enabled = false;
         }
 
         /*if (character.CharacterType == Character.CharacterTypes.AI && dropItem.canDropItem)

@@ -13,6 +13,7 @@ public class BarrierDetector : MonoBehaviour
 
     private void OnTriggerExit2D(Collider2D other)
     {
+
         // Calculate the distance from the enemy to the center of the barrier
         float distanceFromCenter = Vector3.Distance(transform.position, other.transform.position);
 
@@ -45,6 +46,16 @@ public class BarrierDetector : MonoBehaviour
         else
         {
             return "Right";
+        }
+    }
+
+    private void OnDrawGizmos()
+    {
+        if (barrierCollider != null)
+        {
+            Gizmos.color = Color.red;
+            Vector3 barrierCenter = transform.position + new Vector3(barrierCollider.offset.x, barrierCollider.offset.y, 0);
+            Gizmos.DrawWireSphere(barrierCenter, 5);
         }
     }
 }
