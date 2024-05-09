@@ -8,6 +8,8 @@ public class Health : MonoBehaviour
     [Header("Health")]
     [SerializeField] private float initialHealth = 10f;
     [SerializeField] private float maxHealth = 10f;
+    [SerializeField] public int damage = 0;
+
 
     [Header("Settings")]
     [SerializeField] private bool destroyObject;
@@ -86,7 +88,7 @@ public class Health : MonoBehaviour
 
         }
     }
-    private void Die()
+    public void Die()
     {
         if (character != null)
         {

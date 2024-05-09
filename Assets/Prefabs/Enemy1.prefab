@@ -120,6 +120,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   initialHealth: 10
   maxHealth: 10
+  damage: 5
   destroyObject: 1
 --- !u!114 &2869952312185933127
 MonoBehaviour:

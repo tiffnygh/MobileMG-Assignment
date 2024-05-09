@@ -5,10 +5,13 @@ using UnityEngine;
 public class BarrierDetector : MonoBehaviour
 {
     private CircleCollider2D barrierCollider;
+    private BarrierHealth barrierHealth; 
+
 
     private void Awake()
     {
         barrierCollider = GetComponent<CircleCollider2D>();
+        barrierHealth = GetComponent<BarrierHealth>();
     }
 
     private void OnTriggerExit2D(Collider2D other)
@@ -23,6 +26,11 @@ public class BarrierDetector : MonoBehaviour
             Vector3 exitDirection = other.transform.position - transform.position;
             string segment = DetermineSegment(exitDirection);
             Debug.Log($"Enemy exited through the {segment} segment.");
+            if (barrierHealth != null)
+            {
+                barrierHealth.TakeDamage(segment, other.GetComponent<Health>().damage); // Assuming a fixed damage of 1 for simplicity
+                other.GetComponent<Health>().Die();
+            }
         }
     }
 

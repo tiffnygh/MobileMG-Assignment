@@ -17,7 +17,7 @@ public class EnemyBase : MonoBehaviour
     protected Vector2 forwardMovement;
     protected Vector2 horizontalMovement;
 
-    [Header("General Movement Settings")]
+    [Header("General Settings")]
     [SerializeField] protected float speed = 5f;
     [SerializeField] protected float acceleration = 0;
 

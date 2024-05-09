@@ -29,10 +29,7 @@ public class BarrierHealth : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Escape))
-        {
-            TakeDamage("top", 2);
-        }
+
     }
     public void ResetHealth()
     {
