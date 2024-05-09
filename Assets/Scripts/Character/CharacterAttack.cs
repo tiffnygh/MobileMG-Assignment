@@ -7,7 +7,8 @@ using UnityEngine.UI;
 public class CharacterAttack : MonoBehaviour
 {
     [Header("Bullet Type")]
-    [SerializeField] private bool canPierce;
+    [SerializeField] private bool pierce;
+    [SerializeField] private bool canHorinzontal;
 
     [SerializeField] private float bulletSpawnDistance = 1f;
     private  ObjectPooler Pooler;
@@ -68,7 +69,7 @@ public class CharacterAttack : MonoBehaviour
 
     public void CheckBulletType()
     {
-        if (canPierce)
+        if (pierce)
         {
             foreach (GameObject obj in FindObjectsOfType<GameObject>())
             {
@@ -86,6 +87,29 @@ public class CharacterAttack : MonoBehaviour
                 {
                     obj.GetComponent<ReturnToPool>().objectMask |= (1 << 8); ;
                 }
+            }
+        }
+
+        if (canHorinzontal)
+        {
+            foreach (GameObject obj in FindObjectsOfType<GameObject>())
+            {
+                if (obj.layer == LayerMask.NameToLayer("PlayerProjectile"))
+                {
+                    obj.GetComponent<PlayerProjectile>().canHorizontal = true;
+                }
+
+            }
+        }
+        else
+        {
+            foreach (GameObject obj in FindObjectsOfType<GameObject>())
+            {
+                if (obj.layer == LayerMask.NameToLayer("PlayerProjectile"))
+                {
+                    obj.GetComponent<PlayerProjectile>().canHorizontal = false;
+                }
+
             }
         }
     }

@@ -12,7 +12,7 @@ public class PlayerProjectile : MonoBehaviour
     [SerializeField] private float acceleration = 0f;
 
     [Header("Horizontal Movement Settings")]
-    [SerializeField] bool canHorizontal;
+    [SerializeField] public bool canHorizontal;
     [SerializeField] private float horizontalSpeed = 5f;
     [SerializeField] private float horizontalDistance = 2f;
 

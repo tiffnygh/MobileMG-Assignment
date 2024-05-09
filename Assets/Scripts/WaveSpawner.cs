@@ -67,9 +67,9 @@ public class WaveSpawner : MonoBehaviour
     {
         foreach (var enemy in enemyList)
         {
-            Transform matchingChild = transform.Find(enemy.enemyPrefab.name);
+            GameObject matchingGameObject = GameObject.Find(enemy.enemyPrefab.name);
             // Assume each enemy prefab has an ObjectPooler component attached
-            var pooler = matchingChild.GetComponent<ObjectPooler>();
+            var pooler = matchingGameObject.GetComponent<ObjectPooler>();
             //pooler.GetObjectFromPool();
             poolers.Add(pooler);
         }
