@@ -434,8 +434,9 @@ GameObject:
   m_Component:
   - component: {fileID: 632816721}
   - component: {fileID: 632816720}
-  - component: {fileID: 632816723}
+  - component: {fileID: 632816724}
   - component: {fileID: 632816722}
+  - component: {fileID: 632816723}
   m_Layer: 0
   m_Name: Barrier
   m_TagString: Untagged
@@ -557,6 +558,34 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.5
+--- !u!114 &632816724
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 632816719}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cd2b14f6a965db74aa1b0c3d9d339004, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  topSegment:
+    name: Top
+    maxHealt: 100
+    initialHealth: 100
+  downSegment:
+    name: Down
+    maxHealt: 100
+    initialHealth: 100
+  leftSegment:
+    name: Left
+    maxHealt: 100
+    initialHealth: 100
+  rightSegment:
+    name: Right
+    maxHealt: 100
+    initialHealth: 100
 --- !u!1 &1222162260
 GameObject:
   m_ObjectHideFlags: 0
