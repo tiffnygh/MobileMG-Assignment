@@ -134,7 +134,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b268b744dca2730418475d41034d369a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  canForward: 0
+  canForward: 1
   speed: 3
   acceleration: 0
   canHorizontal: 0
@@ -143,8 +143,8 @@ MonoBehaviour:
   canZigZag: 0
   zigzagChangeTime: 1.5
   nextChangeTime: 0
-  canSpiral: 1
-  repeatSpiral: 1
+  canSpiral: 0
+  repeatSpiral: 0
   spiralAngle: 0
   spiralSpeed: 360
   spiralRadius: 2
