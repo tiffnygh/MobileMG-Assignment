@@ -16,6 +16,8 @@ public class PlayerProjectile : MonoBehaviour
     [SerializeField] private float horizontalSpeed = 5f;
     [SerializeField] private float horizontalDistance = 2f;
 
+    private Transform playerTransform;
+
     // Returns the direction of this projectile    
     public Vector3 Direction { get; set; }
 
@@ -49,6 +51,8 @@ public class PlayerProjectile : MonoBehaviour
 
     private void Awake()
     {
+        playerTransform = GameObject.FindGameObjectWithTag("Player").transform;
+
         Damage = damage;
         Speed = speed;
 
@@ -68,6 +72,7 @@ public class PlayerProjectile : MonoBehaviour
         if (canMove)
         {
             MoveProjectile();
+            //FixRotation();
         }
 
     }
@@ -98,6 +103,10 @@ public class PlayerProjectile : MonoBehaviour
             Vector2 rightVector = new Vector2(-Direction.y, Direction.x).normalized; // Perpendicular to the main direction
             horizontalMovement = rightVector * horizontalAmount;
         }
+        else
+        {
+            horizontalMovement = new Vector2(0, 0);
+        }
 
 
         //Sum of movement 
@@ -114,7 +123,15 @@ public class PlayerProjectile : MonoBehaviour
         transform.rotation = GameObject.FindGameObjectWithTag("Player").transform.rotation;
     }
 
+    private void FixRotation()
+    {
 
+        Direction = (transform.position - playerTransform.position).normalized;
+        float angle = Mathf.Atan2(Direction.y, Direction.x) * Mathf.Rad2Deg;
+
+        transform.rotation = Quaternion.LookRotation(Direction);
+        transform.rotation = Quaternion.Euler(new Vector3(0, 0, angle - 90));
+    }
     public void DisableProjectile()
     {
         canMove = false;

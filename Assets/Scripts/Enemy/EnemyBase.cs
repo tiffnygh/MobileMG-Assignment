@@ -11,15 +11,36 @@ public class EnemyBase : MonoBehaviour
     protected Collider2D myCollider2D;
     protected SpriteRenderer spriteRenderer;
 
-    protected Vector3 Direction { get; set; }
+    protected Vector2 Direction;
 
     protected Vector2 movement;
     protected Vector2 forwardMovement;
     protected Vector2 horizontalMovement;
+    protected Vector2 zigzagMovemnet;
+    protected Vector2 spiralMovement;
 
     [Header("General Settings")]
-    [SerializeField] protected float speed = 5f;
-    [SerializeField] protected float acceleration = 0;
+    [SerializeField] protected bool canForward;
+    [SerializeField] protected float speed = 2f;
+    [SerializeField] protected float acceleration = 0.03f;
+
+
+    [Header("Horizontal Movement Settings")]
+    [SerializeField] protected bool canHorizontal;
+    [SerializeField] protected float horizontalSpeed = 5f;
+    [SerializeField] protected float horizontalDistance = 2f;
+
+    [Header("ZigZag Movement Settings")]
+    [SerializeField] protected bool canZigZag;
+    [SerializeField] protected float zigzagChangeTime = 2.0f;
+    [SerializeField] protected float nextChangeTime = 0;
+
+    [Header("Spiral Movement Settings")]
+    [SerializeField] protected bool canSpiral;
+    [SerializeField] protected float spiralAngle = 0f; // Current angle of the spiral movement
+    [SerializeField] protected float spiralSpeed = 30f; // Speed at which the spiral rotates, degrees per second
+    [SerializeField] protected float spiralRadius = 1f; // Initial radius of the spiral from the player
+    [SerializeField] protected float spiralExpansionRate = 0.1f; // Rate at which the spiral radius increases per second
 
     protected bool canMove;
 
@@ -39,7 +60,7 @@ public class EnemyBase : MonoBehaviour
 
     private void Update()
     {
-        
+        FixPositionRotation();
     }
 
     private void FixPositionRotation()
@@ -50,6 +71,20 @@ public class EnemyBase : MonoBehaviour
 
         transform.rotation = Quaternion.LookRotation(Direction);
         transform.rotation = Quaternion.Euler(new Vector3(0, 0, angle - 90));
+    }
+    public void StartSpiral()
+    {
+        // Calculate the initial position offset from the player to the enemy
+        Vector2 startPositionOffset = transform.position - playerTransform.position;
+
+        // Calculate the initial angle from this offset
+        spiralAngle = Mathf.Atan2(startPositionOffset.y, startPositionOffset.x) * Mathf.Rad2Deg;
+
+        // Ensure the angle is in the range [0, 360)
+        if (spiralAngle < 0) spiralAngle += 360f;
+
+        // Optionally set an initial radius based on the current distance to the player
+        spiralRadius = startPositionOffset.magnitude;
     }
 
     public void DisableEnemy()

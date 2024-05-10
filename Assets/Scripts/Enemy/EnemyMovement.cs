@@ -7,8 +7,8 @@ public class EnemyMovement : EnemyBase
     private float currentSpeed;
     private float currentAcceleration;
 
-    [SerializeField] private float sineWaveFrequency = 2.0f;  // Frequency of the wave
-    [SerializeField] private float sineWaveMagnitude = 0.5f;  // Magnitude of the wave
+    private float elapsedTime = 0; // Time elapsed for oscillation calculation
+
 
     // Start is called before the first frame update
     protected override void Awake()
@@ -34,14 +34,54 @@ public class EnemyMovement : EnemyBase
 
     private void MoveEnemy()
     {
-        forwardMovement = Direction * (currentSpeed / 10f) * Time.fixedDeltaTime;
+        if (canForward)
+        {
+            forwardMovement = Direction * (currentSpeed / 10f) * Time.fixedDeltaTime;
+        }
 
-        horizontalMovement = Vector2.right * Mathf.Sin(Time.time * sineWaveFrequency) * sineWaveMagnitude;
-        movement = forwardMovement + new Vector2(horizontalMovement.x, 0);
+        //horizontalMovement = Direction.normalized * Mathf.Sin(horizontalAmount) * horizontalDistance;
+        if (canHorizontal)
+        {
+            elapsedTime += Time.fixedDeltaTime;
+            float horizontalAmount = Mathf.Sin(elapsedTime * horizontalSpeed) * horizontalDistance;
+            Vector2 rightVector = new Vector2(-Direction.y, Direction.x).normalized; // Perpendicular to the main direction
+            horizontalMovement = rightVector * horizontalAmount;
+        }
+
+        if (canZigZag)
+        {
+            if (Time.time > nextChangeTime)
+            {
+                Direction.x *= -1; // Change horizontal direction
+                nextChangeTime = Time.time + zigzagChangeTime;
+            }
+            zigzagMovemnet = Direction * (currentSpeed / 10f) * Time.fixedDeltaTime;
+        }
+
+        if (canSpiral)
+        {
+            StartSpiral();
+
+            // Update the spiral angle and radius
+            spiralAngle += spiralSpeed * Time.deltaTime;
+            spiralRadius += spiralExpansionRate * Time.deltaTime;
+
+            // Calculate the new position in the spiral
+            Vector2 spiralOffset = new Vector2(Mathf.Cos(spiralAngle * Mathf.Deg2Rad), Mathf.Sin(spiralAngle * Mathf.Deg2Rad)) * spiralRadius;
+            Vector2 nextPosition = (Vector2)playerTransform.position + spiralOffset;
+
+            spiralMovement = nextPosition - (Vector2)transform.position;
+
+            // Normalize and scale the movement by the current speed and deltaTime
+            spiralMovement = spiralMovement.normalized * (currentSpeed * Time.deltaTime);
+
+
+        }
+
+
+        //Sum of movement 
+        movement = forwardMovement + horizontalMovement + zigzagMovemnet + spiralMovement;
         myRigidbody2D.MovePosition(myRigidbody2D.position + movement);
-
-        //movement = forwardMovement;
-        //myRigidbody2D.MovePosition(myRigidbody2D.position + movement);
 
         currentSpeed += currentAcceleration * Time.deltaTime;
     }
