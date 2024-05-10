@@ -64,7 +64,14 @@ public class EnemyMovement : EnemyBase
 
             // Update the spiral angle and radius
             spiralAngle += spiralSpeed * Time.deltaTime;
-            spiralRadius += spiralExpansionRate * Time.deltaTime;
+            if (negativeSpiral)
+            {
+                spiralRadius -= spiralExpansionRate * Time.deltaTime;
+            }
+            else
+            {
+                spiralRadius += spiralExpansionRate * Time.deltaTime;
+            }
 
             // Calculate the new position in the spiral
             Vector2 spiralOffset = new Vector2(Mathf.Cos(spiralAngle * Mathf.Deg2Rad), Mathf.Sin(spiralAngle * Mathf.Deg2Rad)) * spiralRadius;
@@ -74,8 +81,6 @@ public class EnemyMovement : EnemyBase
 
             // Normalize and scale the movement by the current speed and deltaTime
             spiralMovement = spiralMovement.normalized * (currentSpeed * Time.deltaTime);
-
-
         }
 
 

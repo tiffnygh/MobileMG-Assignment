@@ -37,6 +37,8 @@ public class EnemyBase : MonoBehaviour
 
     [Header("Spiral Movement Settings")]
     [SerializeField] protected bool canSpiral;
+    [SerializeField] protected bool repeatSpiral;
+    protected bool negativeSpiral;
     [SerializeField] protected float spiralAngle = 0f; // Current angle of the spiral movement
     [SerializeField] protected float spiralSpeed = 30f; // Speed at which the spiral rotates, degrees per second
     [SerializeField] protected float spiralRadius = 1f; // Initial radius of the spiral from the player
@@ -74,6 +76,11 @@ public class EnemyBase : MonoBehaviour
     }
     public void StartSpiral()
     {
+        if (repeatSpiral)
+        {
+            CheckSpiral();
+        }
+
         // Calculate the initial position offset from the player to the enemy
         Vector2 startPositionOffset = transform.position - playerTransform.position;
 
@@ -85,6 +92,18 @@ public class EnemyBase : MonoBehaviour
 
         // Optionally set an initial radius based on the current distance to the player
         spiralRadius = startPositionOffset.magnitude;
+    }
+
+    public void CheckSpiral()
+    {
+        if (spiralRadius >= 5.0)
+        {
+            negativeSpiral = true;
+        }
+        else if (spiralRadius <= 0.5)
+        {
+            negativeSpiral = false;
+        }
     }
 
     public void DisableEnemy()
