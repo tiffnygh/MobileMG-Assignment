@@ -17,6 +17,7 @@ GameObject:
   - component: {fileID: -7712048183533396359}
   - component: {fileID: 1706066937882862284}
   - component: {fileID: -2784228522545675598}
+  - component: {fileID: -7605903965595531382}
   m_Layer: 8
   m_Name: Enemy2
   m_TagString: Enemy
@@ -135,7 +136,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   canForward: 1
-  speed: 3
+  speed: 5
   acceleration: 0
   canHorizontal: 0
   horizontalSpeed: 2
@@ -269,3 +270,24 @@ MonoBehaviour:
   spiralSpeed: 30
   spiralRadius: 1
   spiralExpansionRate: 0.1
+--- !u!114 &-7605903965595531382
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8731437092521214424}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2eee18e53d6f3bb4d9a74ba438a2535a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  canDropItem: 1
+  dropMultipleItem: 1
+  xRandomPosition: 2
+  yRandomPosition: 2
+  spreadForce: 2
+  rewards:
+  - {fileID: 131903573573808769, guid: c1f009d75b4181447a56cf8468978806, type: 3}
+  RewardMinAmount: 1
+  RewardMaxAmount: 8

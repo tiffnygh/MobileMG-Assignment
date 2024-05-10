@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -17,6 +18,7 @@ public class Health : MonoBehaviour
     private Character character;
     private Collider2D myCollider2D;
     private SpriteRenderer spriteRenderer;
+    private DropItem dropItem;
 
     private EnemyMovement enemyMovement;
 
@@ -29,8 +31,9 @@ public class Health : MonoBehaviour
     {
         character = GetComponent<Character>();
         myCollider2D = GetComponent<Collider2D>();
-        spriteRenderer = GetComponentInChildren<SpriteRenderer>();
-        enemyMovement = GetComponentInChildren<EnemyMovement>();
+        spriteRenderer = GetComponent<SpriteRenderer>();
+        enemyMovement = GetComponent<EnemyMovement>();
+        dropItem = GetComponent<DropItem>();
 
 
         CurrentHealth = initialHealth;
@@ -99,22 +102,23 @@ public class Health : MonoBehaviour
             enemyMovement.enabled = false;
         }
 
-        /*if (character.CharacterType == Character.CharacterTypes.AI && dropItem.canDropItem)
+        if (character.CharacterType == Character.CharacterTypes.AI && dropItem.canDropItem)
         {
             if (dropItem.dropMultipleItem)
             {
                 dropItem.DropMultipleItem();
             }
-            else
+            else 
             {
                 dropItem.DropOneItem();
             }
         }
-
+        /*
         if (bossBaseShot != null)
         {
             OnBossDead?.Invoke();
         }*/
+         
 
 
         if (destroyObject)

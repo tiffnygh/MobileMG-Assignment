@@ -16,7 +16,7 @@ public class CCoin : Collectables
 
     protected override void PlayEffects()
     {
-        SoundManager.Instance.PlaySound(SoundManager.Instance.CoinClip, 0.6f);
+        //SoundManager.Instance.PlaySound(SoundManager.Instance.CoinClip, 0.6f);
     }
 
 }

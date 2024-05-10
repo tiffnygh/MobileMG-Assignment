@@ -86,6 +86,7 @@ public class WaveSpawner : MonoBehaviour
             newEnemy.transform.position = PositionToSpawn.transform.position;
             newEnemy.SetActive(true);
             newEnemy.GetComponent<EnemyMovement>().EnableEnemy();
+            newEnemy.GetComponent<DropItem>().canDropItem = true;
             newEnemy.GetComponent<Health>().Revive();
             spawnedEnemies.Add(newEnemy);
             enemiesToSpawn.RemoveAt(0);
