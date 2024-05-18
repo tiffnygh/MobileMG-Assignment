@@ -72,7 +72,7 @@ public class PlayerProjectile : MonoBehaviour
         if (canMove)
         {
             MoveProjectile();
-            //FixRotation();
+            FixRotation();
         }
 
     }
@@ -88,7 +88,7 @@ public class PlayerProjectile : MonoBehaviour
     }
 
     // Moves this projectile  
-    public void MoveProjectile()
+    public virtual void MoveProjectile()
     {
         //Forward Movement
         forwardMovement = Direction * (Speed / 10f) * Time.fixedDeltaTime;
@@ -132,14 +132,14 @@ public class PlayerProjectile : MonoBehaviour
         transform.rotation = Quaternion.LookRotation(Direction);
         transform.rotation = Quaternion.Euler(new Vector3(0, 0, angle - 90));
     }
-    public void DisableProjectile()
+    public virtual void DisableProjectile()
     {
         canMove = false;
         spriteRenderer.enabled = false;  // If we donÅft disable the spriteRenderer, the bullet will fall down before disappear
         myCollider2D.enabled = false;
     }
 
-    public void EnableProjectile()
+    public virtual void EnableProjectile()
     {
         canMove = true;
         spriteRenderer.enabled = true;

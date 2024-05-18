@@ -40,6 +40,7 @@ public class CharacterAttack : MonoBehaviour
         {
             GameObject projectile = Pooler.GetObjectFromPool();
             projectile.GetComponent<PlayerProjectile>().EnableProjectile();
+            projectile.GetComponent<HomingProjectile>().EnableProjectile();
         }
     }
 

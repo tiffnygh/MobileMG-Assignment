@@ -13,11 +13,13 @@ public class ReturnToPool : MonoBehaviour
 
 
     private PlayerProjectile playerProjectile;
+    private HomingProjectile homingProjectile;
 
 
     private void Start()
     {
         playerProjectile = GetComponent<PlayerProjectile>();
+        homingProjectile = GetComponent<HomingProjectile>();
     }
 
     // Returns this object to the pool
@@ -31,9 +33,10 @@ public class ReturnToPool : MonoBehaviour
         if (MyLibrary.CheckLayer(other.gameObject.layer, objectMask))
         {
 
-            if (playerProjectile != null)
+            if (playerProjectile != null || homingProjectile != null)
             {
                 playerProjectile.DisableProjectile();
+                homingProjectile.DisableProjectile();
             }
 
             //SoundManager.Instance.PlaySound(SoundManager.Instance.ImpactClip, 0.1f);

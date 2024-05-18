@@ -136,7 +136,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   canForward: 1
-  speed: 5
+  speed: 10
   acceleration: 0
   canHorizontal: 0
   horizontalSpeed: 2
@@ -144,7 +144,7 @@ MonoBehaviour:
   canZigZag: 0
   zigzagChangeTime: 1.5
   nextChangeTime: 0
-  canSpiral: 0
+  canSpiral: 1
   repeatSpiral: 0
   spiralAngle: 0
   spiralSpeed: 360
