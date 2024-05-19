@@ -102,11 +102,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 1
-  speed: 100
+  speed: 10
   acceleration: 0
   canHorizontal: 0
   horizontalSpeed: 10
   horizontalDistance: 0.1
+  canSpiral: 1
+  repeatSpiral: 0
+  spiralAngle: 0
+  spiralSpeed: 15
+  spiralRadius: 1
+  spiralExpansionRate: 0.1
 --- !u!114 &7173730711832227722
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -122,7 +128,7 @@ MonoBehaviour:
   objectMask:
     serializedVersion: 2
     m_Bits: 256
-  lifeTime: 1
+  lifeTime: 0
   impactPS: {fileID: 0}
 --- !u!95 &6125076024761514905
 Animator:

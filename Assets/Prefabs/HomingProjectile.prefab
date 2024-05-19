@@ -104,7 +104,7 @@ MonoBehaviour:
   objectMask:
     serializedVersion: 2
     m_Bits: 256
-  lifeTime: 0
+  lifeTime: 3
   impactPS: {fileID: 0}
 --- !u!95 &6125076024761514905
 Animator:
@@ -217,5 +217,11 @@ MonoBehaviour:
   canHorizontal: 0
   horizontalSpeed: 10
   horizontalDistance: 0.1
+  canSpiral: 0
+  repeatSpiral: 0
+  spiralAngle: 0
+  spiralSpeed: 30
+  spiralRadius: 1
+  spiralExpansionRate: 0.1
   homingSpeed: 300
   homingRadius: 2

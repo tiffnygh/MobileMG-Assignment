@@ -16,6 +16,16 @@ public class PlayerProjectile : MonoBehaviour
     [SerializeField] private float horizontalSpeed = 5f;
     [SerializeField] private float horizontalDistance = 2f;
 
+    [Header("Spiral Movement Settings")]
+    [SerializeField] protected bool canSpiral;
+    [SerializeField] protected bool repeatSpiral;
+    protected bool negativeSpiral;
+    private Vector3 initialMousePosition;
+    [SerializeField] protected float spiralAngle = 0f; // Current angle of the spiral movement
+    [SerializeField] protected float spiralSpeed = 30f; // Speed at which the spiral rotates, degrees per second
+    [SerializeField] protected float spiralRadius = 1f; // Initial radius of the spiral from the player
+    [SerializeField] protected float spiralExpansionRate = 0.1f; // Rate at which the spiral radius increases per second
+
     private Transform playerTransform;
 
     // Returns the direction of this projectile    
@@ -41,8 +51,9 @@ public class PlayerProjectile : MonoBehaviour
     private Health enemyHealth;
 
     private Vector2 movement;
-    private Vector2 forwardMovement;
-    private Vector2 horizontalMovement;
+    protected Vector2 forwardMovement;
+    protected Vector2 horizontalMovement;
+    protected Vector2 spiralMovement;
     private float horizontalAmount;
     private bool canMove;
 
@@ -87,7 +98,7 @@ public class PlayerProjectile : MonoBehaviour
         }
     }
 
-    // Moves this projectile  
+    //-----------------------------------------------------MOVEMENT CALCULATION SECTION-----------------------------------------------------------
     public virtual void MoveProjectile()
     {
         //Forward Movement
@@ -108,15 +119,72 @@ public class PlayerProjectile : MonoBehaviour
             horizontalMovement = new Vector2(0, 0);
         }
 
+        if (canSpiral)
+        {
+            StartSpiral();
+            // Update the spiral angle and radius
+            spiralAngle += spiralSpeed * Time.deltaTime;
+            if (negativeSpiral)
+            {
+                spiralRadius -= spiralExpansionRate * Time.deltaTime;
+            }
+            else
+            {
+                spiralRadius += spiralExpansionRate * Time.deltaTime;
+            }
+
+            // Calculate the new position in the spiral
+            Vector2 spiralOffset = new Vector2(Mathf.Cos(spiralAngle * Mathf.Deg2Rad), Mathf.Sin(spiralAngle * Mathf.Deg2Rad)) * spiralRadius;
+            Vector2 nextPosition = (Vector2)playerTransform.position + spiralOffset;
+
+            spiralMovement = nextPosition - (Vector2)transform.position;
+
+            // Normalize and scale the movement by the current speed and deltaTime
+            spiralMovement = spiralMovement.normalized * (Speed * Time.deltaTime);
+        }
+        else
+        {
+            spiralMovement = new Vector2(0, 0);
+        }
+
 
         //Sum of movement 
-        movement = forwardMovement + horizontalMovement;
+        movement = forwardMovement + horizontalMovement + spiralMovement;
         myRigidbody2D.MovePosition(myRigidbody2D.position + movement);
 
         Speed += acceleration * Time.deltaTime;
 
     }
 
+    public void StartSpiral()
+    {
+        if (repeatSpiral)
+        {
+            CheckSpiral();
+        }
+
+        Vector2 startPositionOffset = transform.position - playerTransform.position;
+
+        spiralAngle = Mathf.Atan2(startPositionOffset.y, startPositionOffset.x) * Mathf.Rad2Deg;
+
+        if (spiralAngle < 0) spiralAngle += 360f;
+
+        spiralRadius = startPositionOffset.magnitude;
+    }
+
+    public void CheckSpiral()
+    {
+        if (spiralRadius >= 5.0)
+        {
+            negativeSpiral = true;
+        }
+        else if (spiralRadius <= 0.5)
+        {
+            negativeSpiral = false;
+        }
+    }
+
+    //-----------------------------------------------------FIX ROTATION SECTION-----------------------------------------------------------
     private void SetPositionAndRotation()
     {
         transform.position = SpawnPosition;
@@ -132,6 +200,8 @@ public class PlayerProjectile : MonoBehaviour
         transform.rotation = Quaternion.LookRotation(Direction);
         transform.rotation = Quaternion.Euler(new Vector3(0, 0, angle - 90));
     }
+
+    //------------------------------------------------------ENABLE & DISABLE SECTION------------------------------------------------------------
     public virtual void DisableProjectile()
     {
         canMove = false;
@@ -145,6 +215,8 @@ public class PlayerProjectile : MonoBehaviour
         canMove = true;
         spriteRenderer.enabled = true;
         myCollider2D.enabled = true;
+
+        StartSpiral();
 
         this.gameObject.SetActive(true);
     }   

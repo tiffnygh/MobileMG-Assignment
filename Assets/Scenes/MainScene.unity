@@ -676,7 +676,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pierce: 0
   canHorinzontal: 0
+  canSpread: 0
+  numberOfProjectiles: 5
+  spreadAngle: 45
   bulletSpawnDistance: 0
+  newMousePosition: {x: 0, y: 0, z: 0}
 --- !u!114 &1242767544
 MonoBehaviour:
   m_ObjectHideFlags: 0

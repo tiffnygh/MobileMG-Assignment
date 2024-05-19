@@ -20,7 +20,7 @@ public class CharacterAttack : MonoBehaviour
     private  ObjectPooler Pooler;
     private Camera mainCamera;
 
-    private Vector3 newMousePosition;
+    public Vector3 newMousePosition;
     private Vector3 mousePosition;
 
     public Vector3 ProjectileSpawnPosition { get; private set; }
@@ -132,9 +132,15 @@ public class CharacterAttack : MonoBehaviour
         Vector3 spawnPosition = (transform.position + direction * bulletSpawnDistance);
         return spawnPosition;
     }
-
+    public float GetAngleToMousePosition(Vector3 mousePosition)
+    {
+        direction = (mousePosition - transform.position);
+        float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
+        return angle;
+    }
     private void ShootSingle()
     {
+
         GameObject projectile = Pooler.GetObjectFromPool();
         projectile.transform.position = ProjectileSpawnPosition;
         projectile.transform.rotation = Quaternion.Euler(0, 0, Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg);
@@ -153,6 +159,7 @@ public class CharacterAttack : MonoBehaviour
 
         for (int i = 0; i < numberOfProjectiles; i++)
         {
+
             float currentAngle = startingAngle + (angleStep * i);
             Vector3 projectileDirection = Quaternion.Euler(0, 0, currentAngle) * shootDirection;
 
@@ -166,4 +173,5 @@ public class CharacterAttack : MonoBehaviour
             playerProjectile.EnableProjectile();
         }
     }
+
 }
