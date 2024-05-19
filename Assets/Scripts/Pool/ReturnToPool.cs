@@ -15,11 +15,14 @@ public class ReturnToPool : MonoBehaviour
     private PlayerProjectile playerProjectile;
     private HomingProjectile homingProjectile;
 
+    private FreezeProjectile freezeProjectile;
+
 
     private void Start()
     {
         playerProjectile = GetComponent<PlayerProjectile>();
         homingProjectile = GetComponent<HomingProjectile>();
+        freezeProjectile = GetComponent<FreezeProjectile>();
     }
 
     // Returns this object to the pool
@@ -45,7 +48,14 @@ public class ReturnToPool : MonoBehaviour
 
             //SoundManager.Instance.PlaySound(SoundManager.Instance.ImpactClip, 0.1f);
             //impactPS.Play();
-            Invoke(nameof(Return), impactPS.main.duration);
+            if (freezeProjectile != null)
+            {
+                Invoke(nameof(Return), freezeProjectile.freezeDuration + 0.2f);
+            }
+            else
+            {
+                Invoke(nameof(Return), impactPS.main.duration);
+            }
         }
     }
 
