@@ -119,8 +119,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ce23b7794b5d1bb418c443e02bb613d0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  initialHealth: 10
-  maxHealth: 10
+  initialHealth: 5
+  maxHealth: 5
   damage: 5
   destroyObject: 1
 --- !u!114 &2869952312185933127
@@ -136,7 +136,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   canForward: 1
-  speed: 10
+  speed: 2
   acceleration: 0
   canHorizontal: 0
   horizontalSpeed: 2
@@ -144,7 +144,7 @@ MonoBehaviour:
   canZigZag: 0
   zigzagChangeTime: 1.5
   nextChangeTime: 0
-  canSpiral: 1
+  canSpiral: 0
   repeatSpiral: 0
   spiralAngle: 0
   spiralSpeed: 360

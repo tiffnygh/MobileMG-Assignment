@@ -20,7 +20,7 @@ public class CharacterAttack : MonoBehaviour
     private  ObjectPooler Pooler;
     private Camera mainCamera;
 
-    public Vector3 newMousePosition;
+    private Vector3 newMousePosition;
     private Vector3 mousePosition;
 
     public Vector3 ProjectileSpawnPosition { get; private set; }

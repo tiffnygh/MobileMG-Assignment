@@ -5,7 +5,7 @@ using UnityEngine;
 public class PlayerProjectile : MonoBehaviour
 {
     [Header("Damage Settings")]
-    [SerializeField] private int damage;
+    [SerializeField] protected int damage;
 
     [Header("General Movement Settings")]
     [SerializeField] private float speed = 100f;
