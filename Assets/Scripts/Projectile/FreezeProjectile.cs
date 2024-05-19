@@ -23,6 +23,15 @@ public class FreezeProjectile : PlayerProjectile
         hasFrozen = true;
 
         // Disable the enemy's movement component
+        if (enemy.CompareTag("Enemy") && enemy.gameObject.layer != 9)
+        {
+            enemy.GetComponent<Health>().TakeDamage(Damage);
+        }
+        else
+        {
+            return;
+        }
+
         EnemyMovement enemyMovement = enemy.GetComponent<EnemyMovement>();
         if (enemyMovement != null)
         {
