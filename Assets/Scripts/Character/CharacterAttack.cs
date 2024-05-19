@@ -41,7 +41,6 @@ public class CharacterAttack : MonoBehaviour
     void Update()
     {
         CheckBulletType();
-
         if (Input.GetMouseButtonDown(0))
         {
             if (canSpread)
