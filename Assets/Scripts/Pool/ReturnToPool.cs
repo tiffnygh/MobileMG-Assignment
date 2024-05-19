@@ -33,9 +33,13 @@ public class ReturnToPool : MonoBehaviour
         if (MyLibrary.CheckLayer(other.gameObject.layer, objectMask))
         {
 
-            if (playerProjectile != null || homingProjectile != null)
+            if (playerProjectile != null)
             {
                 playerProjectile.DisableProjectile();
+            }
+
+            if (homingProjectile != null)
+            {
                 homingProjectile.DisableProjectile();
             }
 

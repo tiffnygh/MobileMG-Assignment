@@ -187,7 +187,7 @@ public class PlayerProjectile : MonoBehaviour
     //-----------------------------------------------------FIX ROTATION SECTION-----------------------------------------------------------
     private void SetPositionAndRotation()
     {
-        transform.position = SpawnPosition;
+        transform.position = Direction;
         transform.rotation = GameObject.FindGameObjectWithTag("Player").transform.rotation;
     }
 
@@ -211,12 +211,13 @@ public class PlayerProjectile : MonoBehaviour
 
     public virtual void EnableProjectile()
     {
-        SetPositionAndRotation();
+        if (canSpiral)
+        {
+            SetPositionAndRotation();
+        }
         canMove = true;
         spriteRenderer.enabled = true;
         myCollider2D.enabled = true;
-
-        StartSpiral();
 
         this.gameObject.SetActive(true);
     }   

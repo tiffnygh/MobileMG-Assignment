@@ -31,7 +31,7 @@ Transform:
   m_GameObject: {fileID: 7895483534485094739}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 7.150321, y: 1.3522323, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -102,15 +102,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 1
-  speed: 10
+  speed: 5
   acceleration: 0
   canHorizontal: 0
   horizontalSpeed: 10
   horizontalDistance: 0.1
-  canSpiral: 1
+  canSpiral: 0
   repeatSpiral: 0
   spiralAngle: 0
-  spiralSpeed: 15
+  spiralSpeed: 30
   spiralRadius: 1
   spiralExpansionRate: 0.1
 --- !u!114 &7173730711832227722
