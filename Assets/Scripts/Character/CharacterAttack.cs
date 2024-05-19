@@ -10,10 +10,16 @@ public class CharacterAttack : MonoBehaviour
     [SerializeField] private bool pierce;
     [SerializeField] private bool canHorinzontal;
 
-    [SerializeField] private float bulletSpawnDistance = 1f;
-    private  ObjectPooler Pooler;
+    [Header("Spread Attack Settings")]
+    [SerializeField] private bool canSpread;
+    [SerializeField] private int numberOfProjectiles = 5;
+    [SerializeField] private float spreadAngle = 45f;
 
+    [SerializeField] private float bulletSpawnDistance = 1f;
+
+    private  ObjectPooler Pooler;
     private Camera mainCamera;
+
     private Vector3 newMousePosition;
     private Vector3 mousePosition;
 
@@ -38,9 +44,14 @@ public class CharacterAttack : MonoBehaviour
 
         if (Input.GetMouseButtonDown(0))
         {
-            GameObject projectile = Pooler.GetObjectFromPool();
-            projectile.GetComponent<PlayerProjectile>().EnableProjectile();
-            projectile.GetComponent<HomingProjectile>().EnableProjectile();
+            if (canSpread)
+            {
+                ShootSpread();
+            }
+            else
+            {
+                ShootSingle();
+            }
         }
     }
 
@@ -120,5 +131,39 @@ public class CharacterAttack : MonoBehaviour
         direction = (mousePosition - transform.position).normalized;
         Vector3 spawnPosition = (transform.position + direction * bulletSpawnDistance);
         return spawnPosition;
+    }
+
+    private void ShootSingle()
+    {
+        GameObject projectile = Pooler.GetObjectFromPool();
+        projectile.transform.position = ProjectileSpawnPosition;
+        projectile.transform.rotation = Quaternion.Euler(0, 0, Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg);
+
+        PlayerProjectile playerProjectile = projectile.GetComponent<PlayerProjectile>();
+        playerProjectile.Direction = direction;
+        playerProjectile.EnableProjectile();
+    }
+
+
+    private void ShootSpread()
+    {
+        Vector3 shootDirection = direction;
+        float angleStep = spreadAngle / (numberOfProjectiles - 1);
+        float startingAngle = -spreadAngle / 2;
+
+        for (int i = 0; i < numberOfProjectiles; i++)
+        {
+            float currentAngle = startingAngle + (angleStep * i);
+            Vector3 projectileDirection = Quaternion.Euler(0, 0, currentAngle) * shootDirection;
+
+            GameObject projectile = Pooler.GetObjectFromPool();
+            projectile.transform.position = ProjectileSpawnPosition;
+            projectile.transform.rotation = Quaternion.Euler(0, 0, Mathf.Atan2(projectileDirection.y, projectileDirection.x) * Mathf.Rad2Deg);
+            //projectile.GetComponent<Rigidbody2D>().velocity = projectileDirection * projectile.GetComponent<PlayerProjectile>().Speed;
+
+            PlayerProjectile playerProjectile = projectile.GetComponent<PlayerProjectile>();
+            playerProjectile.Direction = projectileDirection;
+            playerProjectile.EnableProjectile();
+        }
     }
 }

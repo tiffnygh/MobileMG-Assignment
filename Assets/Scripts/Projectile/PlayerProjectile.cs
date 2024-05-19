@@ -141,14 +141,12 @@ public class PlayerProjectile : MonoBehaviour
 
     public virtual void EnableProjectile()
     {
+        SetPositionAndRotation();
         canMove = true;
         spriteRenderer.enabled = true;
         myCollider2D.enabled = true;
-        Direction = characterAttack.direction;
-        SpawnPosition = characterAttack.ProjectileSpawnPosition;
 
-        SetPositionAndRotation();
         this.gameObject.SetActive(true);
-    }
+    }   
 
 }
