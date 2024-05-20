@@ -212,7 +212,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 1
-  speed: 100
+  speed: 10
   acceleration: 0
   canHorizontal: 0
   horizontalSpeed: 5
