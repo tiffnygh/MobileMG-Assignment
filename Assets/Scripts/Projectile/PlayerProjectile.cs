@@ -41,7 +41,7 @@ public class PlayerProjectile : MonoBehaviour
 
 
     // Internal
-    private CharacterAttack characterAttack;
+    public CharacterAttack characterAttack;
     private Rigidbody2D myRigidbody2D;
     private Collider2D myCollider2D;
     private SpriteRenderer spriteRenderer;

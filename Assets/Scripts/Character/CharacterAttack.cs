@@ -17,7 +17,7 @@ public class CharacterAttack : MonoBehaviour
 
     [SerializeField] private float bulletSpawnDistance = 1f;
 
-    private  ObjectPooler Pooler;
+    public  ObjectPooler Pooler;
     private Camera mainCamera;
 
     private Vector3 newMousePosition;

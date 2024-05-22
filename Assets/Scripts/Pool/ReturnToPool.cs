@@ -16,6 +16,7 @@ public class ReturnToPool : MonoBehaviour
     private HomingProjectile homingProjectile;
 
     private FreezeProjectile freezeProjectile;
+    private SplitShotProjectile splitShotProjectile;
 
 
     private void Start()
@@ -23,6 +24,7 @@ public class ReturnToPool : MonoBehaviour
         playerProjectile = GetComponent<PlayerProjectile>();
         homingProjectile = GetComponent<HomingProjectile>();
         freezeProjectile = GetComponent<FreezeProjectile>();
+        splitShotProjectile = GetComponent<SplitShotProjectile>();
     }
 
     // Returns this object to the pool
@@ -44,6 +46,11 @@ public class ReturnToPool : MonoBehaviour
             if (homingProjectile != null)
             {
                 homingProjectile.DisableProjectile();
+            }
+
+            if (splitShotProjectile != null)
+            {
+                splitShotProjectile.DisableProjectile();
             }
 
             //SoundManager.Instance.PlaySound(SoundManager.Instance.ImpactClip, 0.1f);

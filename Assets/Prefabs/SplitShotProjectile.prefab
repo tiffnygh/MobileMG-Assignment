@@ -10,13 +10,13 @@ GameObject:
   m_Component:
   - component: {fileID: 7223964013217422390}
   - component: {fileID: 1209458854922204088}
-  - component: {fileID: 2124149361881818846}
   - component: {fileID: 7173730711832227722}
   - component: {fileID: 6125076024761514905}
   - component: {fileID: 5463109720609136184}
   - component: {fileID: 5699765934966526915}
+  - component: {fileID: 1153136485645890840}
   m_Layer: 9
-  m_Name: SingleProjectile
+  m_Name: SplitShotProjectile
   m_TagString: Bullet
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -89,31 +89,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &2124149361881818846
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7895483534485094739}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8de156b4438ea8d4c91697f8426bb6e2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  damage: 1
-  speed: 25
-  acceleration: 0
-  canHorizontal: 0
-  horizontalSpeed: 10
-  horizontalDistance: 0.1
-  canSpiral: 0
-  repeatSpiral: 0
-  spiralAngle: 0
-  spiralSpeed: 30
-  spiralRadius: 1
-  spiralExpansionRate: 0.1
-  characterAttack: {fileID: 0}
 --- !u!114 &7173730711832227722
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -224,3 +199,31 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
+--- !u!114 &1153136485645890840
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7895483534485094739}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8541ee97c06189947a73f858e015dae6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damage: 1
+  speed: 100
+  acceleration: 0
+  canHorizontal: 0
+  horizontalSpeed: 5
+  horizontalDistance: 2
+  canSpiral: 0
+  repeatSpiral: 0
+  spiralAngle: 0
+  spiralSpeed: 30
+  spiralRadius: 1
+  spiralExpansionRate: 0.1
+  characterAttack: {fileID: 0}
+  numberOfSplits: 5
+  splitDelay: 2
+  splitSpeed: 50

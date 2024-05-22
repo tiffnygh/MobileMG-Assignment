@@ -676,10 +676,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pierce: 0
   canHorinzontal: 0
-  canSpread: 0
-  numberOfProjectiles: 4
-  spreadAngle: 45
+  canSpread: 1
+  numberOfProjectiles: 16
+  spreadAngle: 360
   bulletSpawnDistance: 0
+  Pooler: {fileID: 0}
 --- !u!114 &1242767544
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -719,7 +720,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 44c0dd544421790438a7fee65a929f70, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  objectPrefab: {fileID: 7895483534485094739, guid: c728364fa7f5de242bd164e0778ca37c, type: 3}
+  objectPrefab: {fileID: 7895483534485094739, guid: a8406d1610cce1d45a02a43995c8f333, type: 3}
   poolSize: 50
   poolCanExpand: 1
 --- !u!61 &1242767547
