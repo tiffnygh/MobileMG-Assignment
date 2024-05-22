@@ -19,7 +19,7 @@ GameObject:
   - component: {fileID: -2784228522545675598}
   - component: {fileID: -7605903965595531382}
   m_Layer: 8
-  m_Name: Enemy2
+  m_Name: GreenMediumEnemy
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -79,9 +79,9 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -303498373
-  m_SortingLayer: 5
+  m_SortingLayer: 6
   m_SortingOrder: 0
-  m_Sprite: {fileID: -1168922132, guid: 73593ec2e42bbdc499663a2b726c12ed, type: 3}
+  m_Sprite: {fileID: 1640567727, guid: 73593ec2e42bbdc499663a2b726c12ed, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -119,9 +119,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ce23b7794b5d1bb418c443e02bb613d0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  initialHealth: 5
-  maxHealth: 5
-  damage: 10
+  initialHealth: 15
+  maxHealth: 15
+  damage: 3
   destroyObject: 1
 --- !u!114 &2869952312185933127
 MonoBehaviour:
@@ -141,7 +141,7 @@ MonoBehaviour:
   canHorizontal: 0
   horizontalSpeed: 2
   horizontalDistance: 0.03
-  canZigZag: 0
+  canZigZag: 1
   zigzagChangeTime: 1.5
   nextChangeTime: 0
   canSpiral: 0
@@ -186,7 +186,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1, y: 1}
+    oldSize: {x: 0.5, y: 0.5}
     newSize: {x: 1, y: 1}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
