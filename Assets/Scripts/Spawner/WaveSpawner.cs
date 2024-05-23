@@ -27,14 +27,18 @@ public class WaveSpawner : MonoBehaviour
 
     //Direciton Integer  
     private int currentDirectionIndex = 0;
+    private List<GameObject> currentSpawner; // Store the current spawner direction for the wave
 
+    private void Awake()
+    {
+        spawnGenerator = GetComponentInParent<SpawnGenerator>();
+    }
 
     // Start is called before the first frame update
     void Start()
     {
         InitializePools();
         GenerateWave();
-        spawnGenerator = GetComponentInParent<SpawnGenerator>();
     }
 
     // Update is called once per frame
@@ -54,7 +58,12 @@ public class WaveSpawner : MonoBehaviour
                     SpawnEnemy(spawnPoint);*/
 
                     //This is test to spawn in up down left right in order
-                    List<GameObject> currentSpawner = GetDirectionSpawners(GetDirectionIndex());
+                    /*List<GameObject> newCurrentSpawner = GetDirectionSpawners(GetDirectionIndex());
+                    int randomIndex = Random.Range(0, newCurrentSpawner.Count);
+                    GameObject spawnPoint = newCurrentSpawner[randomIndex];
+                    SpawnEnemy(spawnPoint);*/
+
+                    //This code spawn in 1 direction, and change only when changing wave 
                     int randomIndex = Random.Range(0, currentSpawner.Count);
                     GameObject spawnPoint = currentSpawner[randomIndex];
                     SpawnEnemy(spawnPoint);
@@ -163,6 +172,7 @@ public class WaveSpawner : MonoBehaviour
             return;
         }
         waveTimer = spawnInterval * currWave * 10 + 15;
+        currentSpawner = GetDirectionSpawners(GetDirectionIndex()); //This line change the direction of spawner when generate wave 
     }
 
     public void GenerateEnemies()

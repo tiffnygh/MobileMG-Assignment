@@ -50,7 +50,7 @@ public class BarrierDetector : MonoBehaviour
         }
         else if (angle > 225 && angle <= 315)
         {
-            return "Bottom";
+            return "Down";
         }
         else
         {
