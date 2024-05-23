@@ -139,7 +139,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &18889327
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -157,8 +157,9 @@ MonoBehaviour:
     cost: 1
   enemiesToSpawn: []
   spawnedEnemies: []
-  currWave: 0
+  currWave: 1
   spawnInterval: 1
+  delayBeforeNextWave: 5
 --- !u!4 &18889328
 Transform:
   m_ObjectHideFlags: 0
@@ -292,7 +293,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &124585177
 Transform:
   m_ObjectHideFlags: 0
@@ -327,8 +328,9 @@ MonoBehaviour:
     cost: 2
   enemiesToSpawn: []
   spawnedEnemies: []
-  currWave: 0
+  currWave: 1
   spawnInterval: 1
+  delayBeforeNextWave: 0
 --- !u!1 &155640910
 GameObject:
   m_ObjectHideFlags: 0
@@ -345,7 +347,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &155640911
 Transform:
   m_ObjectHideFlags: 0
@@ -380,8 +382,9 @@ MonoBehaviour:
     cost: 2
   enemiesToSpawn: []
   spawnedEnemies: []
-  currWave: 0
+  currWave: 1
   spawnInterval: 1
+  delayBeforeNextWave: 0
 --- !u!1 &207403302
 GameObject:
   m_ObjectHideFlags: 0
@@ -719,7 +722,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &583216177
 Transform:
   m_ObjectHideFlags: 0
@@ -752,8 +755,9 @@ MonoBehaviour:
     cost: 1
   enemiesToSpawn: []
   spawnedEnemies: []
-  currWave: 0
+  currWave: 1
   spawnInterval: 1
+  delayBeforeNextWave: 0
 --- !u!1 &632816719
 GameObject:
   m_ObjectHideFlags: 0
@@ -1119,7 +1123,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1114846931
 Transform:
   m_ObjectHideFlags: 0
@@ -1154,8 +1158,9 @@ MonoBehaviour:
     cost: 2
   enemiesToSpawn: []
   spawnedEnemies: []
-  currWave: 0
+  currWave: 1
   spawnInterval: 1
+  delayBeforeNextWave: 0
 --- !u!1 &1222162260
 GameObject:
   m_ObjectHideFlags: 0
@@ -1255,8 +1260,8 @@ MonoBehaviour:
   pierce: 0
   canHorinzontal: 0
   canSpread: 1
-  numberOfProjectiles: 4
-  spreadAngle: 45
+  numberOfProjectiles: 16
+  spreadAngle: 360
   bulletSpawnDistance: 0
   Pooler: {fileID: 0}
 --- !u!114 &1242767544
@@ -1409,7 +1414,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1307027317
 Transform:
   m_ObjectHideFlags: 0
@@ -1444,8 +1449,9 @@ MonoBehaviour:
     cost: 2
   enemiesToSpawn: []
   spawnedEnemies: []
-  currWave: 0
+  currWave: 1
   spawnInterval: 1
+  delayBeforeNextWave: 0
 --- !u!1 &1333930617
 GameObject:
   m_ObjectHideFlags: 0
@@ -1722,7 +1728,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1619828093
 Transform:
   m_ObjectHideFlags: 0
@@ -1755,8 +1761,9 @@ MonoBehaviour:
     cost: 1
   enemiesToSpawn: []
   spawnedEnemies: []
-  currWave: 0
+  currWave: 1
   spawnInterval: 1
+  delayBeforeNextWave: 0
 --- !u!1 &1634414437
 GameObject:
   m_ObjectHideFlags: 0
@@ -1867,7 +1874,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1856536002
 Transform:
   m_ObjectHideFlags: 0
@@ -1900,8 +1907,66 @@ MonoBehaviour:
     cost: 1
   enemiesToSpawn: []
   spawnedEnemies: []
-  currWave: 0
+  currWave: 1
   spawnInterval: 1
+  delayBeforeNextWave: 0
+--- !u!1 &1894133113
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1894133115}
+  - component: {fileID: 1894133114}
+  m_Layer: 0
+  m_Name: WaveManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1894133114
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1894133113}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b9888fc83a7aa3a4da5aed3f2f9bf927, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  allSpawners:
+  - {fileID: 18889327}
+  - {fileID: 155640912}
+  - {fileID: 2045390850}
+  - {fileID: 1114846932}
+  - {fileID: 1619828094}
+  - {fileID: 1307027318}
+  - {fileID: 583216178}
+  - {fileID: 2018202311}
+  - {fileID: 1856536003}
+  - {fileID: 124585178}
+  startingWaves: 1
+  wavesToAddDifficulty: 5
+--- !u!4 &1894133115
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1894133113}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -9.192257, y: 2.4138117, z: -0.06574232}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1958961963
 GameObject:
   m_ObjectHideFlags: 0
@@ -2049,7 +2114,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &2018202310
 Transform:
   m_ObjectHideFlags: 0
@@ -2084,8 +2149,9 @@ MonoBehaviour:
     cost: 2
   enemiesToSpawn: []
   spawnedEnemies: []
-  currWave: 0
+  currWave: 1
   spawnInterval: 1
+  delayBeforeNextWave: 0
 --- !u!1 &2045390848
 GameObject:
   m_ObjectHideFlags: 0
@@ -2102,7 +2168,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &2045390849
 Transform:
   m_ObjectHideFlags: 0
@@ -2135,8 +2201,9 @@ MonoBehaviour:
     cost: 1
   enemiesToSpawn: []
   spawnedEnemies: []
-  currWave: 0
+  currWave: 1
   spawnInterval: 1
+  delayBeforeNextWave: 0
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
@@ -2150,3 +2217,4 @@ SceneRoots:
   - {fileID: 23060693}
   - {fileID: 1454212206}
   - {fileID: 728574940}
+  - {fileID: 1894133115}

@@ -53,13 +53,13 @@ public class WaveManager : Singleton<WaveManager>
         // You can customize this logic as per your requirements
 
         // Start with enabling the basic tiny spawners
-        if (wave == 1)
+        if (wave >=1)
         {
             EnableSpawnerByName("GreenTinyEnemySpawner");
         }
-        else if (wave == 2)
+        /*else if (wave == 2)
         {
-            EnableSpawnerByName("PurpleTinyEnemySpawner");
+            EnableSpawnerByName("GreenTinyEnemySpawner");
             EnableSpawnerByName("YellowTinyEnemySpawner");
         }
         else if (wave == 3)
@@ -87,8 +87,27 @@ public class WaveManager : Singleton<WaveManager>
             EnableSpawnerByName("YellowMediumEnemySpawner");
             EnableSpawnerByName("PinkMediumEnemySpawner");
             EnableSpawnerByName("PurpleMediumEnemySpawner");
-        }
+        }*/
     }
+
+    private void EnableRandomSpawner()
+    {
+        List<string> spawnerNames = new List<string>()
+        {
+            "GreenTinyEnemySpawner",
+            "YellowTinyEnemySpawner",
+            "PinkTinyEnemySpawner",
+            "PurpleTinyEnemySpawner",
+            "GreenMediumEnemySpawner",
+            "YellowMediumEnemySpawner",
+            "PinkMediumEnemySpawner",
+            "PurpleMediumEnemySpawner"
+        };
+
+        string randomSpawnerName = spawnerNames[Random.Range(0, spawnerNames.Count)];
+        EnableSpawnerByName(randomSpawnerName);
+    }
+
 
     private void EnableSpawnerByName(string spawnerName)
     {

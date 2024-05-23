@@ -10,6 +10,8 @@ public class WaveSpawner : MonoBehaviour
     [SerializeField] private List<Enemy> enemyList = new List<Enemy>();
     [SerializeField] private List<GameObject> enemiesToSpawn = new List<GameObject>();
     [SerializeField] private List<GameObject> spawnedEnemies = new List<GameObject>();
+    private HashSet<GameObject> uniqueSpawnedEnemies = new HashSet<GameObject>();
+
 
     private List<ObjectPooler> poolers = new List<ObjectPooler>();
 
@@ -51,7 +53,7 @@ public class WaveSpawner : MonoBehaviour
     {
         if (!isActive) return;
 
-        //CheckAllEnemiesDestroyed();
+        CheckAllEnemiesDestroyed();
         if (waveTimer >= 0)
         {
             if (spawnTimer <= 0)
@@ -123,12 +125,16 @@ public class WaveSpawner : MonoBehaviour
 
         if (newEnemy != null)
         {
-            newEnemy.transform.position = PositionToSpawn.transform.position;
-            newEnemy.SetActive(true);
-            newEnemy.GetComponent<EnemyMovement>().EnableEnemy();
-            newEnemy.GetComponent<DropItem>().canDropItem = true;
-            newEnemy.GetComponent<Health>().Revive();
-            spawnedEnemies.Add(newEnemy);
+            if (!uniqueSpawnedEnemies.Contains(newEnemy))
+            {
+                newEnemy.transform.position = PositionToSpawn.transform.position;
+                newEnemy.SetActive(true);
+                newEnemy.GetComponent<EnemyMovement>().EnableEnemy();
+                newEnemy.GetComponent<DropItem>().canDropItem = true;
+                newEnemy.GetComponent<Health>().Revive();
+                spawnedEnemies.Add(newEnemy);
+                //uniqueSpawnedEnemies.Add(newEnemy);
+            }
             enemiesToSpawn.RemoveAt(0);
             spawnTimer = spawnInterval;
         }
@@ -225,6 +231,7 @@ public class WaveSpawner : MonoBehaviour
             if (!enemy.activeSelf) // If any enemy is alive, return false
             {
                 spawnedEnemies.Remove(enemy);
+                //uniqueSpawnedEnemies.Remove(enemy);
                 Debug.Log("Remove Enemy");
             }   
         }
