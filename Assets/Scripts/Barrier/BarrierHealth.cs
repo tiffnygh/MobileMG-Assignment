@@ -45,7 +45,7 @@ public class BarrierHealth : MonoBehaviour
         {
             segment.currentHealth -= damage;
             segment.currentHealth = Mathf.Max(segment.currentHealth, 0);
-            Debug.Log(segmentName + " segment took " + damage + " damage, remaining health: " + segment.currentHealth);
+            //Debug.Log(segmentName + " segment took " + damage + " damage, remaining health: " + segment.currentHealth);
         }
     }
 

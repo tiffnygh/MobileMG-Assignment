@@ -15,6 +15,9 @@ public class WaveSpawner : MonoBehaviour
 
 
     private bool allEnemiesDestroyed;
+    private bool waveCompleted;
+    private bool isActive;
+
 
     [SerializeField] private int currWave;
     private int waveValue;
@@ -22,6 +25,9 @@ public class WaveSpawner : MonoBehaviour
     private float waveTimer;
     [SerializeField] private float spawnInterval;
     private float spawnTimer;
+
+    [SerializeField] private float delayBeforeNextWave;
+
 
     private SpawnGenerator spawnGenerator;
 
@@ -43,7 +49,9 @@ public class WaveSpawner : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
-        CheckAllEnemiesDestroyed();
+        if (!isActive) return;
+
+        //CheckAllEnemiesDestroyed();
         if (waveTimer >= 0)
         {
             if (spawnTimer <= 0)
@@ -81,6 +89,17 @@ public class WaveSpawner : MonoBehaviour
         else
         {
             //GenerateWave();
+            //Try disabling after timer end, not sure if enemy will bug out
+            //this.gameObject.SetActive(false);
+            if (CheckAllEnemiesDestroyed())
+            {
+                Debug.Log("Grace Reward"); //If player kill the enemy before the grace period, then they get bonus reward
+            }
+            waveCompleted = true;
+            isActive = false;
+            WaveManager.Instance.OnWaveCompleted();
+
+
         }
     }
 
@@ -163,15 +182,17 @@ public class WaveSpawner : MonoBehaviour
 
     public void GenerateWave()
     {
-        currWave += 1;
+        //currWave += 1; This should be call in wave manager instead, so that the difficultly progression make more sense 
         waveValue = currWave * 10;
         GenerateEnemies();
         if (enemiesToSpawn.Count == 0)
         {
             return;
         }
-        waveTimer = spawnInterval * currWave * 10 + 15;
+        waveTimer = spawnInterval * currWave * 10 + delayBeforeNextWave;
         currentSpawner = GetDirectionSpawners(GetDirectionIndex()); //This line change the direction of spawner when generate wave 
+
+        isActive = true; // Set the spawner to active
     }
 
     public void GenerateEnemies()
@@ -220,7 +241,6 @@ public class WaveSpawner : MonoBehaviour
 
     private void OnEnable()
     {
-        GenerateWave();
     }
 
 

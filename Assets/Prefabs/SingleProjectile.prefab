@@ -101,7 +101,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8de156b4438ea8d4c91697f8426bb6e2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 1
+  damage: 5
   speed: 25
   acceleration: 0
   canHorizontal: 0
@@ -129,7 +129,7 @@ MonoBehaviour:
   objectMask:
     serializedVersion: 2
     m_Bits: 256
-  lifeTime: 1
+  lifeTime: 2
   impactPS: {fileID: 0}
 --- !u!95 &6125076024761514905
 Animator:

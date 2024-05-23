@@ -139,7 +139,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &18889327
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -157,7 +157,7 @@ MonoBehaviour:
     cost: 1
   enemiesToSpawn: []
   spawnedEnemies: []
-  currWave: 1
+  currWave: 0
   spawnInterval: 1
 --- !u!4 &18889328
 Transform:
@@ -292,7 +292,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &124585177
 Transform:
   m_ObjectHideFlags: 0
@@ -327,7 +327,7 @@ MonoBehaviour:
     cost: 2
   enemiesToSpawn: []
   spawnedEnemies: []
-  currWave: 1
+  currWave: 0
   spawnInterval: 1
 --- !u!1 &155640910
 GameObject:
@@ -345,7 +345,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &155640911
 Transform:
   m_ObjectHideFlags: 0
@@ -380,7 +380,7 @@ MonoBehaviour:
     cost: 2
   enemiesToSpawn: []
   spawnedEnemies: []
-  currWave: 1
+  currWave: 0
   spawnInterval: 1
 --- !u!1 &207403302
 GameObject:
@@ -719,7 +719,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &583216177
 Transform:
   m_ObjectHideFlags: 0
@@ -752,7 +752,7 @@ MonoBehaviour:
     cost: 1
   enemiesToSpawn: []
   spawnedEnemies: []
-  currWave: 1
+  currWave: 0
   spawnInterval: 1
 --- !u!1 &632816719
 GameObject:
@@ -1119,7 +1119,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1114846931
 Transform:
   m_ObjectHideFlags: 0
@@ -1154,7 +1154,7 @@ MonoBehaviour:
     cost: 2
   enemiesToSpawn: []
   spawnedEnemies: []
-  currWave: 1
+  currWave: 0
   spawnInterval: 1
 --- !u!1 &1222162260
 GameObject:
@@ -1409,7 +1409,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1307027317
 Transform:
   m_ObjectHideFlags: 0
@@ -1444,7 +1444,7 @@ MonoBehaviour:
     cost: 2
   enemiesToSpawn: []
   spawnedEnemies: []
-  currWave: 1
+  currWave: 0
   spawnInterval: 1
 --- !u!1 &1333930617
 GameObject:
@@ -1722,7 +1722,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1619828093
 Transform:
   m_ObjectHideFlags: 0
@@ -1755,7 +1755,7 @@ MonoBehaviour:
     cost: 1
   enemiesToSpawn: []
   spawnedEnemies: []
-  currWave: 1
+  currWave: 0
   spawnInterval: 1
 --- !u!1 &1634414437
 GameObject:
@@ -1867,7 +1867,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1856536002
 Transform:
   m_ObjectHideFlags: 0
@@ -1900,7 +1900,7 @@ MonoBehaviour:
     cost: 1
   enemiesToSpawn: []
   spawnedEnemies: []
-  currWave: 1
+  currWave: 0
   spawnInterval: 1
 --- !u!1 &1958961963
 GameObject:
@@ -2049,7 +2049,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &2018202310
 Transform:
   m_ObjectHideFlags: 0
@@ -2084,7 +2084,7 @@ MonoBehaviour:
     cost: 2
   enemiesToSpawn: []
   spawnedEnemies: []
-  currWave: 1
+  currWave: 0
   spawnInterval: 1
 --- !u!1 &2045390848
 GameObject:
@@ -2102,7 +2102,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &2045390849
 Transform:
   m_ObjectHideFlags: 0
@@ -2135,7 +2135,7 @@ MonoBehaviour:
     cost: 1
   enemiesToSpawn: []
   spawnedEnemies: []
-  currWave: 1
+  currWave: 0
   spawnInterval: 1
 --- !u!1660057539 &9223372036854775807
 SceneRoots:

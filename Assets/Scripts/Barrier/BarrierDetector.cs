@@ -25,7 +25,7 @@ public class BarrierDetector : MonoBehaviour
         {
             Vector3 exitDirection = other.transform.position - transform.position;
             string segment = DetermineSegment(exitDirection);
-            Debug.Log($"Enemy exited through the {segment} segment.");
+            //Debug.Log($"Enemy exited through the {segment} segment.");
             if (barrierHealth != null)
             {
                 barrierHealth.TakeDamage(segment, other.GetComponent<Health>().damage); // Assuming a fixed damage of 1 for simplicity
