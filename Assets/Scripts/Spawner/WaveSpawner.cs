@@ -38,7 +38,6 @@ public class WaveSpawner : MonoBehaviour
     void Start()
     {
         InitializePools();
-        GenerateWave();
     }
 
     // Update is called once per frame
@@ -81,8 +80,7 @@ public class WaveSpawner : MonoBehaviour
         }
         else
         {
-            currWave += 1;
-            GenerateWave();
+            //GenerateWave();
         }
     }
 
@@ -165,6 +163,7 @@ public class WaveSpawner : MonoBehaviour
 
     public void GenerateWave()
     {
+        currWave += 1;
         waveValue = currWave * 10;
         GenerateEnemies();
         if (enemiesToSpawn.Count == 0)
@@ -217,6 +216,11 @@ public class WaveSpawner : MonoBehaviour
 
         Debug.Log("Still Got Enemy");
         return false;
+    }
+
+    private void OnEnable()
+    {
+        GenerateWave();
     }
 
 
