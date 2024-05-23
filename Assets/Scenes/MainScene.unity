@@ -133,7 +133,6 @@ GameObject:
   m_Component:
   - component: {fileID: 18889328}
   - component: {fileID: 18889327}
-  - component: {fileID: 18889329}
   m_Layer: 0
   m_Name: EnemySpawner
   m_TagString: Untagged
@@ -153,7 +152,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 14f1480a9610d50429653a2bccac69df, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spawnPoints: []
   enemyList:
   - enemyPrefab: {fileID: 8731437092521214424, guid: c483777be0dedc34299b45d016d498a7, type: 3}
     cost: 1
@@ -161,9 +159,8 @@ MonoBehaviour:
     cost: 1
   enemiesToSpawn: []
   spawnedEnemies: []
-  currWave: 2
-  waveValue: 1
-  waveDuration: 30
+  currWave: 0
+  spawnInterval: 3
 --- !u!4 &18889328
 Transform:
   m_ObjectHideFlags: 0
@@ -172,35 +169,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 18889326}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 7.182383, y: -3.1709023, z: 1.0222436}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 728574940}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &18889329
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 18889326}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dd6e951b38655774d8e1bbb5075334bb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  zeroThreshold: 0.001
-  numberOfSpawnPoint: 16
-  radius: 0.8
-  positions: []
-  allSpawners: []
-  player: {fileID: 1242767540}
-  topSpawners: []
-  downSpawners: []
-  leftSpawners: []
-  rightSpawners: []
 --- !u!1 &23060689
 GameObject:
   m_ObjectHideFlags: 0
@@ -818,6 +793,61 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &728574938
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 728574940}
+  - component: {fileID: 728574939}
+  m_Layer: 0
+  m_Name: SpawnerParent
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &728574939
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 728574938}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dd6e951b38655774d8e1bbb5075334bb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  zeroThreshold: 0.001
+  numberOfSpawnPoint: 16
+  radius: 0.8
+  positions: []
+  player: {fileID: 1242767540}
+  allSpawners: []
+  topSpawners: []
+  downSpawners: []
+  leftSpawners: []
+  rightSpawners: []
+--- !u!4 &728574940
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 728574938}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -7.182383, y: 3.1709023, z: -1.0222436}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 18889328}
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &866927845
 GameObject:
   m_ObjectHideFlags: 0
@@ -1637,10 +1667,10 @@ SceneRoots:
   m_Roots:
   - {fileID: 519420032}
   - {fileID: 1242767542}
-  - {fileID: 18889328}
   - {fileID: 1456180028}
   - {fileID: 632816721}
   - {fileID: 866927847}
   - {fileID: 1389086583}
   - {fileID: 23060693}
   - {fileID: 1454212206}
+  - {fileID: 728574940}

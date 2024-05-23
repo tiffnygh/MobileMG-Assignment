@@ -6,7 +6,6 @@ using UnityEngine;
 
 public class WaveSpawner : MonoBehaviour
 {
-    [SerializeField] private List<GameObject> spawnPoints;
 
     [SerializeField] private List<Enemy> enemyList = new List<Enemy>();
     [SerializeField] private List<GameObject> enemiesToSpawn = new List<GameObject>();
@@ -17,15 +16,17 @@ public class WaveSpawner : MonoBehaviour
 
     private bool allEnemiesDestroyed;
 
-    public int currWave;
-    public int waveValue;
+    [SerializeField] private int currWave;
+    private int waveValue;
 
-    public int waveDuration;
     private float waveTimer;
-    private float spawnInterval;
+    [SerializeField] private float spawnInterval;
     private float spawnTimer;
 
     private SpawnGenerator spawnGenerator;
+
+    //Direciton Integer  
+    private int currentDirectionIndex = 0;
 
 
     // Start is called before the first frame update
@@ -33,34 +34,47 @@ public class WaveSpawner : MonoBehaviour
     {
         InitializePools();
         GenerateWave();
-        spawnGenerator = GetComponent<SpawnGenerator>();
-        spawnPoints = spawnGenerator.allSpawners;
+        spawnGenerator = GetComponentInParent<SpawnGenerator>();
     }
 
     // Update is called once per frame
     void FixedUpdate()
     {
         CheckAllEnemiesDestroyed();
-
-
-        if (spawnTimer <= 0)
+        if (waveTimer >= 0)
         {
-            if(enemiesToSpawn.Count > 0)
+            if (spawnTimer <= 0)
             {
-                int randomIndex = Random.Range(0, spawnPoints.Count);
-                GameObject spawnPoint = spawnPoints[randomIndex];
-                SpawnEnemy(spawnPoint);
+                if (enemiesToSpawn.Count > 0)
+                {
+
+                    //THis code spawn in all direction = random direction
+                    /*int randomIndex = Random.Range(0, spawnGenerator.allSpawners.Count);
+                    GameObject spawnPoint = spawnGenerator.allSpawners[randomIndex];
+                    SpawnEnemy(spawnPoint);*/
+
+                    //This is test to spawn in up down left right in order
+                    List<GameObject> currentSpawner = GetDirectionSpawners(GetDirectionIndex());
+                    int randomIndex = Random.Range(0, currentSpawner.Count);
+                    GameObject spawnPoint = currentSpawner[randomIndex];
+                    SpawnEnemy(spawnPoint);
+                }
+                else
+                {
+                    waveTimer -= Time.fixedDeltaTime;
+                }
             }
             else
             {
-                waveTimer = 0;
+                spawnTimer -= Time.fixedDeltaTime;
+                waveTimer -= Time.fixedDeltaTime;
             }
         }
         else
         {
-            spawnTimer -= Time.fixedDeltaTime;
-            waveTimer -= Time.fixedDeltaTime;
-        }   
+            currWave += 1;
+            GenerateWave();
+        }
     }
 
     private void InitializePools()
@@ -93,6 +107,52 @@ public class WaveSpawner : MonoBehaviour
             spawnTimer = spawnInterval;
         }
     }
+    //------------------------------------------------------------------------------GET SPAWNER DIRECTION---------------------------------------------------------------------------------------------
+
+    public int GetDirectionIndex() //Thios func3tion get index that spawn enemy up - down - left - right 
+    {
+        int indexToReturn = currentDirectionIndex;
+        currentDirectionIndex = (currentDirectionIndex + 1) % 4; // Cycle between 0 and 3
+        return indexToReturn;
+    }
+
+
+    private List<GameObject> GetRandomDirection()
+    {
+        int randomDirection = Random.Range(0, 3);
+        switch (randomDirection)
+        {
+            case 0:
+                return spawnGenerator.topSpawners;
+            case 1:
+                return spawnGenerator.downSpawners;
+            case 2:
+                return spawnGenerator.leftSpawners;
+            case 3:
+                return spawnGenerator.rightSpawners;
+            default:
+                return spawnGenerator.allSpawners;
+        }
+    }
+
+    private List<GameObject> GetDirectionSpawners(int direction)
+    {
+        switch (direction)
+        {
+            case 0:
+                return spawnGenerator.topSpawners;
+            case 1:
+                return spawnGenerator.downSpawners;
+            case 2:
+                return spawnGenerator.leftSpawners;
+            case 3:
+                return spawnGenerator.rightSpawners;
+            default:
+                return null;
+        }
+    }
+
+    //------------------------------------------------------------------------------GENERATE ENEMY---------------------------------------------------------------------------------------------
 
     public void GenerateWave()
     {
@@ -102,8 +162,7 @@ public class WaveSpawner : MonoBehaviour
         {
             return;
         }
-        spawnInterval = waveDuration / enemiesToSpawn.Count;
-        waveTimer = waveDuration;
+        waveTimer = spawnInterval * currWave * 10 + 15;
     }
 
     public void GenerateEnemies()

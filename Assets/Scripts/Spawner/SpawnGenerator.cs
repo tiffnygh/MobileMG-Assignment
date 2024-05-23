@@ -10,9 +10,10 @@ public class SpawnGenerator : MonoBehaviour
     [SerializeField] private int numberOfSpawnPoint = 16;
     [SerializeField] private float radius = 5.0f;  // Radius from the player
     [SerializeField] private List<Vector3> positions = new List<Vector3>();
-    [SerializeField] public List<GameObject> allSpawners = new List<GameObject>();
 
     [SerializeField] private GameObject player;  // Reference to the player GameObject
+
+    [SerializeField] public List<GameObject> allSpawners = new List<GameObject>();
 
     [SerializeField] public List<GameObject> topSpawners = new List<GameObject>();
     [SerializeField] public List<GameObject> downSpawners = new List<GameObject>();
