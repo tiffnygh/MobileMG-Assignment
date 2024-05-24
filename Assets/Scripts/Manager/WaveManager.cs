@@ -39,6 +39,7 @@ public class WaveManager : Singleton<WaveManager>
             waveTimer -= Time.deltaTime;
             if (waveTimer <= 0)
             {
+                CheckWaveCompletion();
                 OnWaveCompleted();
             }
         }
@@ -72,7 +73,8 @@ public class WaveManager : Singleton<WaveManager>
         // Start with enabling the basic tiny spawners
         if (wave == 1)
         {
-            EnableSpawnerByName("GreyTinyEnemySpawner");
+            EnableRandomSpawner(5);
+            //EnableSpawnerByName("GreyTinyEnemySpawner");
         }
         else if (wave == 2)
         {
@@ -106,8 +108,8 @@ public class WaveManager : Singleton<WaveManager>
             EnableSpawnerByName("PurpleMediumEnemySpawner");
         }
     }
-
-    private void EnableRandomTinySpawner()
+    //----------------------------------------------------------------------Enable Spawner functions--------------------------------------------
+    private void EnableRandomTinySpawner(int numberOfSpawners)
     {
         List<string> spawnerNames = new List<string>()
         {
@@ -118,9 +120,69 @@ public class WaveManager : Singleton<WaveManager>
             "PurpleTinyEnemySpawner"
         };
 
-        string randomSpawnerName = spawnerNames[Random.Range(0, spawnerNames.Count)];
-        EnableSpawnerByName(randomSpawnerName);
+
+        for (int i = 0; i < numberOfSpawners; i++)
+        {
+            if (spawnerNames.Count == 0) break; // No more spawners to enable
+
+            string randomSpawnerName = spawnerNames[Random.Range(0, spawnerNames.Count)];
+
+            EnableSpawnerByName(randomSpawnerName);
+            spawnerNames.Remove(randomSpawnerName); // Remove enabled spawner from the list to avoid enabling it again
+        }
     }
+
+    private void EnableRandomMediumSpawner(int numberOfSpawners)
+    {
+        List<string> spawnerNames = new List<string>()
+        {
+            "GreyMediumEnemySpawner",
+            "GreenMediumEnemySpawner",
+            "YellowMediumEnemySpawner",
+            "PinkMediumEnemySpawner",
+            "PurpleMediumEnemySpawner"
+        };
+
+
+        for (int i = 0; i < numberOfSpawners; i++)
+        {
+            if (spawnerNames.Count == 0) break; // No more spawners to enable
+
+            string randomSpawnerName = spawnerNames[Random.Range(0, spawnerNames.Count)];
+
+            EnableSpawnerByName(randomSpawnerName);
+            spawnerNames.Remove(randomSpawnerName); // Remove enabled spawner from the list to avoid enabling it again
+        }
+    }
+
+    private void EnableRandomSpawner(int numberOfSpawners)
+    {
+        List<string> spawnerNames = new List<string>()
+        {
+            "GreyTinyEnemySpawner",
+            "GreenTinyEnemySpawner",
+            "YellowTinyEnemySpawner",
+            "PinkTinyEnemySpawner",
+            "PurpleTinyEnemySpawner",
+            "GreyMediumEnemySpawner",
+            "GreenMediumEnemySpawner",
+            "YellowMediumEnemySpawner",
+            "PinkMediumEnemySpawner",
+            "PurpleMediumEnemySpawner"
+        };
+
+
+        for (int i = 0; i < numberOfSpawners; i++)
+        {
+            if (spawnerNames.Count == 0) break; // No more spawners to enable
+
+            string randomSpawnerName = spawnerNames[Random.Range(0, spawnerNames.Count)];
+
+            EnableSpawnerByName(randomSpawnerName);
+            spawnerNames.Remove(randomSpawnerName); // Remove enabled spawner from the list to avoid enabling it again
+        }
+    }
+
 
 
     private void EnableSpawnerByName(string spawnerName)
@@ -132,6 +194,30 @@ public class WaveManager : Singleton<WaveManager>
         else
         {
             Debug.LogWarning("Spawner with name " + spawnerName + " not found!");
+        }
+    }
+    //-------------------------------------------------------Check Wave End----------------------------------------------------------------------
+    private bool AreAllEnemiesDestroyed()
+    {
+        foreach (var spawner in allSpawners)
+        {
+            if (spawner.CheckAllEnemiesDestroyed() == false)
+            {
+                return false;
+            }
+        }
+        return true;
+    }
+
+    private void CheckWaveCompletion()
+    {
+        if (AreAllEnemiesDestroyed())
+        {
+            Debug.Log("Grace Reward"); // Award grace reward
+        }
+        else
+        {
+            Debug.Log("NOOOOOOOOOOOOOO REWARDDDDDDDDDDDDDDDDDDDDDDDD"); // Award grace reward
         }
     }
 

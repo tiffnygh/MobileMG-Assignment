@@ -91,10 +91,10 @@ public class WaveSpawner : MonoBehaviour
             //GenerateWave();
             //Try disabling after timer end, not sure if enemy will bug out
             //this.gameObject.SetActive(false);
-            if (CheckAllEnemiesDestroyed())
+            /*if (CheckAllEnemiesDestroyed())
             {
                 Debug.Log("Grace Reward"); //If player kill the enemy before the grace period, then they get bonus reward
-            }
+            }*/
             //waveCompleted = true;
             isActive = false;
             //WaveManager.Instance.OnWaveCompleted();
@@ -222,7 +222,7 @@ public class WaveSpawner : MonoBehaviour
         enemiesToSpawn = generatedEnemies;
     }
 
-    private bool CheckAllEnemiesDestroyed()
+    public bool CheckAllEnemiesDestroyed()
     {
         for (int i = spawnedEnemies.Count - 1; i >= 0; i--)
         {
