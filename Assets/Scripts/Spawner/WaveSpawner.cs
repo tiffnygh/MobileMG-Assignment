@@ -20,15 +20,13 @@ public class WaveSpawner : MonoBehaviour
     private bool waveCompleted;
     private bool isActive;
 
+    private float waveValue { get; set; }
 
-    [SerializeField] private int currWave;
-    private int waveValue;
+    private float waveTimer { get; set; }
+    private float spawnInterval { get; set; }
 
-    private float waveTimer;
-    [SerializeField] private float spawnInterval;
-    private float spawnTimer;
+    private float spawnTimer { get; set; }
 
-    [SerializeField] private float delayBeforeNextWave;
 
 
     private SpawnGenerator spawnGenerator;
@@ -97,9 +95,9 @@ public class WaveSpawner : MonoBehaviour
             {
                 Debug.Log("Grace Reward"); //If player kill the enemy before the grace period, then they get bonus reward
             }
-            waveCompleted = true;
+            //waveCompleted = true;
             isActive = false;
-            WaveManager.Instance.OnWaveCompleted();
+            //WaveManager.Instance.OnWaveCompleted();
 
 
         }
@@ -189,13 +187,14 @@ public class WaveSpawner : MonoBehaviour
     public void GenerateWave()
     {
         //currWave += 1; This should be call in wave manager instead, so that the difficultly progression make more sense 
-        waveValue = currWave * 10;
+        waveValue = WaveManager.Instance.waveValue;
         GenerateEnemies();
         if (enemiesToSpawn.Count == 0)
         {
             return;
         }
-        waveTimer = spawnInterval * currWave * 10 + delayBeforeNextWave;
+        waveTimer = WaveManager.Instance.waveDuration;
+        spawnInterval = WaveManager.Instance.spawnInterval;
         currentSpawner = GetDirectionSpawners(GetDirectionIndex()); //This line change the direction of spawner when generate wave 
 
         isActive = true; // Set the spawner to active

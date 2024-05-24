@@ -6,8 +6,16 @@ public class WaveManager : Singleton<WaveManager>
 {
     [SerializeField] private List<WaveSpawner> allSpawners = new List<WaveSpawner>();
     [SerializeField] private int startingWaves = 1;
-    [SerializeField] private int wavesToAddDifficulty = 5; // Number of waves before increasing difficulty
+
     private int currentWave = 0;
+    private float  waveTimer { get; set; }
+
+    [Header("Spawners Setting")]
+    public float waveDuration;
+    public float spawnInterval;
+    public float waveValue;
+    [SerializeField] private float delayBeforeNextWave;
+
 
     private Dictionary<string, WaveSpawner> spawnerDict = new Dictionary<string, WaveSpawner>();
 
@@ -26,7 +34,14 @@ public class WaveManager : Singleton<WaveManager>
     // Update is called once per frame
     void Update()
     {
-        
+        if (waveTimer > 0)
+        {
+            waveTimer -= Time.deltaTime;
+            if (waveTimer <= 0)
+            {
+                OnWaveCompleted();
+            }
+        }
     }
 
     private void InitializeSpawners()
@@ -41,6 +56,8 @@ public class WaveManager : Singleton<WaveManager>
     private void StartWave()
     {
         currentWave++;
+        waveDuration = spawnInterval * waveValue + delayBeforeNextWave;
+        waveTimer = waveDuration;
         Debug.Log("Starting Wave: " + currentWave);
 
         // Enable spawners based on the current wave
@@ -53,11 +70,11 @@ public class WaveManager : Singleton<WaveManager>
         // You can customize this logic as per your requirements
 
         // Start with enabling the basic tiny spawners
-        if (wave >=1)
+        if (wave == 1)
         {
             EnableSpawnerByName("GreyTinyEnemySpawner");
         }
-        /*else if (wave == 2)
+        else if (wave == 2)
         {
             EnableSpawnerByName("GreenTinyEnemySpawner");
             EnableSpawnerByName("YellowTinyEnemySpawner");
@@ -87,7 +104,7 @@ public class WaveManager : Singleton<WaveManager>
             EnableSpawnerByName("YellowMediumEnemySpawner");
             EnableSpawnerByName("PinkMediumEnemySpawner");
             EnableSpawnerByName("PurpleMediumEnemySpawner");
-        }*/
+        }
     }
 
     private void EnableRandomTinySpawner()

@@ -157,9 +157,6 @@ MonoBehaviour:
     cost: 1
   enemiesToSpawn: []
   spawnedEnemies: []
-  currWave: 1
-  spawnInterval: 1
-  delayBeforeNextWave: 5
 --- !u!4 &18889328
 Transform:
   m_ObjectHideFlags: 0
@@ -328,9 +325,6 @@ MonoBehaviour:
     cost: 2
   enemiesToSpawn: []
   spawnedEnemies: []
-  currWave: 1
-  spawnInterval: 1
-  delayBeforeNextWave: 0
 --- !u!1 &155640910
 GameObject:
   m_ObjectHideFlags: 0
@@ -382,9 +376,6 @@ MonoBehaviour:
     cost: 2
   enemiesToSpawn: []
   spawnedEnemies: []
-  currWave: 1
-  spawnInterval: 1
-  delayBeforeNextWave: 0
 --- !u!1 &207403302
 GameObject:
   m_ObjectHideFlags: 0
@@ -755,9 +746,6 @@ MonoBehaviour:
     cost: 1
   enemiesToSpawn: []
   spawnedEnemies: []
-  currWave: 1
-  spawnInterval: 1
-  delayBeforeNextWave: 0
 --- !u!1 &632816719
 GameObject:
   m_ObjectHideFlags: 0
@@ -1158,9 +1146,6 @@ MonoBehaviour:
     cost: 2
   enemiesToSpawn: []
   spawnedEnemies: []
-  currWave: 1
-  spawnInterval: 1
-  delayBeforeNextWave: 0
 --- !u!1 &1222162260
 GameObject:
   m_ObjectHideFlags: 0
@@ -1449,9 +1434,6 @@ MonoBehaviour:
     cost: 2
   enemiesToSpawn: []
   spawnedEnemies: []
-  currWave: 1
-  spawnInterval: 1
-  delayBeforeNextWave: 0
 --- !u!1 &1333930617
 GameObject:
   m_ObjectHideFlags: 0
@@ -1761,9 +1743,6 @@ MonoBehaviour:
     cost: 1
   enemiesToSpawn: []
   spawnedEnemies: []
-  currWave: 1
-  spawnInterval: 1
-  delayBeforeNextWave: 0
 --- !u!1 &1634414437
 GameObject:
   m_ObjectHideFlags: 0
@@ -1907,9 +1886,6 @@ MonoBehaviour:
     cost: 1
   enemiesToSpawn: []
   spawnedEnemies: []
-  currWave: 1
-  spawnInterval: 1
-  delayBeforeNextWave: 0
 --- !u!1 &1894133113
 GameObject:
   m_ObjectHideFlags: 0
@@ -1951,7 +1927,10 @@ MonoBehaviour:
   - {fileID: 1856536003}
   - {fileID: 124585178}
   startingWaves: 1
-  wavesToAddDifficulty: 5
+  waveDuration: 0
+  spawnInterval: 1
+  waveValue: 10
+  delayBeforeNextWave: 5
 --- !u!4 &1894133115
 Transform:
   m_ObjectHideFlags: 0
@@ -2149,9 +2128,6 @@ MonoBehaviour:
     cost: 2
   enemiesToSpawn: []
   spawnedEnemies: []
-  currWave: 1
-  spawnInterval: 1
-  delayBeforeNextWave: 0
 --- !u!1 &2045390848
 GameObject:
   m_ObjectHideFlags: 0
@@ -2201,9 +2177,6 @@ MonoBehaviour:
     cost: 1
   enemiesToSpawn: []
   spawnedEnemies: []
-  currWave: 1
-  spawnInterval: 1
-  delayBeforeNextWave: 0
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
