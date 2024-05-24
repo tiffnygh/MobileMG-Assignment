@@ -7,7 +7,7 @@ public class WaveManager : Singleton<WaveManager>
     [SerializeField] private List<WaveSpawner> allSpawners = new List<WaveSpawner>();
     [SerializeField] private int startingWaves = 1;
 
-    private int currentWave = 0;
+    private int currentWave = 1;
     private float  waveTimer { get; set; }
 
     [Header("Spawners Setting")]
@@ -77,50 +77,91 @@ public class WaveManager : Singleton<WaveManager>
         EnableSpawnersForWave(currentWave);
     }
 
+    private void ReduceSpawnInterval()
+    {
+        spawnInterval = Mathf.Max(0.5f, spawnInterval - 0.03f);
+
+    }
+    
     private void EnableSpawnersForWave(int wave)
     {
         currentSpawnPositions = GetRandomDirection(numberOfDirection);
 
-        // Example logic to enable specific spawners based on the wave number
-        // You can customize this logic as per your requirements
+        if (wave >= 1 && wave <= 5)
+        {
+            spawnInterval = 0.5f;
+            if (wave == 1) EnableSpawnerByName("GreyTinyEnemySpawner");
+            if (wave == 2) EnableSpawnerByName("YellowTinyEnemySpawner");
+            if (wave == 3) EnableSpawnerByName("GreenTinyEnemySpawner");
+            if (wave == 4) EnableSpawnerByName("PurpleTinyEnemySpawner");
+            if (wave == 5) EnableSpawnerByName("PinkTinyEnemySpawner");
+        }
+        else if (wave >= 6 && wave <= 10)
+        {
+            spawnInterval = 1f;
+            if (wave == 6) EnableRandomTinySpawner(1);
+            if (wave == 7) EnableRandomTinySpawner(2);
+            if (wave == 8) EnableRandomTinySpawner(2);
+            if (wave == 9) EnableRandomTinySpawner(3);
+            if (wave == 10) EnableRandomTinySpawner(4);
+        }
+        else if (wave >= 11 && wave <= 15)
+        {
+            spawnInterval = 0.5f;
+            if (wave == 11) EnableSpawnerByName("GreyMediumEnemySpawner");
+            if (wave == 12) EnableSpawnerByName("YellowMediumEnemySpawner");
+            if (wave == 13) EnableSpawnerByName("GreenMediumEnemySpawner");
+            if (wave == 14) EnableSpawnerByName("PurpleMediumEnemySpawner");
+            if (wave == 15) EnableSpawnerByName("PinkMediumEnemySpawner");
+        }
+        else if (wave >= 16 && wave <= 20)
+        {
+            spawnInterval = 1f;
+            if (wave == 16) EnableRandomMediumSpawner(1);
+            if (wave == 17) EnableRandomMediumSpawner(2);
+            if (wave == 18) EnableRandomMediumSpawner(2);
+            if (wave == 19) EnableRandomMediumSpawner(3);
+            if (wave == 20) EnableRandomMediumSpawner(3);
+        }
+        else if (wave >= 21 && wave <= 25)
+        {
+                ReduceSpawnInterval();
+            if (wave == 21) EnableRandomTinySpawner(1); EnableRandomMediumSpawner(1);
+            if (wave == 22) EnableRandomTinySpawner(1); EnableRandomMediumSpawner(1);
+            if (wave == 23) EnableRandomTinySpawner(2); EnableRandomMediumSpawner(1);
+            if (wave == 24) EnableRandomTinySpawner(2); EnableRandomMediumSpawner(1);
+            if (wave == 25) EnableRandomTinySpawner(2); EnableRandomMediumSpawner(2);
+        }
+        else if (wave >= 26 && wave <= 30)
+        {
+                ReduceSpawnInterval();
+            if (wave == 26) EnableRandomSpawner(3);
+            if (wave == 27) EnableRandomSpawner(3);
+            if (wave == 28) EnableRandomSpawner(4);
+            if (wave == 29) EnableRandomSpawner(4);
+            if (wave == 30) EnableRandomSpawner(5);
+        }
+        else if (wave >= 31 && wave <= 40)
+        {
+                ReduceSpawnInterval();
+            EnableRandomSpawner(6);
+        }
+        else if (wave >= 41 && wave <= 49)
+        {
+                ReduceSpawnInterval();
+            EnableRandomSpawner(7);
+        }
+        else if (wave == 50)
+        {
+            EnableRandomSpawner(7); //Change to boss wave?
+        }
+        else if (wave >= 51)
+        {
+                ReduceSpawnInterval();
+            EnableRandomSpawner(Random.Range(5,10));
+        }
 
-        // Start with enabling the basic tiny spawners
-        if (wave == 1)
-        {
-            //EnableRandomSpawner(5);
-            EnableSpawnerByName("GreyTinyEnemySpawner");
-        }
-        else if (wave == 2)
-        {
-            EnableSpawnerByName("GreenTinyEnemySpawner");
-            EnableSpawnerByName("YellowTinyEnemySpawner");
-        }
-        else if (wave == 3)
-        {
-            EnableSpawnerByName("GreenTinyEnemySpawner");
-            EnableSpawnerByName("YellowTinyEnemySpawner");
-            EnableSpawnerByName("PinkTinyEnemySpawner");
-        }
-        else if (wave == 4)
-        {
-            EnableSpawnerByName("GreenTinyEnemySpawner");
-            EnableSpawnerByName("YellowTinyEnemySpawner");
-            EnableSpawnerByName("PinkTinyEnemySpawner");
-            EnableSpawnerByName("PurpleTinyEnemySpawner");
-        }
-        // After a certain number of waves, start enabling medium spawners
-        else if (wave >= 5)
-        {
-            EnableSpawnerByName("GreenTinyEnemySpawner");
-            EnableSpawnerByName("YellowTinyEnemySpawner");
-            EnableSpawnerByName("PinkTinyEnemySpawner");
-            EnableSpawnerByName("PurpleTinyEnemySpawner");
 
-            EnableSpawnerByName("GreenMediumEnemySpawner");
-            EnableSpawnerByName("YellowMediumEnemySpawner");
-            EnableSpawnerByName("PinkMediumEnemySpawner");
-            EnableSpawnerByName("PurpleMediumEnemySpawner");
-        }
     }
     //----------------------------------------------------------------------Enable Spawner functions--------------------------------------------
     private void EnableRandomTinySpawner(int numberOfSpawners)

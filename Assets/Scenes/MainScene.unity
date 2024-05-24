@@ -1908,7 +1908,7 @@ MonoBehaviour:
   waveDuration: 0
   spawnInterval: 1
   waveValue: 10
-  delayBeforeNextWave: 5
+  delayBeforeNextWave: 1
   currentSpawnPositions: []
 --- !u!4 &1894133115
 Transform:
