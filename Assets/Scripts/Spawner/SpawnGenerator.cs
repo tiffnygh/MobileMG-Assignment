@@ -72,21 +72,21 @@ public class SpawnGenerator : MonoBehaviour
             obj.transform.position = player.transform.position + pos;  // Position it relative to the player
             obj.transform.parent = this.transform;  // Optionally parent it under this object for organization
             
-            if (pos.y > 0)
+            if (pos.y > 0.5)
             {
                 topSpawners.Add(obj);
 
             }
-            else if (pos.y < 0)
+            else if (pos.y < -0.5)
             {
                 downSpawners.Add(obj);
             }
 
-            if (pos.x > 0)
+            if (pos.x > 0.5)
             {
                 rightSpawners.Add(obj);
             }
-            else if (pos.x < 0)
+            else if (pos.x < -0.5)
             {
                 leftSpawners.Add(obj);
             }

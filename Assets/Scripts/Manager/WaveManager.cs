@@ -14,14 +14,25 @@ public class WaveManager : Singleton<WaveManager>
     public float waveDuration;
     public float spawnInterval;
     public float waveValue;
+
     [SerializeField] private float delayBeforeNextWave;
 
 
     private Dictionary<string, WaveSpawner> spawnerDict = new Dictionary<string, WaveSpawner>();
 
+    private SpawnGenerator spawnGenerator;
+
+    //Enemy spawner positions
+    private List<GameObject> thisWaveCurrentSpawnPositions { get; set; } // Store the current spawner direction for the wave
+    
+    public List<GameObject> currentSpawnPositions; // Store the current spawner direction for the wave
+
+    private int numberOfDirection = 1;
+
+
     protected override void Awake()
     {
-        
+        spawnGenerator = GetComponent<SpawnGenerator>();
     }
 
     // Start is called before the first frame update
@@ -59,6 +70,7 @@ public class WaveManager : Singleton<WaveManager>
         currentWave++;
         waveDuration = spawnInterval * waveValue + delayBeforeNextWave;
         waveTimer = waveDuration;
+        
         Debug.Log("Starting Wave: " + currentWave);
 
         // Enable spawners based on the current wave
@@ -67,14 +79,16 @@ public class WaveManager : Singleton<WaveManager>
 
     private void EnableSpawnersForWave(int wave)
     {
+        currentSpawnPositions = GetRandomDirection(numberOfDirection);
+
         // Example logic to enable specific spawners based on the wave number
         // You can customize this logic as per your requirements
 
         // Start with enabling the basic tiny spawners
         if (wave == 1)
         {
-            EnableRandomSpawner(5);
-            //EnableSpawnerByName("GreyTinyEnemySpawner");
+            //EnableRandomSpawner(5);
+            EnableSpawnerByName("GreyTinyEnemySpawner");
         }
         else if (wave == 2)
         {
@@ -196,6 +210,35 @@ public class WaveManager : Singleton<WaveManager>
             Debug.LogWarning("Spawner with name " + spawnerName + " not found!");
         }
     }
+    //-------------------------------------------------------Get Spawner Direction----------------------------------------------------------------------
+
+    private List<GameObject> GetRandomDirection(int numberOfDirection)
+    {
+        List<List<GameObject>> allDirections = new List<List<GameObject>>()
+        {
+            spawnGenerator.topSpawners,
+            spawnGenerator.downSpawners,
+            spawnGenerator.leftSpawners,
+            spawnGenerator.rightSpawners
+        };
+
+        List<GameObject> selectedSpawners = new List<GameObject>();
+
+        if (numberOfDirection > allDirections.Count)
+        {
+            numberOfDirection = allDirections.Count; // Cap the number of directions to the available number
+        }
+
+        for (int i = 0; i < numberOfDirection; i++)
+        {
+            int randomIndex = Random.Range(0, allDirections.Count);
+            selectedSpawners.AddRange(allDirections[randomIndex]);
+            allDirections.RemoveAt(randomIndex); // Remove the selected direction to avoid repetition
+        }
+
+        return selectedSpawners;
+    }
+
     //-------------------------------------------------------Check Wave End----------------------------------------------------------------------
     private bool AreAllEnemiesDestroyed()
     {

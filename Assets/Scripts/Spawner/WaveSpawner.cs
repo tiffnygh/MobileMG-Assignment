@@ -27,17 +27,12 @@ public class WaveSpawner : MonoBehaviour
 
     private float spawnTimer { get; set; }
 
-
-
-    private SpawnGenerator spawnGenerator;
-
     //Direciton Integer  
     private int currentDirectionIndex = 0;
     private List<GameObject> currentSpawner; // Store the current spawner direction for the wave
 
     private void Awake()
     {
-        spawnGenerator = GetComponentInParent<SpawnGenerator>();
     }
 
     // Start is called before the first frame update
@@ -139,48 +134,7 @@ public class WaveSpawner : MonoBehaviour
     }
     //------------------------------------------------------------------------------GET SPAWNER DIRECTION---------------------------------------------------------------------------------------------
 
-    public int GetDirectionIndex() //Thios func3tion get index that spawn enemy up - down - left - right 
-    {
-        int indexToReturn = currentDirectionIndex;
-        currentDirectionIndex = (currentDirectionIndex + 1) % 4; // Cycle between 0 and 3
-        return indexToReturn;
-    }
 
-
-    private List<GameObject> GetRandomDirection()
-    {
-        int randomDirection = Random.Range(0, 3);
-        switch (randomDirection)
-        {
-            case 0:
-                return spawnGenerator.topSpawners;
-            case 1:
-                return spawnGenerator.downSpawners;
-            case 2:
-                return spawnGenerator.leftSpawners;
-            case 3:
-                return spawnGenerator.rightSpawners;
-            default:
-                return spawnGenerator.allSpawners;
-        }
-    }
-
-    private List<GameObject> GetDirectionSpawners(int direction)
-    {
-        switch (direction)
-        {
-            case 0:
-                return spawnGenerator.topSpawners;
-            case 1:
-                return spawnGenerator.downSpawners;
-            case 2:
-                return spawnGenerator.leftSpawners;
-            case 3:
-                return spawnGenerator.rightSpawners;
-            default:
-                return null;
-        }
-    }
 
     //------------------------------------------------------------------------------GENERATE ENEMY---------------------------------------------------------------------------------------------
 
@@ -195,7 +149,7 @@ public class WaveSpawner : MonoBehaviour
         }
         waveTimer = WaveManager.Instance.waveDuration;
         spawnInterval = WaveManager.Instance.spawnInterval;
-        currentSpawner = GetDirectionSpawners(GetDirectionIndex()); //This line change the direction of spawner when generate wave 
+        currentSpawner = WaveManager.Instance.currentSpawnPositions; //This line change the direction of spawner when generate wave 
 
         isActive = true; // Set the spawner to active
     }
