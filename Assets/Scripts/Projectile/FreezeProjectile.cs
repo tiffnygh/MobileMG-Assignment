@@ -35,7 +35,7 @@ public class FreezeProjectile : MonoBehaviour
         hasFrozen = true;
 
         EnemyMovement enemyMovement = enemy.GetComponent<EnemyMovement>();
-        if (enemyMovement != null)
+        if (enemyMovement != null && enemy.gameObject.activeSelf)
         {
            StopAllCoroutines();
            enemyMovement.StartCoroutine(enemyMovement.DisableMovementForDuration(1f));

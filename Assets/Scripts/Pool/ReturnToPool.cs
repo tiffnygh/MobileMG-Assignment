@@ -43,11 +43,6 @@ public class ReturnToPool : MonoBehaviour
                 playerProjectile.DisableProjectile();
             }
 
-            if (homingProjectile != null)
-            {
-                homingProjectile.DisableProjectile();
-            }
-
             if (splitShotProjectile != null)
             {
                 splitShotProjectile.DisableProjectile();

@@ -46,6 +46,8 @@ public class PlayerProjectile : MonoBehaviour
     private Collider2D myCollider2D;
     private SpriteRenderer spriteRenderer;
 
+    private HomingProjectile homingProjectile;
+
     private ReturnToPool returnToPool;
 
     private Health enemyHealth;
@@ -72,8 +74,14 @@ public class PlayerProjectile : MonoBehaviour
         spriteRenderer = GetComponent<SpriteRenderer>();
         myCollider2D = GetComponent<Collider2D>();
         returnToPool = GetComponent<ReturnToPool>();
+
+        homingProjectile = GetComponent<HomingProjectile>();
+
     }
 
+    private void Start()
+    {
+    }
     private void Update()
     {
     }

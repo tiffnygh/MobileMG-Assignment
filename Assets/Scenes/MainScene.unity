@@ -1330,11 +1330,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pierce: 0
   canHorinzontal: 0
-  canSpread: 1
+  canSpread: 0
   numberOfProjectiles: 16
   spreadAngle: 360
-  canAOE: 1
-  canFreeze: 1
+  canAOE: 0
+  canFreeze: 0
   bulletSpawnDistance: 0
   Pooler: {fileID: 0}
 --- !u!114 &1242767544
