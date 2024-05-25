@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 6125076024761514905}
   - component: {fileID: 5463109720609136184}
   - component: {fileID: 5699765934966526915}
+  - component: {fileID: -4591168870025140702}
   m_Layer: 9
   m_Name: SingleProjectile
   m_TagString: Bullet
@@ -101,7 +102,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8de156b4438ea8d4c91697f8426bb6e2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 5
+  damage: 1
   speed: 25
   acceleration: 0
   canHorizontal: 0
@@ -224,3 +225,19 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
+--- !u!114 &-4591168870025140702
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7895483534485094739}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 07fa7747613f9f5428f3b55513b0b400, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  explosionRadius: 5
+  enemyLayer:
+    serializedVersion: 2
+    m_Bits: 256

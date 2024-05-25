@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ExplosiveProjectile : PlayerProjectile
+public class ExplosiveProjectile : MonoBehaviour
 {
     [Header("Explosion Settings")]
     [SerializeField] private float explosionRadius = 5f;
@@ -11,10 +11,19 @@ public class ExplosiveProjectile : PlayerProjectile
 
     private bool hasExploded = false;
 
+    private PlayerProjectile projectile;
+    private CharacterAttack characterAttack;
+
+    private void Awake()
+    {
+        projectile = GetComponent<PlayerProjectile>();
+        characterAttack = GameObject.FindGameObjectWithTag("Player").GetComponent<CharacterAttack>();
+    }
+
     // Start is called before the first frame update
     void Start()
     {
-        explosionDamage = Damage;
+        explosionDamage = projectile.Damage;
     }
 
     // Update is called once per frame
@@ -27,7 +36,11 @@ public class ExplosiveProjectile : PlayerProjectile
     {
         if (!hasExploded && collision.CompareTag("Enemy") && collision.gameObject.layer != 9)
         {
-            Explode();
+            if (characterAttack.canAOE)
+            {
+                Explode();
+
+            }
         }
     }
 
@@ -47,11 +60,11 @@ public class ExplosiveProjectile : PlayerProjectile
         DisableProjectile();
     }
 
-    public override void DisableProjectile()
+    public  void DisableProjectile()
     {
-        base.DisableProjectile();
         hasExploded = false;
     }
+
 
     private void OnDrawGizmosSelected()
     {
