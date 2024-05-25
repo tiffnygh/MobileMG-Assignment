@@ -120,9 +120,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ce23b7794b5d1bb418c443e02bb613d0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  initialHealth: 5
-  maxHealth: 5
-  damage: 10
+  initialHealth: 500
+  maxHealth: 500
+  damage: 50
   destroyObject: 1
 --- !u!114 &2869952312185933127
 MonoBehaviour:

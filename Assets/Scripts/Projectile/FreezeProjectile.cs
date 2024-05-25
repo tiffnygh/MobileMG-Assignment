@@ -35,7 +35,8 @@ public class FreezeProjectile : PlayerProjectile
         EnemyMovement enemyMovement = enemy.GetComponent<EnemyMovement>();
         if (enemyMovement != null)
         {
-            StartCoroutine(DisableMovementForDuration(enemyMovement, freezeDuration));
+           StopAllCoroutines();
+           enemyMovement.StartCoroutine(enemyMovement.DisableMovementForDuration(1f));
         }
 
         // Optionally, play freeze animation/sound here

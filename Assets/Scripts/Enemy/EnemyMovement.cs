@@ -90,4 +90,14 @@ public class EnemyMovement : EnemyBase
 
         currentSpeed += currentAcceleration * Time.deltaTime;
     }
+
+    public IEnumerator DisableMovementForDuration(float duration)
+    {
+        this.enabled = false;
+        Debug.Log("DISABLE");
+        yield return new WaitForSeconds(duration);
+        this.enabled = true;
+        Debug.Log("ENABLE");
+
+    }
 }
