@@ -13,10 +13,12 @@ public class ExplosiveProjectile : MonoBehaviour
 
     private PlayerProjectile projectile;
     private CharacterAttack characterAttack;
+    private FreezeProjectile freezeProjectile;
 
     private void Awake()
     {
         projectile = GetComponent<PlayerProjectile>();
+        freezeProjectile = GetComponent<FreezeProjectile>();
         characterAttack = GameObject.FindGameObjectWithTag("Player").GetComponent<CharacterAttack>();
     }
 
@@ -52,6 +54,11 @@ public class ExplosiveProjectile : MonoBehaviour
         foreach (Collider2D enemy in enemies)
         {
             enemy.GetComponent<Health>().TakeDamage(explosionDamage);
+            if (characterAttack.canFreeze)
+            {
+                freezeProjectile.Freeze(enemy);
+            }
+
         }
 
         // Optionally, play explosion animation/sound here

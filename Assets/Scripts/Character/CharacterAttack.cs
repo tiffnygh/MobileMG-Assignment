@@ -15,8 +15,10 @@ public class CharacterAttack : MonoBehaviour
     [SerializeField] private int numberOfProjectiles = 5;
     [SerializeField] private float spreadAngle = 45f;
 
-    [Header("AOE Attack Settings")]
+    [Header("Upgrade Attack Settings")]
     [SerializeField] public bool canAOE;
+    [SerializeField] public bool canFreeze;
+
 
     [SerializeField] private float bulletSpawnDistance = 1f;
 
