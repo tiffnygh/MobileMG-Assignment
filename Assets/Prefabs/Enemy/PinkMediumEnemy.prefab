@@ -144,7 +144,7 @@ MonoBehaviour:
   canZigZag: 0
   zigzagChangeTime: 1.5
   nextChangeTime: 0
-  canSpiral: 0
+  canSpiral: 1
   repeatSpiral: 0
   spiralAngle: 0
   spiralSpeed: 360

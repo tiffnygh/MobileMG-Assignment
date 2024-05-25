@@ -6,7 +6,7 @@ public class WaveManager : Singleton<WaveManager>
 {
     [SerializeField] private List<WaveSpawner> allSpawners = new List<WaveSpawner>();
 
-    private int currentWave = 0;
+    private int currentWave = 49;
     private float  waveTimer { get; set; }
 
     [Header("Spawners Setting")]
@@ -104,7 +104,7 @@ public class WaveManager : Singleton<WaveManager>
         }
         else if (wave >= 6 && wave <= 10)
         {
-            SetTimerAndInterval(1f);
+            SetTimerAndInterval(0.5f);
             if (wave == 6) EnableRandomTinySpawner(1);
             if (wave == 7) EnableRandomTinySpawner(2);
             if (wave == 8) EnableRandomTinySpawner(2);
@@ -122,7 +122,7 @@ public class WaveManager : Singleton<WaveManager>
         }
         else if (wave >= 16 && wave <= 20)
         {
-            SetTimerAndInterval(1f);
+            SetTimerAndInterval(0.5f);
             if (wave == 16) EnableRandomMediumSpawner(1);
             if (wave == 17) EnableRandomMediumSpawner(2);
             if (wave == 18) EnableRandomMediumSpawner(2);
@@ -162,7 +162,9 @@ public class WaveManager : Singleton<WaveManager>
         }
         else if (wave == 50)
         {
-            EnableRandomSpawner(7); //Change to boss wave?
+            waveValue = 150;
+            SetTimerAndInterval(ReduceSpawnInterval());
+            EnableSpawnerByName("BossSpawner"); //Change to boss wave?
         }
         else if (wave >= 51)
         {

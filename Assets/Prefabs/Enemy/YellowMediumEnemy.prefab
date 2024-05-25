@@ -138,9 +138,9 @@ MonoBehaviour:
   canForward: 1
   speed: 5
   acceleration: 0
-  canHorizontal: 0
-  horizontalSpeed: 2
-  horizontalDistance: 0.03
+  canHorizontal: 1
+  horizontalSpeed: 1
+  horizontalDistance: 0.1
   canZigZag: 0
   zigzagChangeTime: 1.5
   nextChangeTime: 0

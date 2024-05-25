@@ -18,8 +18,9 @@ GameObject:
   - component: {fileID: 1706066937882862284}
   - component: {fileID: -2784228522545675598}
   - component: {fileID: -7605903965595531382}
+  - component: {fileID: 2956455045871081307}
   m_Layer: 8
-  m_Name: YellowTinyEnemy 1
+  m_Name: BossEnemy
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -136,7 +137,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   canForward: 1
-  speed: 5
+  speed: 3
   acceleration: 0
   canHorizontal: 0
   horizontalSpeed: 2
@@ -144,12 +145,12 @@ MonoBehaviour:
   canZigZag: 0
   zigzagChangeTime: 1.5
   nextChangeTime: 0
-  canSpiral: 0
+  canSpiral: 1
   repeatSpiral: 0
   spiralAngle: 0
   spiralSpeed: 360
   spiralRadius: 2
-  spiralExpansionRate: 10
+  spiralExpansionRate: 2
 --- !u!61 &5201165466777840674
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -291,3 +292,29 @@ MonoBehaviour:
   - {fileID: 131903573573808769, guid: c1f009d75b4181447a56cf8468978806, type: 3}
   RewardMinAmount: 1
   RewardMaxAmount: 8
+--- !u!114 &2956455045871081307
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8731437092521214424}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ffa8ac5df4f44b4428eed02026a9d5e8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemyList:
+  - enemyPrefab: {fileID: 8731437092521214424, guid: 55b645e815c0b4d4789af26fa2c0e998, type: 3}
+    cost: 1
+  - enemyPrefab: {fileID: 8731437092521214424, guid: c483777be0dedc34299b45d016d498a7, type: 3}
+    cost: 1
+  - enemyPrefab: {fileID: 8731437092521214424, guid: 734859407d9381b4ebb4242f5e8fb310, type: 3}
+    cost: 1
+  - enemyPrefab: {fileID: 8731437092521214424, guid: 32f89256663c2a64d8545b451c331d57, type: 3}
+    cost: 1
+  - enemyPrefab: {fileID: 8731437092521214424, guid: 091cd55b139444b4fa775349f72e87ed, type: 3}
+    cost: 1
+  enemiesToSpawn: []
+  spawnInterval: 2
+  enemyValue: 100

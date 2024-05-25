@@ -24,7 +24,7 @@ public class SpawnGenerator : MonoBehaviour
     {
         CalculatePositions();
         PositionObjects();
-        CreateBarrierSegments();
+        //CreateBarrierSegments();
     }
 
 
@@ -69,7 +69,7 @@ public class SpawnGenerator : MonoBehaviour
         foreach (Vector3 pos in positions)
         {
             GameObject obj = new GameObject("EnemySpawnPoint");  // Create a new GameObject for clarity
-            obj.transform.position = player.transform.position + pos;  // Position it relative to the player
+            obj.transform.position = this.transform.position + pos;  // Position it relative to the player
             obj.transform.parent = this.transform;  // Optionally parent it under this object for organization
             
             if (pos.y > 0.5)
