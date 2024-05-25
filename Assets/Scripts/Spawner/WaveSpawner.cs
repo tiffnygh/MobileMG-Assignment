@@ -29,7 +29,7 @@ public class WaveSpawner : MonoBehaviour
 
     //Direciton Integer  
     private int currentDirectionIndex = 0;
-    private List<GameObject> currentSpawner; // Store the current spawner direction for the wave
+    private List<GameObject> currentSpawner { get; set; }// Store the current spawner direction for the wave
 
     private void Awake()
     {
@@ -53,7 +53,10 @@ public class WaveSpawner : MonoBehaviour
             {
                 if (enemiesToSpawn.Count > 0)
                 {
-
+                    if (currentSpawner.Count == 0)
+                    {
+                        currentSpawner = WaveManager.Instance.GetRandomDirection(1);
+                    }
                     //THis code spawn in all direction = random direction
                     /*int randomIndex = Random.Range(0, spawnGenerator.allSpawners.Count);
                     GameObject spawnPoint = spawnGenerator.allSpawners[randomIndex];

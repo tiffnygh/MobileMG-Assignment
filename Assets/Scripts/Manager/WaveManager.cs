@@ -5,9 +5,8 @@ using UnityEngine;
 public class WaveManager : Singleton<WaveManager>
 {
     [SerializeField] private List<WaveSpawner> allSpawners = new List<WaveSpawner>();
-    [SerializeField] private int startingWaves = 1;
 
-    private int currentWave = 1;
+    private int currentWave = 0;
     private float  waveTimer { get; set; }
 
     [Header("Spawners Setting")]
@@ -64,12 +63,17 @@ public class WaveManager : Singleton<WaveManager>
             spawnerDict[spawner.gameObject.name] = spawner;
         }
     }
+    private void SetTimerAndInterval(float interval)
+    {
+        spawnInterval = interval;
+        waveDuration = spawnInterval * waveValue + delayBeforeNextWave;
+        waveTimer = waveDuration;
+    }
 
     private void StartWave()
     {
         currentWave++;
-        waveDuration = spawnInterval * waveValue + delayBeforeNextWave;
-        waveTimer = waveDuration;
+        numberOfDirection++;
         
         Debug.Log("Starting Wave: " + currentWave);
 
@@ -77,19 +81,21 @@ public class WaveManager : Singleton<WaveManager>
         EnableSpawnersForWave(currentWave);
     }
 
-    private void ReduceSpawnInterval()
+    private float ReduceSpawnInterval()
     {
         spawnInterval = Mathf.Max(0.5f, spawnInterval - 0.03f);
+        return spawnInterval;
 
     }
     
     private void EnableSpawnersForWave(int wave)
     {
-        currentSpawnPositions = GetRandomDirection(numberOfDirection);
+        currentSpawnPositions = GetRandomDirection(CalculateNumberOfDirections(wave));
+        //currentSpawnPositions = GetRandomDirection(CalculateNumberOfDirections(wave));
 
         if (wave >= 1 && wave <= 5)
         {
-            spawnInterval = 0.5f;
+            SetTimerAndInterval(0.5f);
             if (wave == 1) EnableSpawnerByName("GreyTinyEnemySpawner");
             if (wave == 2) EnableSpawnerByName("YellowTinyEnemySpawner");
             if (wave == 3) EnableSpawnerByName("GreenTinyEnemySpawner");
@@ -98,7 +104,7 @@ public class WaveManager : Singleton<WaveManager>
         }
         else if (wave >= 6 && wave <= 10)
         {
-            spawnInterval = 1f;
+            SetTimerAndInterval(1f);
             if (wave == 6) EnableRandomTinySpawner(1);
             if (wave == 7) EnableRandomTinySpawner(2);
             if (wave == 8) EnableRandomTinySpawner(2);
@@ -107,7 +113,7 @@ public class WaveManager : Singleton<WaveManager>
         }
         else if (wave >= 11 && wave <= 15)
         {
-            spawnInterval = 0.5f;
+            SetTimerAndInterval(0.5f);
             if (wave == 11) EnableSpawnerByName("GreyMediumEnemySpawner");
             if (wave == 12) EnableSpawnerByName("YellowMediumEnemySpawner");
             if (wave == 13) EnableSpawnerByName("GreenMediumEnemySpawner");
@@ -116,7 +122,7 @@ public class WaveManager : Singleton<WaveManager>
         }
         else if (wave >= 16 && wave <= 20)
         {
-            spawnInterval = 1f;
+            SetTimerAndInterval(1f);
             if (wave == 16) EnableRandomMediumSpawner(1);
             if (wave == 17) EnableRandomMediumSpawner(2);
             if (wave == 18) EnableRandomMediumSpawner(2);
@@ -125,7 +131,7 @@ public class WaveManager : Singleton<WaveManager>
         }
         else if (wave >= 21 && wave <= 25)
         {
-                ReduceSpawnInterval();
+            SetTimerAndInterval(ReduceSpawnInterval());
             if (wave == 21) EnableRandomTinySpawner(1); EnableRandomMediumSpawner(1);
             if (wave == 22) EnableRandomTinySpawner(1); EnableRandomMediumSpawner(1);
             if (wave == 23) EnableRandomTinySpawner(2); EnableRandomMediumSpawner(1);
@@ -134,7 +140,8 @@ public class WaveManager : Singleton<WaveManager>
         }
         else if (wave >= 26 && wave <= 30)
         {
-                ReduceSpawnInterval();
+            SetTimerAndInterval(ReduceSpawnInterval());
+
             if (wave == 26) EnableRandomSpawner(3);
             if (wave == 27) EnableRandomSpawner(3);
             if (wave == 28) EnableRandomSpawner(4);
@@ -143,12 +150,14 @@ public class WaveManager : Singleton<WaveManager>
         }
         else if (wave >= 31 && wave <= 40)
         {
-                ReduceSpawnInterval();
+            SetTimerAndInterval(ReduceSpawnInterval());
+
             EnableRandomSpawner(6);
         }
         else if (wave >= 41 && wave <= 49)
         {
-                ReduceSpawnInterval();
+            SetTimerAndInterval(ReduceSpawnInterval());
+
             EnableRandomSpawner(7);
         }
         else if (wave == 50)
@@ -157,7 +166,8 @@ public class WaveManager : Singleton<WaveManager>
         }
         else if (wave >= 51)
         {
-                ReduceSpawnInterval();
+            SetTimerAndInterval(ReduceSpawnInterval());
+
             EnableRandomSpawner(Random.Range(5,10));
         }
 
@@ -253,7 +263,7 @@ public class WaveManager : Singleton<WaveManager>
     }
     //-------------------------------------------------------Get Spawner Direction----------------------------------------------------------------------
 
-    private List<GameObject> GetRandomDirection(int numberOfDirection)
+    public List<GameObject> GetRandomDirection(int numberOfDirection)
     {
         List<List<GameObject>> allDirections = new List<List<GameObject>>()
         {
@@ -278,6 +288,30 @@ public class WaveManager : Singleton<WaveManager>
         }
 
         return selectedSpawners;
+    }
+
+    private int CalculateNumberOfDirections(int wave)
+    {
+        if (wave % 10 == 0)
+        {
+            return 4;
+        }
+        else if (wave % 10 >= 7)
+        {
+            return 3;
+        }
+        else if (wave % 10 >= 4)
+        {
+            return 2;
+        }
+        else if (wave % 10 < 4)
+        {
+            return 1;
+        }
+        else 
+        { 
+            return 1; 
+        }
     }
 
     //-------------------------------------------------------Check Wave End----------------------------------------------------------------------
