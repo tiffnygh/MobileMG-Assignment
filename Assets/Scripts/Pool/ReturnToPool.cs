@@ -11,6 +11,17 @@ public class ReturnToPool : MonoBehaviour
     [Header("Effects")]
     [SerializeField] private ParticleSystem impactPS;
     [SerializeField] private ParticleSystem freezePS;
+    [SerializeField] private ParticleSystem aoePS;
+    [SerializeField] private ParticleSystem freezeAoePS;
+
+
+    [Header("Effects")]
+    [SerializeField] private GameObject impactPSGameObject;
+    [SerializeField] private GameObject freezePSGameObject;
+    [SerializeField] private GameObject aoePSGameObject;
+    [SerializeField] private GameObject freezeAoePSGameObject;
+
+
 
 
 
@@ -45,15 +56,56 @@ public class ReturnToPool : MonoBehaviour
                 playerProjectile.DisableProjectile();
             }
 
-            if (AttackManager.Instance.canFreeze)
+            if (AttackManager.Instance.canFreeze && !AttackManager.Instance.canAOE)
             {
                 freezePS.Play();
+                Invoke(nameof(Return), AttackManager.Instance.freezeDuration + 0.2f);               
+            }
+            else if (AttackManager.Instance.canFreeze && AttackManager.Instance.canAOE)
+            {
+                freezeAoePS.Play();
                 Invoke(nameof(Return), AttackManager.Instance.freezeDuration + 0.2f);
+            }
+            else if (AttackManager.Instance.canAOE && !AttackManager.Instance.canFreeze)
+            {
+                aoePS.Play();
+                Invoke(nameof(Return), impactPS.main.duration);
             }
             else
             {
                 impactPS.Play();
                 Invoke(nameof(Return), impactPS.main.duration);
+            }
+        }
+        else
+        {
+            if (AttackManager.Instance.canFreeze && !AttackManager.Instance.canAOE)
+            {
+                if (AttackManager.Instance.pierce)
+                {
+                    Instantiate(freezePSGameObject, other.transform.position, Quaternion.identity);
+                }
+            }
+            else if (AttackManager.Instance.canFreeze && AttackManager.Instance.canAOE)
+            {
+                if (AttackManager.Instance.pierce)
+                {
+                    Instantiate(freezeAoePSGameObject, other.transform.position, Quaternion.identity);
+                }
+            }
+            else if (AttackManager.Instance.canAOE && !AttackManager.Instance.canFreeze)
+            {
+                if (AttackManager.Instance.pierce)
+                {
+                    Instantiate(aoePSGameObject, other.transform.position, Quaternion.identity);
+                }
+            }
+            else
+            {
+                if (AttackManager.Instance.pierce && !AttackManager.Instance.canFreeze && !AttackManager.Instance.canAOE)
+                {
+                    Instantiate(impactPSGameObject, other.transform.position, Quaternion.identity);
+                }
             }
         }
     }
