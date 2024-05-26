@@ -1,15 +1,10 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Pool;
 
 public class PlayerProjectile : MonoBehaviour
 {
-    [Header("Damage Settings")]
-    [SerializeField] protected int damage;
-
-    [Header("General Movement Settings")]
-    [SerializeField] private float speed = 100f;
-    [SerializeField] private float acceleration = 0f;
 
     [Header("Horizontal Movement Settings")]
     [SerializeField] public bool canHorizontal;
@@ -66,8 +61,6 @@ public class PlayerProjectile : MonoBehaviour
     {
         playerTransform = GameObject.FindGameObjectWithTag("Player").transform;
 
-        Damage = damage;
-        Speed = speed;
 
         characterAttack = GameObject.FindGameObjectWithTag("Player").GetComponent<CharacterAttack>();
         myRigidbody2D = GetComponent<Rigidbody2D>();
@@ -90,6 +83,7 @@ public class PlayerProjectile : MonoBehaviour
     {
         if (canMove)
         {
+            SetObjectsScale(AttackManager.Instance.scale);
             MoveProjectile();
             FixRotation();
         }
@@ -102,7 +96,7 @@ public class PlayerProjectile : MonoBehaviour
         {
             enemyHealth = collision.GetComponent<Health>();
             enemyHealth.TakeDamage(Damage);
-            //SoundManager.Instance.PlaySound(SoundManager.Instance.ImpactClip, 0.1f);
+            SoundManager.Instance.PlaySound(SoundManager.Instance.DefaultImpactClip, 0.6f);
         }
     }
 
@@ -160,7 +154,7 @@ public class PlayerProjectile : MonoBehaviour
         movement = forwardMovement + horizontalMovement + spiralMovement;
         myRigidbody2D.MovePosition(myRigidbody2D.position + movement);
 
-        Speed += acceleration * Time.deltaTime;
+        Speed += AttackManager.Instance.acceleration * Time.deltaTime;
 
     }
 
@@ -219,6 +213,9 @@ public class PlayerProjectile : MonoBehaviour
 
     public virtual void EnableProjectile()
     {
+        Damage = AttackManager.Instance.damage;
+        Speed = AttackManager.Instance.speed;
+
         if (canSpiral)
         {
             SetPositionAndRotation();
@@ -230,6 +227,11 @@ public class PlayerProjectile : MonoBehaviour
         this.gameObject.SetActive(true);
         Debug.Log("Enable");
 
+    }
+
+    public void SetObjectsScale(Vector3 newScale)
+    {
+        transform.localScale = newScale;
     }
 
 }

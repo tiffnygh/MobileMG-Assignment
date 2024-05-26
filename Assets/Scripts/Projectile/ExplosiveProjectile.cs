@@ -5,27 +5,23 @@ using UnityEngine;
 public class ExplosiveProjectile : MonoBehaviour
 {
     [Header("Explosion Settings")]
-    [SerializeField] private float explosionRadius = 5f;
-    private int explosionDamage;
     [SerializeField] private LayerMask enemyLayer;
 
     private bool hasExploded = false;
 
     private PlayerProjectile projectile;
-    private CharacterAttack characterAttack;
     private FreezeProjectile freezeProjectile;
 
     private void Awake()
     {
         projectile = GetComponent<PlayerProjectile>();
         freezeProjectile = GetComponent<FreezeProjectile>();
-        characterAttack = GameObject.FindGameObjectWithTag("Player").GetComponent<CharacterAttack>();
     }
 
     // Start is called before the first frame update
     void Start()
     {
-        explosionDamage = projectile.Damage;
+        AttackManager.Instance.explosionDamage = Mathf.CeilToInt(projectile.Damage / 2f);
     }
 
     // Update is called once per frame
@@ -48,11 +44,11 @@ public class ExplosiveProjectile : MonoBehaviour
     private void Explode()
     {
         hasExploded = true;
-        Collider2D[] enemies = Physics2D.OverlapCircleAll(transform.position, explosionRadius, enemyLayer);
+        Collider2D[] enemies = Physics2D.OverlapCircleAll(transform.position, AttackManager.Instance.explosionRadius, enemyLayer);
 
         foreach (Collider2D enemy in enemies)
         {
-            enemy.GetComponent<Health>().TakeDamage(explosionDamage);
+            enemy.GetComponent<Health>().TakeDamage(AttackManager.Instance.explosionDamage);
             if (AttackManager.Instance.canFreeze)
             {
                 freezeProjectile.Freeze(enemy);
@@ -75,6 +71,6 @@ public class ExplosiveProjectile : MonoBehaviour
     private void OnDrawGizmosSelected()
     {
         Gizmos.color = Color.red;
-        Gizmos.DrawWireSphere(transform.position, explosionRadius);
+        Gizmos.DrawWireSphere(transform.position, AttackManager.Instance.explosionRadius);
     }
 }

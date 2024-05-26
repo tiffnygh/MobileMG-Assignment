@@ -6,7 +6,7 @@ public class WaveManager : Singleton<WaveManager>
 {
     [SerializeField] private List<WaveSpawner> allSpawners = new List<WaveSpawner>();
 
-    private int currentWave = 49;
+    public int currentWave = 0;
     private float  waveTimer { get; set; }
 
     [Header("Spawners Setting")]
@@ -26,7 +26,6 @@ public class WaveManager : Singleton<WaveManager>
     
     public List<GameObject> currentSpawnPositions; // Store the current spawner direction for the wave
 
-    private int numberOfDirection = 1;
 
 
     protected override void Awake()
@@ -73,7 +72,6 @@ public class WaveManager : Singleton<WaveManager>
     private void StartWave()
     {
         currentWave++;
-        numberOfDirection++;
         
         Debug.Log("Starting Wave: " + currentWave);
 
@@ -306,13 +304,13 @@ public class WaveManager : Singleton<WaveManager>
         {
             return 2;
         }
-        else if (wave % 10 < 4)
+        else if (wave % 10 < 4 && wave % 10 != 0)
         {
             return 1;
         }
         else 
         { 
-            return 1; 
+            return 4; 
         }
     }
 

@@ -4,19 +4,14 @@ using UnityEngine;
 
 public class FreezeProjectile : MonoBehaviour
 {
-    [Header("Freeze Settings")]
-    [SerializeField] public float freezeDuration = 3f;
+
     [SerializeField] private LayerMask enemyLayer;
 
     private bool hasFrozen = false;
 
-    private PlayerProjectile projectile;
-    private CharacterAttack characterAttack;
-
     private void Awake()
     {
-        projectile = GetComponent<PlayerProjectile>();
-        characterAttack = GameObject.FindGameObjectWithTag("Player").GetComponent<CharacterAttack>();
+
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -38,7 +33,8 @@ public class FreezeProjectile : MonoBehaviour
         if (enemyMovement != null && enemy.gameObject.activeSelf)
         {
            StopAllCoroutines();
-           enemyMovement.StartCoroutine(enemyMovement.DisableMovementForDuration(1f));
+           enemy.GetComponent<Health>().FreezeColorFeedback();
+           enemyMovement.StartCoroutine(enemyMovement.DisableMovementForDuration(AttackManager.Instance.freezeDuration));
         }
 
         // Optionally, play freeze animation/sound here
@@ -47,15 +43,6 @@ public class FreezeProjectile : MonoBehaviour
         DisableProjectile();
     }
 
-    private IEnumerator DisableMovementForDuration(EnemyMovement enemyMovement, float duration)
-    {
-        enemyMovement.enabled = false;
-        Debug.Log("DISABLE");
-        yield return new WaitForSeconds(duration);
-        enemyMovement.enabled = true;
-        Debug.Log("ENABLE");
-
-    }
 
     public  void DisableProjectile()
     {

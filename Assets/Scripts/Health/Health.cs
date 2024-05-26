@@ -66,8 +66,6 @@ public class Health : MonoBehaviour
         CurrentHealth -= damage;
         DamageColorFeedback();
 
-        SoundManager.Instance.PlaySound(SoundManager.Instance.DefaultImpactClip, 0.6f);
-
         //UIManager.Instance.UpdateHealth(CurrentHealth, maxHealth, CurrentShield, maxShield, isPlayer);
         //UpdateCharacterHealth();
 
@@ -145,16 +143,23 @@ public class Health : MonoBehaviour
 
     private void DamageColorFeedback()
     {
-        StartCoroutine(ChangeColorForASecond(Color.red));
+        StartCoroutine(ChangeColorForASecond(Color.red, 0.05f, 0f));
     }
 
-    IEnumerator ChangeColorForASecond(Color newColor)
+    public void FreezeColorFeedback()
     {
+        StartCoroutine(ChangeColorForASecond(Color.cyan, AttackManager.Instance.freezeDuration, 0.06f));
+    }
+
+    IEnumerator ChangeColorForASecond(Color newColor, float second, float freezeDelay)
+    {
+        yield return new WaitForSeconds(freezeDelay);
+
         // Change the sprite renderer color to the new color
         spriteRenderer.color = newColor;
 
         // Wait for 1 second
-        yield return new WaitForSeconds(0.05f);
+        yield return new WaitForSeconds(second);
 
         // Change the sprite renderer color back to the original color
         spriteRenderer.color = Color.white;

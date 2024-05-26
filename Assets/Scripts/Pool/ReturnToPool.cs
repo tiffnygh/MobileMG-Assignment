@@ -10,6 +10,8 @@ public class ReturnToPool : MonoBehaviour
 
     [Header("Effects")]
     [SerializeField] private ParticleSystem impactPS;
+    [SerializeField] private ParticleSystem freezePS;
+
 
 
     private PlayerProjectile playerProjectile;
@@ -43,14 +45,14 @@ public class ReturnToPool : MonoBehaviour
                 playerProjectile.DisableProjectile();
             }
 
-            //SoundManager.Instance.PlaySound(SoundManager.Instance.ImpactClip, 0.1f);
-            //impactPS.Play();
-            if (freezeProjectile != null)
+            if (AttackManager.Instance.canFreeze)
             {
-                Invoke(nameof(Return), freezeProjectile.freezeDuration + 0.2f);
+                freezePS.Play();
+                Invoke(nameof(Return), AttackManager.Instance.freezeDuration + 0.2f);
             }
             else
             {
+                impactPS.Play();
                 Invoke(nameof(Return), impactPS.main.duration);
             }
         }
