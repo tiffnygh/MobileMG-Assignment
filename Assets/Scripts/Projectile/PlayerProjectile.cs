@@ -228,6 +228,8 @@ public class PlayerProjectile : MonoBehaviour
         myCollider2D.enabled = true;
 
         this.gameObject.SetActive(true);
-    }   
+        Debug.Log("Enable");
+
+    }
 
 }

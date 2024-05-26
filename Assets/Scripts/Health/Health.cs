@@ -66,6 +66,8 @@ public class Health : MonoBehaviour
         CurrentHealth -= damage;
         DamageColorFeedback();
 
+        SoundManager.Instance.PlaySound(SoundManager.Instance.DefaultImpactClip, 0.6f);
+
         //UIManager.Instance.UpdateHealth(CurrentHealth, maxHealth, CurrentShield, maxShield, isPlayer);
         //UpdateCharacterHealth();
 
@@ -125,6 +127,8 @@ public class Health : MonoBehaviour
         {
             DestroyObject();
         }
+
+        SoundManager.Instance.PlaySound(SoundManager.Instance.EnemyDeadClip, 1f);
 
     }
 

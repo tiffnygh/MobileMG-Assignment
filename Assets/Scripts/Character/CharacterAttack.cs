@@ -6,21 +6,6 @@ using UnityEngine.UI;
 
 public class CharacterAttack : MonoBehaviour
 {
-    [Header("Bullet Type")]
-    [SerializeField] private bool pierce;
-    [SerializeField] private bool canHorinzontal;
-
-    [Header("Spread Attack Settings")]
-    [SerializeField] private bool canSpread;
-    [SerializeField] private int numberOfProjectiles = 5;
-    [SerializeField] private float spreadAngle = 45f;
-
-    [Header("Upgrade Attack Settings")]
-    [SerializeField] public bool canAOE;
-    [SerializeField] public bool canFreeze;
-
-
-    [SerializeField] private float bulletSpawnDistance = 1f;
 
     public  ObjectPooler Pooler;
     private Camera mainCamera;
@@ -48,7 +33,7 @@ public class CharacterAttack : MonoBehaviour
         CheckBulletType();
         if (Input.GetMouseButtonDown(0))
         {
-            if (canSpread)
+            if (AttackManager.Instance.canSpread)
             {
                 ShootSpread();
             }
@@ -85,7 +70,7 @@ public class CharacterAttack : MonoBehaviour
 
     public void CheckBulletType()
     {
-        if (pierce)
+        if (AttackManager.Instance.pierce)
         {
             foreach (GameObject obj in FindObjectsOfType<GameObject>())
             {
@@ -106,7 +91,7 @@ public class CharacterAttack : MonoBehaviour
             }
         }
 
-        if (canHorinzontal)
+        if (AttackManager.Instance.canHorinzontal)
         {
             foreach (GameObject obj in FindObjectsOfType<GameObject>())
             {
@@ -133,7 +118,7 @@ public class CharacterAttack : MonoBehaviour
     public Vector3 GetSpawnProjectileDirectionAndPosition(Vector3 mousePosition)
     {
         direction = (mousePosition - transform.position).normalized;
-        Vector3 spawnPosition = (transform.position + direction * bulletSpawnDistance);
+        Vector3 spawnPosition = (transform.position + direction * AttackManager.Instance.bulletSpawnDistance);
         return spawnPosition;
     }
     public float GetAngleToMousePosition(Vector3 mousePosition)
@@ -144,7 +129,7 @@ public class CharacterAttack : MonoBehaviour
     }
     private void ShootSingle()
     {
-
+        SoundManager.Instance.PlaySound(SoundManager.Instance.DefaultShootClip, 1f);
         GameObject projectile = Pooler.GetObjectFromPool();
         projectile.transform.position = ProjectileSpawnPosition;
         projectile.transform.rotation = Quaternion.Euler(0, 0, Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg);
@@ -157,11 +142,12 @@ public class CharacterAttack : MonoBehaviour
 
     private void ShootSpread()
     {
+        SoundManager.Instance.PlaySound(SoundManager.Instance.DefaultShootClip, 1f);
         Vector3 shootDirection = direction;
-        float angleStep = spreadAngle / (numberOfProjectiles - 1);
-        float startingAngle = -spreadAngle / 2;
+        float angleStep = AttackManager.Instance.spreadAngle / (AttackManager.Instance.numberOfProjectiles - 1);
+        float startingAngle = -AttackManager.Instance.spreadAngle / 2;
 
-        for (int i = 0; i < numberOfProjectiles; i++)
+        for (int i = 0; i < AttackManager.Instance.numberOfProjectiles; i++)
         {
 
             float currentAngle = startingAngle + (angleStep * i);

@@ -43,11 +43,6 @@ public class ReturnToPool : MonoBehaviour
                 playerProjectile.DisableProjectile();
             }
 
-            if (splitShotProjectile != null)
-            {
-                splitShotProjectile.DisableProjectile();
-            }
-
             //SoundManager.Instance.PlaySound(SoundManager.Instance.ImpactClip, 0.1f);
             //impactPS.Play();
             if (freezeProjectile != null)

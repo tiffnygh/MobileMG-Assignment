@@ -38,10 +38,9 @@ public class ExplosiveProjectile : MonoBehaviour
     {
         if (!hasExploded && collision.CompareTag("Enemy") && collision.gameObject.layer != 9)
         {
-            if (characterAttack.canAOE)
+            if (AttackManager.Instance.canAOE)
             {
                 Explode();
-
             }
         }
     }
@@ -54,7 +53,7 @@ public class ExplosiveProjectile : MonoBehaviour
         foreach (Collider2D enemy in enemies)
         {
             enemy.GetComponent<Health>().TakeDamage(explosionDamage);
-            if (characterAttack.canFreeze)
+            if (AttackManager.Instance.canFreeze)
             {
                 freezeProjectile.Freeze(enemy);
             }

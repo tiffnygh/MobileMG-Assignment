@@ -48,6 +48,14 @@ public class ObjectPooler : MonoBehaviour
         return null;
     }
 
+    public void SetAllObjectsScale(Vector3 newScale)
+    {
+        foreach (GameObject obj in pooledObjects)
+        {
+            obj.transform.localScale = newScale;
+        }
+    }
+
     // Adds one object to the pool
     public GameObject AddObjectToPool()
     {

@@ -7,22 +7,22 @@ public class SoundManager : Singleton<SoundManager>
 {
     [Header("Music")]
     [SerializeField] private AudioClip musicClip;
+    [SerializeField] private AudioClip bossMusicClip;
+
 
     [Header("Sounds")]
-    [SerializeField] private AudioClip shootClip;
-    [SerializeField] private AudioClip dashClip;
-    [SerializeField] private AudioClip impactClip;
+    [SerializeField] private AudioClip defaultShootClip;
+    [SerializeField] private AudioClip defaultImpactClip;
+    [SerializeField] private AudioClip enemyDeadClip;
     [SerializeField] private AudioClip coinClip;
-    [SerializeField] private AudioClip itemClip;
     [SerializeField] private AudioClip fireAOEClip;
 
-
-    public AudioClip ShootClip => shootClip;
-    public AudioClip ImpactClip => impactClip;
+    public AudioClip DefaultShootClip => defaultShootClip;
+    public AudioClip DefaultImpactClip => defaultImpactClip;
+    public AudioClip EnemyDeadClip => enemyDeadClip;
     public AudioClip CoinClip => coinClip;
-    public AudioClip ItemClip => itemClip;
-    public AudioClip DashClip => dashClip;
     public AudioClip FireAOEClip => fireAOEClip;
+
 
     private AudioSource musicAudioSource;
     private ObjectPooler soundObjectPooler;

@@ -23,7 +23,7 @@ public class FreezeProjectile : MonoBehaviour
     {
         if (!hasFrozen && collision.CompareTag("Enemy"))
         {
-            if (characterAttack.canFreeze)
+            if (AttackManager.Instance.canFreeze)
             {
                 Freeze(collision);
             }

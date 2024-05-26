@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SplitShotProjectile : PlayerProjectile
+public class SplitShotProjectile : MonoBehaviour
 {
 
     [Header("Split Settings")]
@@ -10,8 +10,18 @@ public class SplitShotProjectile : PlayerProjectile
     [SerializeField] private float splitDelay = 0.5f;
     [SerializeField] private float splitSpeed = 100f;
 
-    private bool hasSplit;
+    private bool hasSplit = false;
 
+    private PlayerProjectile projectile;
+    private CharacterAttack characterAttack;
+    private FreezeProjectile freezeProjectile;
+
+    private void Awake()
+    {
+        projectile = GetComponent<PlayerProjectile>();
+        freezeProjectile = GetComponent<FreezeProjectile>();
+        characterAttack = GameObject.FindGameObjectWithTag("Player").GetComponent<CharacterAttack>();
+    }
     // Start is called before the first frame update
     void Start()
     {
@@ -28,12 +38,12 @@ public class SplitShotProjectile : PlayerProjectile
     {
         if (!hasSplit && collision.CompareTag("Enemy") && collision.gameObject.layer != 9)
         {
-            collision.GetComponent<Health>().TakeDamage(Damage);
+            collision.GetComponent<Health>().TakeDamage(projectile.Damage);
             Split();
         }
         else if (hasSplit && collision.CompareTag("Enemy") && collision.gameObject.layer != 9)
         {
-            collision.GetComponent<Health>().TakeDamage(Damage);
+            collision.GetComponent<Health>().TakeDamage(projectile.Damage);
         }
     }
 
@@ -44,28 +54,22 @@ public class SplitShotProjectile : PlayerProjectile
         for (int i = 0; i < numberOfSplits; i++)
         {
             GameObject newProjectile = characterAttack.Pooler.GetObjectFromPool();
-            SplitShotProjectile splitProjectile = newProjectile.GetComponent<SplitShotProjectile>();
 
             Vector2 splitDirection = Random.insideUnitCircle.normalized;
             newProjectile.transform.position = transform.position;
             newProjectile.transform.rotation = Quaternion.Euler(0, 0, Mathf.Atan2(splitDirection.y, splitDirection.x) * Mathf.Rad2Deg);
 
-            splitProjectile.Direction = splitDirection;
-            splitProjectile.hasSplit = true;
-            splitProjectile.Speed = splitSpeed;
-            splitProjectile.EnableProjectile();
+            newProjectile.GetComponent<PlayerProjectile>().Direction = splitDirection;
+            newProjectile.GetComponent<SplitShotProjectile>().hasSplit = true;
+            newProjectile.GetComponent<PlayerProjectile>().Speed = splitSpeed;
+            newProjectile.GetComponent<PlayerProjectile>().EnableProjectile();
         }
 
         // Optionally, play split animation/sound here
 
         // Return the original projectile to the pool
-        DisableProjectile();
-    }
-
-
-    public override void EnableProjectile()
-    {
-        base.EnableProjectile();
         hasSplit = false;
+
     }
+
 }
