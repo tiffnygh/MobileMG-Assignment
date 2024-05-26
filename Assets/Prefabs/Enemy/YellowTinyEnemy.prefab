@@ -140,7 +140,7 @@ MonoBehaviour:
   acceleration: 0
   canHorizontal: 1
   horizontalSpeed: 1
-  horizontalDistance: 0.1
+  horizontalDistance: 0.02
   canZigZag: 0
   zigzagChangeTime: 1.5
   nextChangeTime: 0

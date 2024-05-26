@@ -149,7 +149,7 @@ MonoBehaviour:
   spiralAngle: 0
   spiralSpeed: 360
   spiralRadius: 2
-  spiralExpansionRate: 10
+  spiralExpansionRate: 8
 --- !u!61 &5201165466777840674
 BoxCollider2D:
   m_ObjectHideFlags: 0
