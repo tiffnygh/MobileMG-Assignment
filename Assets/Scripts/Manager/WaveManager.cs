@@ -93,7 +93,7 @@ public class WaveManager : Singleton<WaveManager>
 
         if (wave >= 1 && wave <= 5)
         {
-            SetTimerAndInterval(0.5f);
+            SetTimerAndInterval(1f);
             if (wave == 1) EnableSpawnerByName("GreyTinyEnemySpawner");
             if (wave == 2) EnableSpawnerByName("YellowTinyEnemySpawner");
             if (wave == 3) EnableSpawnerByName("GreenTinyEnemySpawner");

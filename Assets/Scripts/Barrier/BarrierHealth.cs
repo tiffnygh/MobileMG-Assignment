@@ -19,7 +19,10 @@ public class BarrierHealth : MonoBehaviour
         public int currentHealth { get; set; }
     }
 
-
+    private void Awake()
+    {
+        UIManager.Instance.UpdateBarrierHealth(topSegment.maxHealt, topSegment.currentHealth, downSegment.currentHealth, leftSegment.currentHealth, rightSegment.currentHealth);
+    }
     // Start is called before the first frame update
     void Start()
     {
@@ -29,6 +32,7 @@ public class BarrierHealth : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        UIManager.Instance.UpdateBarrierHealth(topSegment.maxHealt, topSegment.currentHealth, downSegment.currentHealth, leftSegment.currentHealth, rightSegment.currentHealth);
 
     }
     public void ResetHealth()
@@ -47,6 +51,7 @@ public class BarrierHealth : MonoBehaviour
             segment.currentHealth = Mathf.Max(segment.currentHealth, 0);
             //Debug.Log(segmentName + " segment took " + damage + " damage, remaining health: " + segment.currentHealth);
         }
+
     }
 
     private SegmentHealth GetSegment(string name)

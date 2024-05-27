@@ -7,36 +7,24 @@ using TMPro;
 
 public class UIManager : Singleton<UIManager>
 {
-    [Header("Settings")]
-    [SerializeField] private Image healthBar;
-    [SerializeField] private Image shieldBar;
-    [SerializeField] private TextMeshProUGUI currentHealthTMP;
-    [SerializeField] private TextMeshProUGUI currentShieldTMP;
+    [Header("Barrier Health")]
+    [SerializeField] private Image topHealthBar;
+    [SerializeField] private Image bottomHealthBar;
+    [SerializeField] private Image leftHealthBar;
+    [SerializeField] private Image rightHealthBar;
 
-    [Header("Weapon")]
-    [SerializeField] private TextMeshProUGUI currentAmmoTMP;
-    [SerializeField] private Image weaponImage;
-
-    [Header("Text")]
-    [SerializeField] private TextMeshProUGUI coinsTMP;
-
-    [Header("Boss")]
-    [SerializeField] private Image bossHealth;
-    [SerializeField] private GameObject bossHealthBarPanel;
-    [SerializeField] private GameObject bossIntroPanel;
+    [SerializeField] private TextMeshProUGUI topCurrentHealthTMP;
+    [SerializeField] private TextMeshProUGUI bottomCurrentHealthTMP;
+    [SerializeField] private TextMeshProUGUI leftCurrentHealthTMP;
+    [SerializeField] private TextMeshProUGUI rightCurrentHealthTMP;
 
 
-    private float playerCurrentHealth;
-    private float playerMaxHealth;
-    private float playerMaxShield;
-    private float playerCurrentShield;
-    private bool isPlayer;
+    private int barrierMaxHealth;
+    private int topBarrierHealth;
+    private int bottomBarrierHealth;
+    private int leftBarrierHealth;
+    private int rightBarrierHealth;
 
-    private int playerCurrentAmmo;
-    private int playerMaxAmmo;
-
-    private float bossCurrentHealth;
-    private float bossMaxHealth;
 
 
 
@@ -45,82 +33,36 @@ public class UIManager : Singleton<UIManager>
         InternalUpdate();
     }
 
-    public void UpdateHealth(float currentHealth, float maxHealth, float currentShield, float maxShield, bool isThisMyPlayer)
+    public void UpdateBarrierHealth(int maxHealth, int topHealth, int bottomHealth, int leftHealth, int rightHealth)
     {
-        playerCurrentHealth = currentHealth;
-        playerMaxHealth = maxHealth;
-        playerCurrentShield = currentShield;
-        playerMaxShield = maxShield;
-        isPlayer = isThisMyPlayer;
-    }
-
-    public void UpdateBossHealth(float currentHealth, float maxHealth)
-    {
-        bossCurrentHealth = currentHealth;
-        bossMaxHealth = maxHealth;
-    }
-
-
-    public void UpdateWeaponSprite(Sprite weaponSprite)
-    {
-        weaponImage.sprite = weaponSprite;
-        weaponImage.SetNativeSize();
-    }
-
-
-    public void UpdateAmmo(int currentAmmo, int maxAmmo)
-    {
-        playerCurrentAmmo = currentAmmo;
-        playerMaxAmmo = maxAmmo;
+        barrierMaxHealth = maxHealth;
+        topBarrierHealth = topHealth;   
+        bottomBarrierHealth = bottomHealth;
+        leftBarrierHealth = leftHealth;
+        rightBarrierHealth = rightHealth;
     }
 
 
     private void InternalUpdate()
     {
-        if (isPlayer)
-        {
-            healthBar.fillAmount = Mathf.Lerp(healthBar.fillAmount, playerCurrentHealth / playerMaxHealth, 10f * Time.deltaTime);
-            currentHealthTMP.text = playerCurrentHealth.ToString() + "/" + playerMaxHealth.ToString();
+        topHealthBar.fillAmount = Mathf.Lerp(topHealthBar.fillAmount, (float)topBarrierHealth/barrierMaxHealth, 10f * Time.deltaTime);        
+        bottomHealthBar.fillAmount = Mathf.Lerp(bottomHealthBar.fillAmount, (float)bottomBarrierHealth /barrierMaxHealth, 10f * Time.deltaTime);
+        leftHealthBar.fillAmount = Mathf.Lerp(leftHealthBar.fillAmount, (float)leftBarrierHealth /barrierMaxHealth, 10f * Time.deltaTime);
+        rightHealthBar.fillAmount = Mathf.Lerp(rightHealthBar.fillAmount, (float)rightBarrierHealth /barrierMaxHealth, 10f * Time.deltaTime);
+        Debug.Log(topHealthBar.fillAmount);
+        Debug.Log(topBarrierHealth);
+        Debug.Log(barrierMaxHealth);
 
-            shieldBar.fillAmount = Mathf.Lerp(shieldBar.fillAmount, playerCurrentShield / playerMaxShield, 10f * Time.deltaTime);
-            currentShieldTMP.text = playerCurrentShield.ToString() + "/" + playerMaxShield.ToString();
-        }
 
-        // Update Ammo
-        currentAmmoTMP.text = playerCurrentAmmo + " / " + playerMaxAmmo;
+        topCurrentHealthTMP.text = topBarrierHealth.ToString() + "/" + barrierMaxHealth.ToString();
+        bottomCurrentHealthTMP.text = bottomBarrierHealth.ToString() + "/" + barrierMaxHealth.ToString();
+        leftCurrentHealthTMP.text = leftBarrierHealth.ToString() + "/" + barrierMaxHealth.ToString();
+        rightCurrentHealthTMP.text = rightBarrierHealth.ToString() + "/" + barrierMaxHealth.ToString();
 
         // Update Coins
         //coinsTMP.text = CoinManager.Instance.Coins.ToString();
-
-        // Update Boss Health
-        bossHealth.fillAmount = Mathf.Lerp(bossHealth.fillAmount, bossCurrentHealth / bossMaxHealth, 10f * Time.deltaTime);
-
     }
     /*
-    private IEnumerator BossFight()
-    {
-        bossIntroPanel.SetActive(true);
-        StartCoroutine(MyLibrary.FadeCanvasGroup(bossIntroPanel.GetComponent<CanvasGroup>(), 1f, 1f));
-
-        // Move Camera -> Boss
-        Camera2D.Instance.Target = LevelManager.Instance.Boss;
-        Camera2D.Instance.Offset = new Vector2(0f, -3f);  // Depends on personal setting on Boss location
-
-        yield return new WaitForSeconds(3f);
-
-        // Go back to the player
-        Camera2D.Instance.Target = LevelManager.Instance.Player;
-        Camera2D.Instance.Offset = Camera2D.Instance.PlayerOffset;
-
-        // Show Boss HealthBar
-        StartCoroutine(MyLibrary.FadeCanvasGroup(bossIntroPanel.GetComponent<CanvasGroup>(), 1f, 0f, () =>
-        {
-            bossIntroPanel.SetActive(false);
-            bossHealthBarPanel.SetActive(true);
-            StartCoroutine(MyLibrary.FadeCanvasGroup(bossHealthBarPanel.GetComponent<CanvasGroup>(), 1f, 1f));
-        }));
-    }
-
     private void OnBossDead()
     {
         StartCoroutine(MyLibrary.FadeCanvasGroup(bossHealthBarPanel.GetComponent<CanvasGroup>(), 1f, 0f, () =>
