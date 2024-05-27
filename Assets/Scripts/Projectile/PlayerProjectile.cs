@@ -222,11 +222,16 @@ public class PlayerProjectile : MonoBehaviour
         }
         canMove = true;
         spriteRenderer.enabled = true;
-        myCollider2D.enabled = true;
-
         this.gameObject.SetActive(true);
+        StartCoroutine(WaitBeforeEnablingCollider());
         Debug.Log("Enable");
 
+    }
+    
+    private IEnumerator WaitBeforeEnablingCollider()
+    {
+        yield return new WaitForSeconds(0.2f);
+        myCollider2D.enabled = true;
     }
 
     public void SetObjectsScale(Vector3 newScale)
