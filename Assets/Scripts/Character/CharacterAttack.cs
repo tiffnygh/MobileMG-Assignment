@@ -34,6 +34,7 @@ public class CharacterAttack : MonoBehaviour
         CheckBulletType();
         if (Input.GetMouseButtonDown(0))
         {
+            ProjectileSpawnPosition = GetSpawnProjectileDirectionAndPosition(GetWorldPosition());
             if (AttackManager.Instance.canSpread)
             {
                 ShootSpread();
@@ -47,7 +48,6 @@ public class CharacterAttack : MonoBehaviour
 
     private void FixedUpdate()
     {
-        ProjectileSpawnPosition = GetSpawnProjectileDirectionAndPosition(GetWorldPosition());
 
     }
     public Vector3 GetWorldPosition()
