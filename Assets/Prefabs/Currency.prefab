@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 6700455050289010844}
   - component: {fileID: 6483799424884810932}
   m_Layer: 6
-  m_Name: Coin
+  m_Name: Currency
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -31,9 +31,9 @@ Transform:
   m_GameObject: {fileID: 131903573573808769}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.04, y: 0.23, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 0.3, y: 0.3, z: 0.3}
+  m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -78,7 +78,7 @@ SpriteRenderer:
   m_SortingLayerID: 1320506099
   m_SortingLayer: 3
   m_SortingOrder: 0
-  m_Sprite: {fileID: 666516741, guid: c7287c27fb458d345ae5b4cea51b738a, type: 3}
+  m_Sprite: {fileID: 1945280308, guid: c0515533e53e4d54c925e39edf6d6e22, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -158,7 +158,7 @@ CircleCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Radius: 0.125
+  m_Radius: 0.18845339
 --- !u!50 &6700455050289010844
 Rigidbody2D:
   serializedVersion: 4

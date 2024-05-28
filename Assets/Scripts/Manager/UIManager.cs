@@ -17,6 +17,9 @@ public class UIManager : Singleton<UIManager>
     [SerializeField] private TextMeshProUGUI bottomCurrentHealthTMP;
     [SerializeField] private TextMeshProUGUI leftCurrentHealthTMP;
     [SerializeField] private TextMeshProUGUI rightCurrentHealthTMP;
+    
+    [Header("Currency")]
+    [SerializeField] private TextMeshProUGUI currencyTMP;
 
 
     private int barrierMaxHealth;
@@ -60,7 +63,7 @@ public class UIManager : Singleton<UIManager>
         rightCurrentHealthTMP.text = rightBarrierHealth.ToString() + "/" + barrierMaxHealth.ToString();
 
         // Update Coins
-        //coinsTMP.text = CoinManager.Instance.Coins.ToString();
+        currencyTMP.text = CoinManager.Instance.Coins.ToString();
     }
     /*
     private void OnBossDead()
