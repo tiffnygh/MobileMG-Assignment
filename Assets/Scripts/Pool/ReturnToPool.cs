@@ -63,16 +63,19 @@ public class ReturnToPool : MonoBehaviour
             }
             else if (AttackManager.Instance.canFreeze && AttackManager.Instance.canAOE)
             {
+                AdjustParticleSystemScale(freezeAoePS);
                 freezeAoePS.Play();
                 Invoke(nameof(Return), AttackManager.Instance.freezeDuration + 0.2f);
             }
             else if (AttackManager.Instance.canAOE && !AttackManager.Instance.canFreeze)
             {
+                AdjustParticleSystemScale(aoePS);
                 aoePS.Play();
                 Invoke(nameof(Return), impactPS.main.duration);
             }
             else
             {
+
                 impactPS.Play();
                 Invoke(nameof(Return), impactPS.main.duration);
             }
@@ -90,6 +93,7 @@ public class ReturnToPool : MonoBehaviour
             {
                 if (AttackManager.Instance.pierce)
                 {
+                    AdjustPrefabScale(freezeAoePSGameObject);
                     Instantiate(freezeAoePSGameObject, other.transform.position, Quaternion.identity);
                 }
             }
@@ -97,6 +101,7 @@ public class ReturnToPool : MonoBehaviour
             {
                 if (AttackManager.Instance.pierce)
                 {
+                    AdjustPrefabScale(aoePSGameObject);
                     Instantiate(aoePSGameObject, other.transform.position, Quaternion.identity);
                 }
             }
@@ -108,6 +113,21 @@ public class ReturnToPool : MonoBehaviour
                 }
             }
         }
+    }
+
+    private void AdjustPrefabScale(GameObject prefabInstance)
+    {
+        float scale = AttackManager.Instance.explosionRadius * 2;
+        prefabInstance.transform.localScale = new Vector3(scale, scale, scale);
+    }
+
+    private void AdjustParticleSystemScale(ParticleSystem particleSystem)
+    {
+        float scale = AttackManager.Instance.explosionRadius * 2;
+
+        GameObject main = particleSystem.gameObject;
+        main.transform.localScale = new Vector3(scale, scale, scale);
+        // If you have other scaling properties, adjust them accordingly
     }
 
 

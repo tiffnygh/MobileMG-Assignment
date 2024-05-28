@@ -37,7 +37,7 @@ public class AttackManager : Singleton<AttackManager>
     public bool canAOE;
     public float aoeSkillDuration;
     public float aoeCooldownDuration;
-    public float explosionRadius = 5f;
+    public float explosionRadius;
     public int explosionDamage;
 
     [Header("Freeze Settings")]
