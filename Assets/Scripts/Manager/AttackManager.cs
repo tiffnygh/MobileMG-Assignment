@@ -79,6 +79,10 @@ public class AttackManager : Singleton<AttackManager>
         
     }
 
+    public void IncreaseSpeed(float amount)
+    {
+        speed += amount;
+    }
     private IEnumerator ActivateSkill(string skill)
     {
         switch (skill)

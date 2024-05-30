@@ -5,17 +5,32 @@ using UnityEngine;
 public class CoinManager : Singleton<CoinManager>
 {
     public int Coins { get; set; }
+    private bool initialized = false; // To check if the coins have been initialized
 
     private readonly string COINS_KEY = "MyGame_MyCoins_DontCheat";
 
+    
     private void Start()
     {
+        PlayerPrefs.DeleteAll();
         LoadCoins();
+    }
+
+    private void Update()
+    {
+        if (Input.GetKeyUp(KeyCode.P))
+        {
+            AddCoins(100000);
+        }
     }
 
     private void LoadCoins()
     {
-        Coins = PlayerPrefs.GetInt(COINS_KEY);
+        if (!initialized)
+        {
+            Coins = PlayerPrefs.GetInt(COINS_KEY, 0);
+            initialized = true;
+        }
     }
 
     public void AddCoins(int amount)
