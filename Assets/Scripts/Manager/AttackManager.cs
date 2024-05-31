@@ -197,7 +197,7 @@ public class AttackManager : Singleton<AttackManager>
     }
     public bool IncreaseBlastDuration(float amount)
     {
-        if (aoeSkillDuration >= 10)
+        if (aoeSkillDuration >= 8)
         {
             Debug.Log("Max Upgrade");
             return false;
@@ -217,7 +217,7 @@ public class AttackManager : Singleton<AttackManager>
     }
     public bool IncreaseFreezeDuration(float amount)
     {
-        if (freezeSkillDuration >= 10)
+        if (freezeSkillDuration >= 8)
         {
             Debug.Log("Max Upgrade");
             return false;

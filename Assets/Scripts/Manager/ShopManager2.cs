@@ -70,23 +70,24 @@ public class ShopManager2 : MonoBehaviour
  
         spreadDurationUpgradeButton.onClick.AddListener(OnSpreadDurationUpgrade);
         spreadCooldownUpgradeButton.onClick.AddListener(OnSpreadCooldownUpgrade);
-        /*
+
          blastDurationUpgradeButton.onClick.AddListener(OnBlastDurationUpgrade);
          blastCooldownUpgradeButton.onClick.AddListener(OnBlastCooldownUpgrade);
+
          freezeDurationUpgradeButton.onClick.AddListener(OnFreezeDurationUpgrade);
          freezeCooldownUpgradeButton.onClick.AddListener(OnFreezeCooldownUpgrade);
-         */
-        UpdatePierceDurationButton();
-        UpdatePierceCooldownButton();
 
-        UpdateSpreadDurationButton();
-        UpdateSpreadCooldownButton();
-        /*
-        UpdateBlastDurationButton();
-        UpdateBlastCooldownButton();
-        UpdateFreezeDurationButton();
-        UpdateFreezeCooldownButton();
-        */
+         UpdatePierceDurationButton();
+         UpdatePierceCooldownButton();
+
+         UpdateSpreadDurationButton();
+         UpdateSpreadCooldownButton();
+
+         UpdateBlastDurationButton();
+         UpdateBlastCooldownButton();
+
+         UpdateFreezeDurationButton();
+         UpdateFreezeCooldownButton();
     }
 
     // Update is called once per frame
@@ -201,12 +202,12 @@ public class ShopManager2 : MonoBehaviour
 
         if (spreadDurationCost < spreadDurationMaxCost)
         {
-            spreadDurationCost = Mathf.RoundToInt(spreadDurationCost * 1.5f);
+            spreadDurationCost = Mathf.RoundToInt(spreadDurationCost * 1.7f);
 
         }
         else
         {
-            spreadDurationCost += spreadDurationCost / 20;
+            spreadDurationCost += spreadDurationCost / 15;
         }
         UpdateSpreadDurationButton();
     }
@@ -269,18 +270,174 @@ public class ShopManager2 : MonoBehaviour
     #endregion
 
     #region BlastDuration
+    public void OnBlastDurationUpgrade()
+    {
+        if (CoinManager.Instance.Coins >= blastDurationCost)
+        {
+            if (!AttackManager.Instance.IncreaseBlastDuration(0.5f))
+            {
+                return;
+            }
+            CoinManager.Instance.Coins -= blastDurationCost;
+        }
+        else
+        {
+            Debug.Log("Not Enought Money");
+            return;
+        }
 
+        if (blastDurationCost < blastDurationMaxCost)
+        {
+            blastDurationCost = Mathf.RoundToInt(blastDurationCost * 1.7f);
+
+        }
+        else
+        {
+            blastDurationCost += blastDurationCost / 15;
+        }
+        UpdateBlastDurationButton();
+    }
+
+    private void UpdateBlastDurationButton()
+    {
+        if (AttackManager.Instance.aoeSkillDuration >= 8)
+        {
+            blastDurationDescription.text = "Duration : " + AttackManager.Instance.aoeSkillDuration.ToString();
+            blastDurationCostText.text = "Maxed";
+            return;
+        }
+        float newStat = AttackManager.Instance.aoeSkillDuration + 0.5f;
+        blastDurationDescription.text = "Duration : " + AttackManager.Instance.aoeSkillDuration.ToString() + " -> " + newStat.ToString();
+        blastDurationCostText.text = "Cost : " + blastDurationCost.ToString();
+    }
     #endregion
 
     #region BlastCooldown
+    public void OnBlastCooldownUpgrade()
+    {
+        if (CoinManager.Instance.Coins >= blastCooldownCost)
+        {
+            if (!AttackManager.Instance.DecreaseBlastCooldownDuration(2))
+            {
+                return;
+            }
+            CoinManager.Instance.Coins -= blastCooldownCost;
+        }
+        else
+        {
+            Debug.Log("Not Enought Money");
+            return;
+        }
 
+        if (blastCooldownCost < blastCooldownMaxCost)
+        {
+            blastCooldownCost = Mathf.RoundToInt(blastCooldownCost * 1.8f);
+
+        }
+        else
+        {
+            blastCooldownCost += blastCooldownCost / 10;
+        }
+        UpdateBlastCooldownButton();
+    }
+
+    private void UpdateBlastCooldownButton()
+    {
+        if (AttackManager.Instance.aoeCooldownDuration <= 6)
+        {
+            blastCooldownDescription.text = "Cooldown : " + AttackManager.Instance.aoeCooldownDuration.ToString();
+            blastCooldownCostText.text = "Maxed";
+            return;
+        }
+        float newStat = AttackManager.Instance.aoeCooldownDuration - 2;
+        blastCooldownDescription.text = "Cooldown : " + AttackManager.Instance.aoeCooldownDuration.ToString() + " -> " + newStat.ToString();
+        blastCooldownCostText.text = "Cost : " + blastCooldownCost.ToString();
+    }
     #endregion
 
     #region FreezeDuration
+    public void OnFreezeDurationUpgrade()
+    {
+        if (CoinManager.Instance.Coins >= freezeDurationCost)
+        {
+            if (!AttackManager.Instance.IncreaseFreezeDuration(0.5f))
+            {
+                return;
+            }
+            CoinManager.Instance.Coins -= freezeDurationCost;
+        }
+        else
+        {
+            Debug.Log("Not Enought Money");
+            return;
+        }
 
+        if (freezeDurationCost < freezeDurationMaxCost)
+        {
+            freezeDurationCost = Mathf.RoundToInt(freezeDurationCost * 1.7f);
+
+        }
+        else
+        {
+            freezeDurationCost += freezeDurationCost / 15;
+        }
+        UpdateFreezeDurationButton();
+    }
+
+    private void UpdateFreezeDurationButton()
+    {
+        if (AttackManager.Instance.freezeSkillDuration >= 8)
+        {
+            freezeDurationDescription.text = "Duration : " + AttackManager.Instance.freezeSkillDuration.ToString();
+            freezeDurationCostText.text = "Maxed";
+            return;
+        }
+        float newStat = AttackManager.Instance.freezeSkillDuration + 0.5f;
+        freezeDurationDescription.text = "Duration : " + AttackManager.Instance.freezeSkillDuration.ToString() + " -> " + newStat.ToString();
+        freezeDurationCostText.text = "Cost : " + freezeDurationCost.ToString();
+    }
     #endregion
 
     #region FreezeCooldown
+    public void OnFreezeCooldownUpgrade()
+    {
+        if (CoinManager.Instance.Coins >= freezeCooldownCost)
+        {
+            if (!AttackManager.Instance.DecreaseFreezeCooldownDuration(2))
+            {
+                return;
+            }
+            CoinManager.Instance.Coins -= freezeCooldownCost;
+        }
+        else
+        {
+            Debug.Log("Not Enought Money");
+            return;
+        }
 
+        if (freezeCooldownCost < freezeCooldownMaxCost)
+        {
+            freezeCooldownCost = Mathf.RoundToInt(freezeCooldownCost * 1.8f);
+
+        }
+        else
+        {
+            freezeCooldownCost += freezeCooldownCost / 10;
+        }
+        UpdateFreezeCooldownButton();
+    }
+
+    private void UpdateFreezeCooldownButton()
+    {
+        if (AttackManager.Instance.freezeCooldownDuration <= 6)
+        {
+            freezeCooldownDescription.text = "Cooldown : " + AttackManager.Instance.freezeCooldownDuration.ToString();
+            freezeCooldownCostText.text = "Maxed";
+            return;
+        }
+        float newStat = AttackManager.Instance.freezeCooldownDuration - 2;
+        freezeCooldownDescription.text = "Cooldown : " + AttackManager.Instance.freezeCooldownDuration.ToString() + " -> " + newStat.ToString();
+        freezeCooldownCostText.text = "Cost : " + freezeCooldownCost.ToString();
+    }
     #endregion
 }
