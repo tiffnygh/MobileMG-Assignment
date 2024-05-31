@@ -4,6 +4,7 @@ using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Pool;
 using UnityEngine.UI;
+using UnityEngine.EventSystems;
 
 public class CharacterAttack : MonoBehaviour
 {
@@ -32,16 +33,38 @@ public class CharacterAttack : MonoBehaviour
     void Update()
     {
         CheckBulletType();
-        if (Input.GetMouseButtonDown(0))
+        if(Application.isMobilePlatform)
         {
-            ProjectileSpawnPosition = GetSpawnProjectileDirectionAndPosition(GetWorldPosition());
-            if (AttackManager.Instance.canSpread)
+            for (int i = 0; i < Input.touchCount; i++)
             {
-                ShootSpread();
+                Touch touch = Input.GetTouch(i);
+                if (touch.phase == TouchPhase.Began && !IsPointerOverUIObject(touch.fingerId))
+                {
+                    ProjectileSpawnPosition = GetSpawnProjectileDirectionAndPosition(GetWorldPosition(touch.position));
+                    if (AttackManager.Instance.canSpread)
+                    {
+                        ShootSpread();
+                    }
+                    else
+                    {
+                        ShootSingle();
+                    }
+                }
             }
-            else
+        }
+        else
+        {
+            if (Input.GetMouseButtonDown(0) && !IsPointerOverUIObject())
             {
-                ShootSingle();
+                ProjectileSpawnPosition = GetSpawnProjectileDirectionAndPosition(GetWorldPosition(Input.mousePosition));
+                if (AttackManager.Instance.canSpread)
+                {
+                    ShootSpread();
+                }
+                else
+                {
+                    ShootSingle();
+                }
             }
         }
     }
@@ -50,6 +73,13 @@ public class CharacterAttack : MonoBehaviour
     {
 
     }
+    public Vector3 GetWorldPosition(Vector3 inputPosition)
+    {
+        inputPosition.z = 1; // Set this to the correct distance from the camera
+        newMousePosition = mainCamera.ScreenToWorldPoint(inputPosition);
+        return newMousePosition;
+    }
+    /*
     public Vector3 GetWorldPosition()
     {
         mousePosition = Vector3.zero;
@@ -67,7 +97,7 @@ public class CharacterAttack : MonoBehaviour
         mousePosition.z = 1; 
         newMousePosition = mainCamera.ScreenToWorldPoint(mousePosition);
         return newMousePosition;
-    }
+    }*/
 
     public void CheckBulletType()
     {
@@ -116,6 +146,14 @@ public class CharacterAttack : MonoBehaviour
         }
     }
 
+    private bool IsPointerOverUIObject(int fingerId = -1)
+    {
+        if (fingerId >= 0)
+        {
+            return EventSystem.current.IsPointerOverGameObject(fingerId);
+        }
+        return EventSystem.current.IsPointerOverGameObject();
+    }
 
     public Vector3 GetSpawnProjectileDirectionAndPosition(Vector3 mousePosition)
     {
