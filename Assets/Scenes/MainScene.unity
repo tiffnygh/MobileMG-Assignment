@@ -5380,6 +5380,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ba14d12c3b657a3419233f398b3c986d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  CurrencyText: {fileID: 0}
 --- !u!4 &866927847
 Transform:
   m_ObjectHideFlags: 0
@@ -8781,7 +8782,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: 0, y: 439.59497}
+  m_AnchoredPosition: {x: -618.1, y: 439.59497}
   m_SizeDelta: {x: 800, y: 350}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1412647362
@@ -11234,6 +11235,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1732354243}
+  - component: {fileID: 1732354244}
   m_Layer: 0
   m_Name: ShopManager
   m_TagString: Untagged
@@ -11256,6 +11258,28 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1732354244
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1732354242}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 68727b57161947a4f9f9637adc8adef0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speedUpgradeButton: {fileID: 1412647362}
+  speedDescription: {fileID: 45784671}
+  speedCostText: {fileID: 1552931880}
+  speedCost: 5
+  speedMaxCost: 5000
+  damageUpgradeButton: {fileID: 2044562835}
+  damageDescription: {fileID: 543289706}
+  damageCostText: {fileID: 1988088206}
+  damageCost: 2500
+  damageMaxCost: 10000
 --- !u!1 &1750395382
 GameObject:
   m_ObjectHideFlags: 0

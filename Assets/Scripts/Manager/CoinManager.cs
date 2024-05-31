@@ -1,5 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class CoinManager : Singleton<CoinManager>
@@ -8,6 +10,8 @@ public class CoinManager : Singleton<CoinManager>
     private bool initialized = false; // To check if the coins have been initialized
 
     private readonly string COINS_KEY = "MyGame_MyCoins_DontCheat";
+
+    public TextMeshProUGUI CurrencyText;
 
     
     private void Start()
@@ -20,7 +24,7 @@ public class CoinManager : Singleton<CoinManager>
     {
         if (Input.GetKeyUp(KeyCode.P))
         {
-            AddCoins(100000);
+            AddCoins(1000000000);
         }
     }
 
@@ -44,4 +48,5 @@ public class CoinManager : Singleton<CoinManager>
         Coins -= amount;
         PlayerPrefs.SetInt(COINS_KEY, Coins);
     }
+
 }

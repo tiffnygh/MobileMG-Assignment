@@ -78,10 +78,26 @@ public class AttackManager : Singleton<AttackManager>
     {
         
     }
-
-    public void IncreaseSpeed(float amount)
+//-----------------------------------------------------------------------------------Upgrade Stats Function------------------------------------------------------
+    public bool IncreaseSpeed(float amount)
     {
+        if (speed >= 100)
+        {
+            Debug.Log("Max Upgrade");
+            return false;
+        }
         speed += amount;
+        return true;
+    }
+    public bool IncreaseDamage(int amount)
+    {
+        if (damage >= 5)
+        {
+            Debug.Log("Max Upgrade");
+            return false;
+        }
+        damage += amount;
+        return true;
     }
     private IEnumerator ActivateSkill(string skill)
     {
