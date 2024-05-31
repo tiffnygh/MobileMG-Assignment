@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class CoinManager : Singleton<CoinManager>
 {
@@ -13,19 +14,27 @@ public class CoinManager : Singleton<CoinManager>
 
     public TextMeshProUGUI CurrencyText;
 
+    public Button cheatButton;
+
     
     private void Start()
     {
         PlayerPrefs.DeleteAll();
         LoadCoins();
+        cheatButton.onClick.AddListener(GetMaxCoin);
     }
 
     private void Update()
     {
         if (Input.GetKeyUp(KeyCode.P))
         {
-            AddCoins(1000000000);
+            GetMaxCoin();
         }
+    }
+
+    private void GetMaxCoin()
+    {
+        AddCoins(1000000000);
     }
 
     private void LoadCoins()
