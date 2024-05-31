@@ -53,8 +53,14 @@ public class ShopManager : Singleton<ShopManager>
     {
         speedUpgradeButton.onClick.AddListener(OnSpeedUpgrade);
         damageUpgradeButton.onClick.AddListener(OnDamageUpgrade);
+        spreadAngleUpgradeButton.onClick.AddListener(OnSpreadAngleUpgrade);
+        spreadProjectileUpgradeButton.onClick.AddListener(OnSpreadProjectileUpgrade);
+
         UpdateSpeedButton();
         UpdateDamageButton();
+        UpdateSpreadAngleButton();
+        UpdateSpreadProjectileButton();
+
 
     }
 
@@ -154,11 +160,89 @@ public class ShopManager : Singleton<ShopManager>
 
     //---------------------------------------------------Skill General Upgrade-------------------------------------------------------------
     #region SpreadAngle 
+    public void OnSpreadAngleUpgrade()
+    {
+        if (CoinManager.Instance.Coins >= spreadAngleCost)
+        {
+            if (!AttackManager.Instance.IncreaseSpreadAngle(15))
+            {
+                return;
+            }
+            CoinManager.Instance.Coins -= spreadAngleCost;
+        }
+        else
+        {
+            Debug.Log("Not Enought Money");
+            return;
+        }
 
+        if (spreadAngleCost < spreadAngleMaxCost)
+        {
+            spreadAngleCost = Mathf.RoundToInt(spreadAngleCost * 1.5f);
+
+        }
+        else
+        {
+            spreadAngleCost += spreadAngleCost / 25;
+        }
+        UpdateSpreadAngleButton();
+    }
+
+    private void UpdateSpreadAngleButton()
+    {
+        if (AttackManager.Instance.spreadAngle >= 360)
+        {
+            spreadAngleDescription.text = "Angle : " + AttackManager.Instance.spreadAngle.ToString();
+            spreadAngleCostText.text = "Maxed";
+            return;
+        }
+        float newStat = AttackManager.Instance.spreadAngle + 15;
+        spreadAngleDescription.text = "Angle : " + AttackManager.Instance.spreadAngle.ToString() + " -> " + newStat.ToString();
+        spreadAngleCostText.text = "Cost : " + spreadAngleCost.ToString();
+    }
     #endregion
 
     #region SpreadProjectile
+    public void OnSpreadProjectileUpgrade()
+    {
+        if (CoinManager.Instance.Coins >= spreadProjectileCost)
+        {
+            if (!AttackManager.Instance.IncreaseSpreadProjectile(1))
+            {
+                return;
+            }
+            CoinManager.Instance.Coins -= spreadProjectileCost;
+        }
+        else
+        {
+            Debug.Log("Not Enought Money");
+            return;
+        }
 
+        if (spreadProjectileCost < spreadProjectileMaxCost)
+        {
+            spreadProjectileCost = Mathf.RoundToInt(spreadProjectileCost * 1.5f);
+
+        }
+        else
+        {
+            spreadProjectileCost += spreadProjectileCost / 20;
+        }
+        UpdateSpreadProjectileButton();
+    }
+
+    private void UpdateSpreadProjectileButton()
+    {
+        if (AttackManager.Instance.numberOfProjectiles >= 32)
+        {
+            spreadProjectileDescription.text = "Proj. no : " + AttackManager.Instance.numberOfProjectiles.ToString();
+            spreadProjectileCostText.text = "Maxed";
+            return;
+        }
+        float newStat = AttackManager.Instance.numberOfProjectiles + 1;
+        spreadProjectileDescription.text = "Proj. no : " + AttackManager.Instance.numberOfProjectiles.ToString() + " -> " + newStat.ToString();
+        spreadProjectileCostText.text = "Cost : " + spreadProjectileCost.ToString();
+    }
     #endregion
 
     #region BlastRadius

@@ -132,6 +132,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3287882}
+  - component: {fileID: 3287883}
+  - component: {fileID: 3287884}
   m_Layer: 5
   m_Name: SkillContainer
   m_TagString: Untagged
@@ -164,6 +166,50 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: -632.99994}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &3287883
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3287881}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 18c73e7a57c28de4f8479bd3424958b6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  panel: {fileID: 158455379}
+  buttons:
+  - {fileID: 301589066}
+  - {fileID: 1876339939}
+  - {fileID: 992982379}
+  - {fileID: 727432994}
+  transitionDuration: 1
+  buttonStayDuration: 8
+--- !u!114 &3287884
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3287881}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 18c73e7a57c28de4f8479bd3424958b6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  panel: {fileID: 158455379}
+  buttons:
+  - {fileID: 5792590}
+  - {fileID: 607298854}
+  - {fileID: 1688964114}
+  - {fileID: 1158380142}
+  - {fileID: 1578147865}
+  - {fileID: 1750395384}
+  - {fileID: 662817117}
+  - {fileID: 1263509532}
+  transitionDuration: 1
+  buttonStayDuration: 6
 --- !u!1 &5792588
 GameObject:
   m_ObjectHideFlags: 0
@@ -7598,6 +7644,37 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1192109186}
   m_CullTransparentMesh: 1
+--- !u!1 &1195878937
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1195878938}
+  m_Layer: 0
+  m_Name: GeneralSection
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1195878938
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1195878937}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -37.026978, y: -274.75928, z: -1.7403772}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1732354243}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1199996663
 GameObject:
   m_ObjectHideFlags: 0
@@ -9792,6 +9869,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1583584619}
+  - component: {fileID: 1583584620}
   m_Layer: 5
   m_Name: GeneralContainer
   m_TagString: Untagged
@@ -9821,6 +9899,24 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: -60}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1583584620
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1583584618}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 18c73e7a57c28de4f8479bd3424958b6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  panel: {fileID: 158455379}
+  buttons:
+  - {fileID: 2044562835}
+  - {fileID: 1412647362}
+  transitionDuration: 1
+  buttonStayDuration: 10
 --- !u!1 &1601036132
 GameObject:
   m_ObjectHideFlags: 0
@@ -11255,7 +11351,8 @@ Transform:
   m_LocalPosition: {x: 1706.7587, y: 765.7612, z: -2.6252997}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 1195878938}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1732354244
@@ -11283,13 +11380,13 @@ MonoBehaviour:
   spreadAngleUpgradeButton: {fileID: 301589066}
   spreadAngleDescription: {fileID: 1192109188}
   spreadAngleCostText: {fileID: 2112570224}
-  spreadAngleCost: 0
-  spreadAngleMaxCost: 0
+  spreadAngleCost: 250
+  spreadAngleMaxCost: 5000
   spreadProjectileUpgradeButton: {fileID: 1876339939}
   spreadProjectileDescription: {fileID: 979376120}
   spreadProjectileCostText: {fileID: 650546490}
-  spreadProjectileCost: 0
-  spreadProjectileMaxCost: 0
+  spreadProjectileCost: 250
+  spreadProjectileMaxCost: 5000
   blastUpgradeButton: {fileID: 727432994}
   blastDescription: {fileID: 1629463716}
   blastCostText: {fileID: 2033096646}

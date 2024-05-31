@@ -76,9 +76,20 @@ public class AttackManager : Singleton<AttackManager>
     // Update is called once per frame
     void Update()
     {
-        
+        if (Input.GetKeyDown(KeyCode.O))
+        {
+            InfiniteSkill();
+        }
     }
-//-----------------------------------------------------------------------------------Upgrade Stats Function------------------------------------------------------
+
+    private void InfiniteSkill()
+    {
+        aoeCooldownDuration = 0f;
+        freezeCooldownDuration = 0f;
+        pierceCooldownDuration = 0f;
+        spreadCooldownDuration = 0f;
+    }
+    //-----------------------------------------------------------------------------------Upgrade Stats Function------------------------------------------------------
     public bool IncreaseSpeed(float amount)
     {
         if (speed >= 100)
@@ -99,6 +110,52 @@ public class AttackManager : Singleton<AttackManager>
         damage += amount;
         return true;
     }
+
+    public bool IncreaseSpreadAngle(float amount)
+    {
+        if (spreadAngle >= 360)
+        {
+            Debug.Log("Max Upgrade");
+            return false;
+        }
+        spreadAngle += amount;
+        return true;
+    }
+
+    public bool IncreaseSpreadProjectile(int amount)
+    {
+        if (numberOfProjectiles >= 32)
+        {
+            Debug.Log("Max Upgrade");
+            return false;
+        }
+        numberOfProjectiles += amount;
+        return true;
+    }
+    public bool IncreaseBlastRadius(float amount)
+    {
+        if (explosionRadius >= 1.5f)
+        {
+            Debug.Log("Max Upgrade");
+            return false;
+        }
+        explosionRadius += amount;
+        return true;
+    }
+
+    public bool IncreaseFreezeEnemyDuration(float amount)
+    {
+        if (freezeDuration >= 5)
+        {
+            Debug.Log("Max Upgrade");
+            return false;
+        }
+        freezeDuration += amount;
+        return true;
+    }
+
+
+
     private IEnumerator ActivateSkill(string skill)
     {
         switch (skill)
