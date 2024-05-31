@@ -1278,7 +1278,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 158455378}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 31a19414c41e5ae4aae2af33fee712f6, type: 3}
   m_Name: 
@@ -2010,7 +2010,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: 0, y: 439.59497}
+  m_AnchoredPosition: {x: -1084, y: 439.59497}
   m_SizeDelta: {x: 800, y: 350}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &301589066
@@ -5013,7 +5013,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: 0, y: 439.59497}
+  m_AnchoredPosition: {x: -2786, y: 439.59497}
   m_SizeDelta: {x: 800, y: 350}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &727432994
@@ -11280,6 +11280,26 @@ MonoBehaviour:
   damageCostText: {fileID: 1988088206}
   damageCost: 2500
   damageMaxCost: 10000
+  spreadAngleUpgradeButton: {fileID: 301589066}
+  spreadAngleDescription: {fileID: 1192109188}
+  spreadAngleCostText: {fileID: 2112570224}
+  spreadAngleCost: 0
+  spreadAngleMaxCost: 0
+  spreadProjectileUpgradeButton: {fileID: 1876339939}
+  spreadProjectileDescription: {fileID: 979376120}
+  spreadProjectileCostText: {fileID: 650546490}
+  spreadProjectileCost: 0
+  spreadProjectileMaxCost: 0
+  blastUpgradeButton: {fileID: 727432994}
+  blastDescription: {fileID: 1629463716}
+  blastCostText: {fileID: 2033096646}
+  blastCost: 0
+  blastMaxCost: 0
+  freezeEnemyDurationUpgradeButton: {fileID: 992982379}
+  freezeEnemyDurationDescription: {fileID: 84125016}
+  freezeEnemyDurationCostText: {fileID: 1928730288}
+  freezeEnemyDurationCost: 0
+  freezeEnemyDurationMaxCost: 0
 --- !u!1 &1750395382
 GameObject:
   m_ObjectHideFlags: 0
@@ -11940,7 +11960,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: 0, y: 439.59497}
+  m_AnchoredPosition: {x: -3686, y: 439.59497}
   m_SizeDelta: {x: 800, y: 350}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1876339939

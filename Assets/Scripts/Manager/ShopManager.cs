@@ -19,7 +19,34 @@ public class ShopManager : Singleton<ShopManager>
     public TextMeshProUGUI damageCostText;
     public int damageCost;
     public int damageMaxCost;
-
+    
+    [Header("SpreadAngle")]
+    public Button spreadAngleUpgradeButton;
+    public TextMeshProUGUI spreadAngleDescription;
+    public TextMeshProUGUI spreadAngleCostText;
+    public int spreadAngleCost;
+    public int spreadAngleMaxCost;
+    
+    [Header("SpreadProjectile")]
+    public Button spreadProjectileUpgradeButton;
+    public TextMeshProUGUI spreadProjectileDescription;
+    public TextMeshProUGUI spreadProjectileCostText;
+    public int spreadProjectileCost;
+    public int spreadProjectileMaxCost;
+    
+    [Header("BlastRadius")]
+    public Button blastUpgradeButton;
+    public TextMeshProUGUI blastDescription;
+    public TextMeshProUGUI blastCostText;
+    public int blastCost;
+    public int blastMaxCost;
+    
+    [Header("FreezeEnemyDuration")]
+    public Button freezeEnemyDurationUpgradeButton;
+    public TextMeshProUGUI freezeEnemyDurationDescription;
+    public TextMeshProUGUI freezeEnemyDurationCostText;
+    public int freezeEnemyDurationCost;
+    public int freezeEnemyDurationMaxCost;
 
     // Start is called before the first frame update
     void Start()
@@ -80,6 +107,7 @@ public class ShopManager : Singleton<ShopManager>
         speedCostText.text = "Cost : " + speedCost.ToString();
     }
     #endregion
+
     #region Damage 
 
     public void OnDamageUpgrade()
@@ -124,8 +152,22 @@ public class ShopManager : Singleton<ShopManager>
     }
     #endregion
 
-
     //---------------------------------------------------Skill General Upgrade-------------------------------------------------------------
+    #region SpreadAngle 
 
+    #endregion
+
+    #region SpreadProjectile
+
+    #endregion
+
+    #region BlastRadius
+
+    #endregion
+
+    #region FreezeEnemyDuration
+
+    #endregion
+    //---------------------------------------------------Skill Duration Upgrade-------------------------------------------------------------
 
 }
