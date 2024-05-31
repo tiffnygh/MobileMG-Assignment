@@ -153,9 +153,88 @@ public class AttackManager : Singleton<AttackManager>
         freezeDuration += amount;
         return true;
     }
+    //-----------------------------------------------------------------------------------Upgrade Duration Function------------------------------------------------------
+    public bool IncreasePierceDuration(float amount)
+    {
+        if (pierceSkillDuration >= 6)
+        {
+            Debug.Log("Max Upgrade");
+            return false;
+        }
+        pierceSkillDuration += amount;
+        return true;
+    }
+    public bool DecreasePierceCooldownDuration(float amount)
+    {
+        if (pierceCooldownDuration <= 5)
+        {
+            Debug.Log("Max Upgrade");
+            return false;
+        }
+        pierceCooldownDuration -= amount;
+        return true;
+    }
 
-
-
+    public bool IncreaseSpreadDuration(float amount)
+    {
+        if (spreadSkillDuration >= 8)
+        {
+            Debug.Log("Max Upgrade");
+            return false;
+        }
+        spreadSkillDuration += amount;
+        return true;
+    }
+    public bool DecreaseSpreadCooldownDuration(float amount)
+    {
+        if (spreadCooldownDuration <= 3)
+        {
+            Debug.Log("Max Upgrade");
+            return false;
+        }
+        spreadCooldownDuration -= amount;
+        return true;
+    }
+    public bool IncreaseBlastDuration(float amount)
+    {
+        if (aoeSkillDuration >= 10)
+        {
+            Debug.Log("Max Upgrade");
+            return false;
+        }
+        aoeSkillDuration += amount;
+        return true;
+    }
+    public bool DecreaseBlastCooldownDuration(float amount)
+    {
+        if (aoeCooldownDuration <= 6)
+        {
+            Debug.Log("Max Upgrade");
+            return false;
+        }
+        aoeCooldownDuration -= amount;
+        return true;
+    }
+    public bool IncreaseFreezeDuration(float amount)
+    {
+        if (freezeSkillDuration >= 10)
+        {
+            Debug.Log("Max Upgrade");
+            return false;
+        }
+        freezeSkillDuration += amount;
+        return true;
+    }
+    public bool DecreaseFreezeCooldownDuration(float amount)
+    {
+        if (freezeCooldownDuration <= 6)
+        {
+            Debug.Log("Max Upgrade");
+            return false;
+        }
+        freezeCooldownDuration -= amount;
+        return true;
+    }
     private IEnumerator ActivateSkill(string skill)
     {
         switch (skill)

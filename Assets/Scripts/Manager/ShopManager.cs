@@ -6,7 +6,7 @@ using UnityEngine.UI;
 
 public class ShopManager : Singleton<ShopManager>
 {
-    [Header ("Speed")]
+    [Header("Speed")]
     public Button speedUpgradeButton;
     public TextMeshProUGUI speedDescription;
     public TextMeshProUGUI speedCostText;
@@ -19,28 +19,28 @@ public class ShopManager : Singleton<ShopManager>
     public TextMeshProUGUI damageCostText;
     public int damageCost;
     public int damageMaxCost;
-    
+
     [Header("SpreadAngle")]
     public Button spreadAngleUpgradeButton;
     public TextMeshProUGUI spreadAngleDescription;
     public TextMeshProUGUI spreadAngleCostText;
     public int spreadAngleCost;
     public int spreadAngleMaxCost;
-    
+
     [Header("SpreadProjectile")]
     public Button spreadProjectileUpgradeButton;
     public TextMeshProUGUI spreadProjectileDescription;
     public TextMeshProUGUI spreadProjectileCostText;
     public int spreadProjectileCost;
     public int spreadProjectileMaxCost;
-    
+
     [Header("BlastRadius")]
     public Button blastUpgradeButton;
     public TextMeshProUGUI blastDescription;
     public TextMeshProUGUI blastCostText;
     public int blastCost;
     public int blastMaxCost;
-    
+
     [Header("FreezeEnemyDuration")]
     public Button freezeEnemyDurationUpgradeButton;
     public TextMeshProUGUI freezeEnemyDurationDescription;
@@ -55,19 +55,22 @@ public class ShopManager : Singleton<ShopManager>
         damageUpgradeButton.onClick.AddListener(OnDamageUpgrade);
         spreadAngleUpgradeButton.onClick.AddListener(OnSpreadAngleUpgrade);
         spreadProjectileUpgradeButton.onClick.AddListener(OnSpreadProjectileUpgrade);
+        blastUpgradeButton.onClick.AddListener(OnBlastUpgrade);
+        freezeEnemyDurationUpgradeButton.onClick.AddListener(OnFreezeUpgrade);
 
         UpdateSpeedButton();
         UpdateDamageButton();
         UpdateSpreadAngleButton();
         UpdateSpreadProjectileButton();
-
+        UpdateBlastButton();
+        UpdateFreezeButton();
 
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+
     }
     //---------------------------------------------------General Upgrades-------------------------------------------------------------
     #region Speed 
@@ -87,14 +90,14 @@ public class ShopManager : Singleton<ShopManager>
             return;
         }
 
-        if (speedCost <  speedMaxCost)
+        if (speedCost < speedMaxCost)
         {
             speedCost = Mathf.RoundToInt(speedCost * 1.9f);
 
         }
         else
         {
-            speedCost += speedCost/3;
+            speedCost += speedCost / 3;
         }
         UpdateSpeedButton();
     }
@@ -246,12 +249,89 @@ public class ShopManager : Singleton<ShopManager>
     #endregion
 
     #region BlastRadius
+    public void OnBlastUpgrade()
+    {
+        if (CoinManager.Instance.Coins >= blastCost)
+        {
+            if (!AttackManager.Instance.IncreaseBlastRadius(0.1f))
+            {
+                return;
+            }
+            CoinManager.Instance.Coins -= blastCost;
+        }
+        else
+        {
+            Debug.Log("Not Enought Money");
+            return;
+        }
 
+        if (blastCost < blastMaxCost)
+        {
+            blastCost = Mathf.RoundToInt(blastCost * 1.8f);
+
+        }
+        else
+        {
+            blastCost += blastCost / 5;
+        }
+        UpdateBlastButton();
+    }
+
+    private void UpdateBlastButton()
+    {
+        if (AttackManager.Instance.explosionRadius >= 1.5)
+        {
+            blastDescription.text = "Radius : " + AttackManager.Instance.explosionRadius.ToString();
+            blastCostText.text = "Maxed";
+            return;
+        }
+        float newStat = AttackManager.Instance.explosionRadius + 0.1f;
+        blastDescription.text = "Radius : " + AttackManager.Instance.explosionRadius.ToString("F1") + " -> " + newStat.ToString("F1");
+        blastCostText.text = "Cost : " + blastCost.ToString();
+    }
     #endregion
 
     #region FreezeEnemyDuration
+    public void OnFreezeUpgrade()
+    {
+        if (CoinManager.Instance.Coins >= freezeEnemyDurationCost)
+        {
+            if (!AttackManager.Instance.IncreaseFreezeEnemyDuration(0.5f))
+            {
+                return;
+            }
+            CoinManager.Instance.Coins -= freezeEnemyDurationCost;
+        }
+        else
+        {
+            Debug.Log("Not Enought Money");
+            return;
+        }
 
-    #endregion
-    //---------------------------------------------------Skill Duration Upgrade-------------------------------------------------------------
+        if (freezeEnemyDurationCost < freezeEnemyDurationMaxCost)
+        {
+            freezeEnemyDurationCost = Mathf.RoundToInt(freezeEnemyDurationCost * 2f);
 
+        }
+        else
+        {
+            freezeEnemyDurationCost += freezeEnemyDurationCost / 5;
+        }
+        UpdateFreezeButton();
+    }
+
+    private void UpdateFreezeButton()
+    {
+        if (AttackManager.Instance.freezeDuration >= 5)
+        {
+            freezeEnemyDurationDescription.text = "Freeze Duration : " + AttackManager.Instance.freezeDuration.ToString();
+            freezeEnemyDurationCostText.text = "Maxed";
+            return;
+        }
+        float newStat = AttackManager.Instance.freezeDuration + 0.5f;
+        freezeEnemyDurationDescription.text = "Freeze Duration : " + AttackManager.Instance.freezeDuration.ToString("F1") + " -> " + newStat.ToString("F1");
+        freezeEnemyDurationCostText.text = "Cost : " + freezeEnemyDurationCost.ToString();
+        #endregion
+
+    }
 }
