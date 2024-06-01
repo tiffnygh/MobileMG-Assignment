@@ -8,23 +8,31 @@ public class SoundManager : Singleton<SoundManager>
     [Header("Music")]
     [SerializeField] private AudioClip musicClip;
     [SerializeField] private AudioClip bossMusicClip;
+    [SerializeField] private AudioClip gameOverMusicClip;
+
 
 
     [Header("Sounds")]
     [SerializeField] private AudioClip defaultShootClip;
     [SerializeField] private AudioClip defaultImpactClip;
     [SerializeField] private AudioClip enemyDeadClip;
+    [SerializeField] private AudioClip enemyBarrierDeadClip;
+    [SerializeField] private AudioClip gameOverClip;
+
+
     [SerializeField] private AudioClip coinClip;
     [SerializeField] private AudioClip fireAOEClip;
 
     public AudioClip DefaultShootClip => defaultShootClip;
     public AudioClip DefaultImpactClip => defaultImpactClip;
     public AudioClip EnemyDeadClip => enemyDeadClip;
-    public AudioClip CoinClip => coinClip;
-    public AudioClip FireAOEClip => fireAOEClip;
+    public AudioClip EnemyBarrierDeadClip => enemyBarrierDeadClip;
+    public AudioClip GameOverClip => gameOverClip;
+    public AudioClip BossMusicClip => bossMusicClip;
+    public AudioClip GameOverMusicClip => gameOverMusicClip;
 
 
-    private AudioSource musicAudioSource;
+    public AudioSource musicAudioSource;
     private ObjectPooler soundObjectPooler;
 
     protected override void Awake()

@@ -122,6 +122,7 @@ MonoBehaviour:
   initialHealth: 15
   maxHealth: 15
   damage: 3
+  point: 3
   destroyObject: 1
 --- !u!114 &2869952312185933127
 MonoBehaviour:

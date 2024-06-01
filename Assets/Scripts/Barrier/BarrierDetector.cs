@@ -31,6 +31,8 @@ public class BarrierDetector : MonoBehaviour
                 barrierHealth.TakeDamage(segment, other.GetComponent<Health>().damage); // Assuming a fixed damage of 1 for simplicity
                 other.GetComponent<DropItem>().canDropItem = false;
                 other.GetComponent<Health>().Die();
+                SoundManager.Instance.PlaySound(SoundManager.Instance.EnemyBarrierDeadClip, 0.8f);
+
             }
         }
     }

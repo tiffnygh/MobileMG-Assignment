@@ -50,6 +50,7 @@ public class BarrierHealth : MonoBehaviour
             segment.currentHealth -= damage;
             segment.currentHealth = Mathf.Max(segment.currentHealth, 0);
             //Debug.Log(segmentName + " segment took " + damage + " damage, remaining health: " + segment.currentHealth);
+            CheckGameOver();
         }
 
     }
@@ -66,6 +67,23 @@ public class BarrierHealth : MonoBehaviour
                 Debug.LogError("Invalid segment name.");
                 return null;
         }
+    }
+
+    private void CheckGameOver()
+    {
+        if (topSegment.currentHealth <= 0 || downSegment.currentHealth <= 0 || leftSegment.currentHealth <= 0 || rightSegment.currentHealth <= 0)
+        {
+            GameOver();
+        }
+    }
+
+    private void GameOver()
+    {
+        Debug.Log("Game Over: One of the barrier segments has reached 0 health.");
+        SoundManager.Instance.musicAudioSource.clip = SoundManager.Instance.GameOverMusicClip;
+        SoundManager.Instance.musicAudioSource.Play();
+        Time.timeScale = 0f;
+        // Implement additional game over logic here, such as displaying a game over screen, stopping the game, etc.
     }
 }
 

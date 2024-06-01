@@ -10,6 +10,8 @@ public class Health : MonoBehaviour
     [SerializeField] private float initialHealth = 10f;
     [SerializeField] private float maxHealth = 10f;
     [SerializeField] public int damage = 0;
+    [SerializeField] public int point = 0;
+
 
 
     [Header("Settings")]
@@ -72,6 +74,8 @@ public class Health : MonoBehaviour
         if (CurrentHealth <= 0)
         {
             Die();
+            ScoreManager.Instance.AddScore(point);
+            SoundManager.Instance.PlaySound(SoundManager.Instance.EnemyDeadClip, 1f);
         }
 
     }
@@ -126,7 +130,6 @@ public class Health : MonoBehaviour
             DestroyObject();
         }
 
-        SoundManager.Instance.PlaySound(SoundManager.Instance.EnemyDeadClip, 1f);
 
     }
 

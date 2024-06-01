@@ -52,10 +52,6 @@ public class UIManager : Singleton<UIManager>
         bottomHealthBar.fillAmount = Mathf.Lerp(bottomHealthBar.fillAmount, (float)bottomBarrierHealth /barrierMaxHealth, 10f * Time.deltaTime);
         leftHealthBar.fillAmount = Mathf.Lerp(leftHealthBar.fillAmount, (float)leftBarrierHealth /barrierMaxHealth, 10f * Time.deltaTime);
         rightHealthBar.fillAmount = Mathf.Lerp(rightHealthBar.fillAmount, (float)rightBarrierHealth /barrierMaxHealth, 10f * Time.deltaTime);
-        Debug.Log(topHealthBar.fillAmount);
-        Debug.Log(topBarrierHealth);
-        Debug.Log(barrierMaxHealth);
-
 
         topCurrentHealthTMP.text = topBarrierHealth.ToString() + "/" + barrierMaxHealth.ToString();
         bottomCurrentHealthTMP.text = bottomBarrierHealth.ToString() + "/" + barrierMaxHealth.ToString();

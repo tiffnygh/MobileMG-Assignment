@@ -142,7 +142,7 @@ public class ShopManager : Singleton<ShopManager>
         }
         else
         {
-            damageCost += damageCost / 3;
+            damageCost += damageCost / 2;
         }
         UpdateDamageButton();
     }

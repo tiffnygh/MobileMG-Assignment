@@ -82,7 +82,7 @@ public class AttackManager : Singleton<AttackManager>
         }
     }
 
-    private void InfiniteSkill()
+    public void InfiniteSkill()
     {
         aoeCooldownDuration = 0f;
         freezeCooldownDuration = 0f;
