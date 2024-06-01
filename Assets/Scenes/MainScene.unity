@@ -8254,8 +8254,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   objectPrefab: {fileID: 7895483534485094739, guid: 80e6a8d953322f744a4c755d735c2e2d, type: 3}
-  poolSize: 500
-  poolCanExpand: 1
+  poolSize: 250
+  poolCanExpand: 0
   pooledObjects: []
 --- !u!61 &1242767547
 BoxCollider2D:
