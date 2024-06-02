@@ -1,12 +1,9 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class PauseMenuController : MonoBehaviour
 {
     public GameObject pauseMenuCanvas;
-    public GameObject pauseMenuPanel;
 
     private bool isPaused = false;
 
@@ -35,4 +32,3 @@ public class PauseMenuController : MonoBehaviour
         SceneManager.LoadScene("MainMenu"); // Load the main menu scene
     }
 }
-
