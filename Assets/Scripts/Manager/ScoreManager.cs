@@ -15,11 +15,13 @@ public class ScoreManager : Singleton<ScoreManager>
     private int score { get; set; }
 
     public readonly string HIGH_SCORE = "MyGame_HighScore";
+    private readonly string FIRST_RUN_KEY = "MyGame_FirstRun";
 
 
     // Start is called before the first frame update
     void Start()
     {
+        CheckFirstRun();
         LoadScore();
         score = 0; //Reset score
     }
@@ -53,5 +55,16 @@ public class ScoreManager : Singleton<ScoreManager>
     public int GetHighScore()
     {
         return highScore;
+    }
+
+    private void CheckFirstRun()
+    {
+        if (!PlayerPrefs.HasKey(FIRST_RUN_KEY))
+        {
+            // First run after installation
+            PlayerPrefs.DeleteAll();
+            PlayerPrefs.SetInt(FIRST_RUN_KEY, 1); // Set the first run flag
+            PlayerPrefs.Save(); // Ensure the data is saved
+        }
     }
 }

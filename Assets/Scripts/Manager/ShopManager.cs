@@ -149,7 +149,7 @@ public class ShopManager : Singleton<ShopManager>
 
     private void UpdateDamageButton()
     {
-        if (AttackManager.Instance.damage >= 5)
+        if (AttackManager.Instance.damage >= 6)
         {
             damageDescription.text = "Damage : " + AttackManager.Instance.damage.ToString();
             damageCostText.text = "Maxed";

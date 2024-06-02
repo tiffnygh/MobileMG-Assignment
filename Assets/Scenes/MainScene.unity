@@ -2277,7 +2277,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &362385674
 RectTransform:
   m_ObjectHideFlags: 0
@@ -9374,7 +9374,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 46721aec738278d47b38e4f9e318db84, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 1
+  damage: 3
   speed: 15
   acceleration: 10
   scale: {x: 1, y: 1, z: 1}

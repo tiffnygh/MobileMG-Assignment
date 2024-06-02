@@ -102,7 +102,7 @@ public class AttackManager : Singleton<AttackManager>
     }
     public bool IncreaseDamage(int amount)
     {
-        if (damage >= 5)
+        if (damage >= 6)
         {
             Debug.Log("Max Upgrade");
             return false;
