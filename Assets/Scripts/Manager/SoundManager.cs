@@ -10,16 +10,12 @@ public class SoundManager : Singleton<SoundManager>
     [SerializeField] private AudioClip bossMusicClip;
     [SerializeField] private AudioClip gameOverMusicClip;
 
-
-
     [Header("Sounds")]
     [SerializeField] private AudioClip defaultShootClip;
     [SerializeField] private AudioClip defaultImpactClip;
     [SerializeField] private AudioClip enemyDeadClip;
     [SerializeField] private AudioClip enemyBarrierDeadClip;
     [SerializeField] private AudioClip gameOverClip;
-
-
     [SerializeField] private AudioClip coinClip;
     [SerializeField] private AudioClip fireAOEClip;
 
@@ -30,7 +26,6 @@ public class SoundManager : Singleton<SoundManager>
     public AudioClip GameOverClip => gameOverClip;
     public AudioClip BossMusicClip => bossMusicClip;
     public AudioClip GameOverMusicClip => gameOverMusicClip;
-
 
     public AudioSource musicAudioSource;
     private ObjectPooler soundObjectPooler;
@@ -73,7 +68,33 @@ public class SoundManager : Singleton<SoundManager>
         yield return new WaitForSeconds(delay);
         objectPool.SetActive(false);
     }
+
+    public void SetMusicVolume(float volume)
+    {
+        musicAudioSource.volume = volume;
+    }
+
+    public void SetSoundVolume(float volume)
+    {
+        AudioListener.volume = volume; // Adjusts the volume for all AudioSources
+    }
+
+    public void SaveSettings()
+    {
+        PlayerPrefs.SetFloat("MusicVolume", musicAudioSource.volume);
+        PlayerPrefs.SetFloat("SoundVolume", AudioListener.volume);
+        PlayerPrefs.Save();
+    }
+
+    public void LoadSettings()
+    {
+        if (PlayerPrefs.HasKey("MusicVolume"))
+        {
+            SetMusicVolume(PlayerPrefs.GetFloat("MusicVolume"));
+        }
+        if (PlayerPrefs.HasKey("SoundVolume"))
+        {
+            SetSoundVolume(PlayerPrefs.GetFloat("SoundVolume"));
+        }
+    }
 }
-
-
-
