@@ -30,12 +30,15 @@ public class SoundManager : Singleton<SoundManager>
     public AudioSource musicAudioSource;
     private ObjectPooler soundObjectPooler;
 
+    private float soundVolume = 1f;
+
     protected override void Awake()
     {
         soundObjectPooler = GetComponent<ObjectPooler>();
         musicAudioSource = GetComponent<AudioSource>();
 
         PlayMusic();
+        LoadSettings();
     }
 
     private void PlayMusic()
@@ -57,7 +60,7 @@ public class SoundManager : Singleton<SoundManager>
         }
 
         audioSource.clip = clipToPlay;
-        audioSource.volume = volume;
+        audioSource.volume = volume * soundVolume; // Apply sound volume
         audioSource.Play();
 
         StartCoroutine(ReturnToPool(audioPooled, clipToPlay.length + 1));
@@ -76,13 +79,13 @@ public class SoundManager : Singleton<SoundManager>
 
     public void SetSoundVolume(float volume)
     {
-        AudioListener.volume = volume; // Adjusts the volume for all AudioSources
+        soundVolume = volume;
     }
 
     public void SaveSettings()
     {
         PlayerPrefs.SetFloat("MusicVolume", musicAudioSource.volume);
-        PlayerPrefs.SetFloat("SoundVolume", AudioListener.volume);
+        PlayerPrefs.SetFloat("SoundVolume", soundVolume);
         PlayerPrefs.Save();
     }
 

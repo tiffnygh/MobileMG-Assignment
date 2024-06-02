@@ -12,7 +12,7 @@ public class MusicController : MonoBehaviour
     {
         // Initialize sliders with current volume levels
         musicSlider.value = SoundManager.Instance.musicAudioSource.volume;
-        soundSlider.value = AudioListener.volume;
+        soundSlider.value = PlayerPrefs.GetFloat("SoundVolume", 1f);
 
         // Add listeners to handle slider value changes
         musicSlider.onValueChanged.AddListener(SetMusicVolume);
