@@ -290,9 +290,9 @@ MonoBehaviour:
   yRandomPosition: 4
   spreadForce: 4
   rewards:
-  - {fileID: 131903573573808769, guid: c1f009d75b4181447a56cf8468978806, type: 3}
-  RewardMinAmount: 500
-  RewardMaxAmount: 1000
+  - {fileID: 131903573573808769, guid: c916243fb1376854686d0038e4c08a05, type: 3}
+  RewardMinAmount: 25
+  RewardMaxAmount: 50
 --- !u!114 &2956455045871081307
 MonoBehaviour:
   m_ObjectHideFlags: 0
