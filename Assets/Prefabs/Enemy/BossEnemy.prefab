@@ -122,8 +122,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   initialHealth: 500
   maxHealth: 500
-  damage: 50
-  point: 500
+  damage: 25
+  point: 1000
   destroyObject: 1
 --- !u!114 &2869952312185933127
 MonoBehaviour:
@@ -286,13 +286,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   canDropItem: 1
   dropMultipleItem: 1
-  xRandomPosition: 2
-  yRandomPosition: 2
-  spreadForce: 2
+  xRandomPosition: 4
+  yRandomPosition: 4
+  spreadForce: 4
   rewards:
   - {fileID: 131903573573808769, guid: c1f009d75b4181447a56cf8468978806, type: 3}
-  RewardMinAmount: 1
-  RewardMaxAmount: 8
+  RewardMinAmount: 500
+  RewardMaxAmount: 1000
 --- !u!114 &2956455045871081307
 MonoBehaviour:
   m_ObjectHideFlags: 0

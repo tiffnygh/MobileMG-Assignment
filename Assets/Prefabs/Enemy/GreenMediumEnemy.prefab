@@ -121,7 +121,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   initialHealth: 15
   maxHealth: 15
-  damage: 3
+  damage: 2
   point: 3
   destroyObject: 1
 --- !u!114 &2869952312185933127
@@ -290,5 +290,5 @@ MonoBehaviour:
   spreadForce: 2
   rewards:
   - {fileID: 131903573573808769, guid: c1f009d75b4181447a56cf8468978806, type: 3}
-  RewardMinAmount: 1
+  RewardMinAmount: 3
   RewardMaxAmount: 8

@@ -7,12 +7,14 @@ public class WaveManager : Singleton<WaveManager>
     [SerializeField] private List<WaveSpawner> allSpawners = new List<WaveSpawner>();
 
     public int currentWave = 0;
-    private float  waveTimer { get; set; }
+    private float waveTimer { get; set; }
 
-    [Header("Spawners Setting")]
     public float waveDuration;
+
     public float spawnInterval;
+
     public float waveValue;
+    
 
     [SerializeField] private float delayBeforeNextWave;
 
@@ -62,9 +64,10 @@ public class WaveManager : Singleton<WaveManager>
             spawnerDict[spawner.gameObject.name] = spawner;
         }
     }
-    private void SetTimerAndInterval(float interval)
+    private void SetWaveIntervalAndValue(float interval, float value)
     {
         spawnInterval = interval;
+        waveValue = value;
         waveDuration = spawnInterval * waveValue + delayBeforeNextWave;
         waveTimer = waveDuration;
     }
@@ -83,7 +86,12 @@ public class WaveManager : Singleton<WaveManager>
     {
         spawnInterval = Mathf.Max(0.5f, spawnInterval - 0.03f);
         return spawnInterval;
+    }
 
+    private float IncreaseWaveValue()
+    {
+        waveValue = Mathf.Max(waveValue, waveValue + 1f);
+        return waveValue;
     }
     
     private void EnableSpawnersForWave(int wave)
@@ -93,7 +101,7 @@ public class WaveManager : Singleton<WaveManager>
 
         if (wave >= 1 && wave <= 5)
         {
-            SetTimerAndInterval(1f);
+            SetWaveIntervalAndValue(3, 10f);
             if (wave == 1) EnableSpawnerByName("GreyTinyEnemySpawner");
             if (wave == 2) EnableSpawnerByName("YellowTinyEnemySpawner");
             if (wave == 3) EnableSpawnerByName("GreenTinyEnemySpawner");
@@ -102,7 +110,7 @@ public class WaveManager : Singleton<WaveManager>
         }
         else if (wave >= 6 && wave <= 10)
         {
-            SetTimerAndInterval(0.5f);
+            SetWaveIntervalAndValue(2.5f, 10f);
             if (wave == 6) EnableRandomTinySpawner(1);
             if (wave == 7) EnableRandomTinySpawner(2);
             if (wave == 8) EnableRandomTinySpawner(2);
@@ -111,7 +119,7 @@ public class WaveManager : Singleton<WaveManager>
         }
         else if (wave >= 11 && wave <= 15)
         {
-            SetTimerAndInterval(0.5f);
+            SetWaveIntervalAndValue(2.5f, 15f);
             if (wave == 11) EnableSpawnerByName("GreyMediumEnemySpawner");
             if (wave == 12) EnableSpawnerByName("YellowMediumEnemySpawner");
             if (wave == 13) EnableSpawnerByName("GreenMediumEnemySpawner");
@@ -120,7 +128,7 @@ public class WaveManager : Singleton<WaveManager>
         }
         else if (wave >= 16 && wave <= 20)
         {
-            SetTimerAndInterval(0.5f);
+            SetWaveIntervalAndValue(2f, 15f);
             if (wave == 16) EnableRandomMediumSpawner(1);
             if (wave == 17) EnableRandomMediumSpawner(2);
             if (wave == 18) EnableRandomMediumSpawner(2);
@@ -129,7 +137,7 @@ public class WaveManager : Singleton<WaveManager>
         }
         else if (wave >= 21 && wave <= 25)
         {
-            SetTimerAndInterval(ReduceSpawnInterval());
+            SetWaveIntervalAndValue(ReduceSpawnInterval(), 15f);
             if (wave == 21) EnableRandomTinySpawner(1); EnableRandomMediumSpawner(1);
             if (wave == 22) EnableRandomTinySpawner(1); EnableRandomMediumSpawner(1);
             if (wave == 23) EnableRandomTinySpawner(2); EnableRandomMediumSpawner(1);
@@ -138,7 +146,7 @@ public class WaveManager : Singleton<WaveManager>
         }
         else if (wave >= 26 && wave <= 30)
         {
-            SetTimerAndInterval(ReduceSpawnInterval());
+            SetWaveIntervalAndValue(ReduceSpawnInterval(), 20f);
 
             if (wave == 26) EnableRandomSpawner(3);
             if (wave == 27) EnableRandomSpawner(3);
@@ -148,27 +156,30 @@ public class WaveManager : Singleton<WaveManager>
         }
         else if (wave >= 31 && wave <= 40)
         {
-            SetTimerAndInterval(ReduceSpawnInterval());
+            SetWaveIntervalAndValue(ReduceSpawnInterval(), 20f);
 
             EnableRandomSpawner(6);
         }
         else if (wave >= 41 && wave <= 49)
         {
-            SetTimerAndInterval(ReduceSpawnInterval());
+            SetWaveIntervalAndValue(ReduceSpawnInterval(), 20f);
 
             EnableRandomSpawner(7);
         }
         else if (wave == 50)
         {
-            waveValue = 150;
-            SetTimerAndInterval(ReduceSpawnInterval());
+            SetWaveIntervalAndValue(ReduceSpawnInterval(), 150f);
             EnableSpawnerByName("BossSpawner"); //Change to boss wave?
+        }
+        else if (wave == 51)
+        {
+            SetWaveIntervalAndValue(ReduceSpawnInterval(), 25f);
+            EnableRandomSpawner(Random.Range(5,10));
         }
         else if (wave >= 51)
         {
-            SetTimerAndInterval(ReduceSpawnInterval());
-
-            EnableRandomSpawner(Random.Range(5,10));
+            SetWaveIntervalAndValue(ReduceSpawnInterval(), IncreaseWaveValue());
+            EnableRandomSpawner(Random.Range(5, 10));
         }
 
 

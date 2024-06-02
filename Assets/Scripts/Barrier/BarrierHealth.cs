@@ -33,7 +33,10 @@ public class BarrierHealth : MonoBehaviour
     void Update()
     {
         UIManager.Instance.UpdateBarrierHealth(topSegment.maxHealt, topSegment.currentHealth, downSegment.currentHealth, leftSegment.currentHealth, rightSegment.currentHealth);
-
+        if (Input.GetKeyDown(KeyCode.P))
+        {
+            CheatHealth();
+        }
     }
     public void ResetHealth()
     {
@@ -41,6 +44,14 @@ public class BarrierHealth : MonoBehaviour
         downSegment.currentHealth = downSegment.initialHealth;
         leftSegment.currentHealth = leftSegment.initialHealth;
         rightSegment.currentHealth = rightSegment.initialHealth;
+    }
+
+    public void CheatHealth()
+    {
+        topSegment.currentHealth = 10000;
+        downSegment.currentHealth = 10000;
+        leftSegment.currentHealth = 10000;
+        rightSegment.currentHealth = 10000;
     }
     public void TakeDamage(string segmentName, int damage)
     {

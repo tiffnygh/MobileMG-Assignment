@@ -19,7 +19,7 @@ public class CoinManager : Singleton<CoinManager>
     
     private void Start()
     {
-        PlayerPrefs.DeleteAll();
+        PlayerPrefs.DeleteKey(COINS_KEY);
         LoadCoins();
         cheatButton.onClick.AddListener(GetMaxCoin);
         //cheatButton.onClick.AddListener(AttackManager.Instance.InfiniteSkill);

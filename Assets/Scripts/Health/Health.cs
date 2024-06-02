@@ -112,10 +112,6 @@ public class Health : MonoBehaviour
             {
                 dropItem.DropMultipleItem();
             }
-            else 
-            {
-                dropItem.DropOneItem();
-            }
         }
         /*
         if (bossBaseShot != null)

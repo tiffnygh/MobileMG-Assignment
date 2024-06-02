@@ -291,4 +291,4 @@ MonoBehaviour:
   rewards:
   - {fileID: 131903573573808769, guid: c1f009d75b4181447a56cf8468978806, type: 3}
   RewardMinAmount: 1
-  RewardMaxAmount: 8
+  RewardMaxAmount: 5

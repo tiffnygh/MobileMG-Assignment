@@ -12230,8 +12230,8 @@ MonoBehaviour:
   damageUpgradeButton: {fileID: 2044562835}
   damageDescription: {fileID: 543289706}
   damageCostText: {fileID: 1988088206}
-  damageCost: 1500
-  damageMaxCost: 7500
+  damageCost: 750
+  damageMaxCost: 10000
   spreadAngleUpgradeButton: {fileID: 301589066}
   spreadAngleDescription: {fileID: 1192109188}
   spreadAngleCostText: {fileID: 2112570224}
