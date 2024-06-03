@@ -24,31 +24,12 @@ public class SpawnGenerator : MonoBehaviour
     {
         CalculatePositions();
         PositionObjects();
-        //CreateBarrierSegments();
-    }
-
-
-    void CreateBarrierSegments()
-    {
-        float segmentAngle = 360.0f / numberOfSpawnPoint;  // Angle per segment
-        for (int i = 0; i < numberOfSpawnPoint; i++)
-        {
-            GameObject segment = new GameObject($"BarrierSegment_{i}");
-            segment.transform.position = player.transform.position; // Position at the player's location
-            segment.transform.parent = this.transform;  // Parent under the generator for organization
-
-            // Add a collider here depending on 2D or 3D game
-            CircleCollider2D collider = segment.AddComponent<CircleCollider2D>();
-            collider.offset = new Vector2(Mathf.Cos(Mathf.Deg2Rad * segmentAngle * i) * radius, Mathf.Sin(Mathf.Deg2Rad * segmentAngle * i) * radius);
-            collider.radius = radius / numberOfSpawnPoint;  // Adjust radius as needed for your game mechanics
-
-        }
     }
 
     void CalculatePositions()
     {
         allSpawners.Clear();
-        float angleStep = 360.0f / numberOfSpawnPoint;  // Divide the circle into 16 steps
+        float angleStep = 360.0f / numberOfSpawnPoint;  // Divide the circle into steps
         for (int i = 0; i < numberOfSpawnPoint; i++)
         {
             float angle = i * angleStep * Mathf.Deg2Rad;  // Convert degrees to radians
@@ -68,9 +49,9 @@ public class SpawnGenerator : MonoBehaviour
     {
         foreach (Vector3 pos in positions)
         {
-            GameObject obj = new GameObject("EnemySpawnPoint");  // Create a new GameObject for clarity
-            obj.transform.position = this.transform.position + pos;  // Position it relative to the player
-            obj.transform.parent = this.transform;  // Optionally parent it under this object for organization
+            GameObject obj = new GameObject("EnemySpawnPoint");  
+            obj.transform.position = this.transform.position + pos;  
+            obj.transform.parent = this.transform;  
             
             if (pos.y > 0.5)
             {

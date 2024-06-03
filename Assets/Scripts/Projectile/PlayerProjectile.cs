@@ -106,9 +106,6 @@ public class PlayerProjectile : MonoBehaviour
         //Forward Movement
         forwardMovement = Direction * (Speed / 10f) * Time.fixedDeltaTime;
 
-        //Horizontal Movement
-        //horizontalAmount = horizontalSpeed * Time.fixedDeltaTime;
-        //horizontalMovement = Direction.normalized * Mathf.Sin(horizontalAmount) * horizontalDistance;
         if (canHorizontal)
         {
             elapsedTime += Time.fixedDeltaTime;

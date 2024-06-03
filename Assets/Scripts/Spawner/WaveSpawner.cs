@@ -14,20 +14,13 @@ public class WaveSpawner : MonoBehaviour
 
     private List<ObjectPooler> poolers = new List<ObjectPooler>();
 
-
-    private bool allEnemiesDestroyed;
-    private bool waveCompleted;
     private bool isActive;
-
     private float waveValue { get; set; }
-
     private float waveTimer { get; set; }
     private float spawnInterval { get; set; }
 
     private float spawnTimer { get; set; }
 
-    //Direciton Integer  
-    private int currentDirectionIndex = 0;
     private List<GameObject> currentSpawner { get; set; }// Store the current spawner direction for the wave
 
     private void Awake()
@@ -56,18 +49,7 @@ public class WaveSpawner : MonoBehaviour
                     {
                         currentSpawner = WaveManager.Instance.GetRandomDirection(1);
                     }
-                    //THis code spawn in all direction = random direction
-                    /*int randomIndex = Random.Range(0, spawnGenerator.allSpawners.Count);
-                    GameObject spawnPoint = spawnGenerator.allSpawners[randomIndex];
-                    SpawnEnemy(spawnPoint);*/
 
-                    //This is test to spawn in up down left right in order
-                    /*List<GameObject> newCurrentSpawner = GetDirectionSpawners(GetDirectionIndex());
-                    int randomIndex = Random.Range(0, newCurrentSpawner.Count);
-                    GameObject spawnPoint = newCurrentSpawner[randomIndex];
-                    SpawnEnemy(spawnPoint);*/
-
-                    //This code spawn in 1 direction, and change only when changing wave 
                     int randomIndex = Random.Range(0, currentSpawner.Count);
                     GameObject spawnPoint = currentSpawner[randomIndex];
                     SpawnEnemy(spawnPoint);
@@ -85,18 +67,7 @@ public class WaveSpawner : MonoBehaviour
         }
         else
         {
-            //GenerateWave();
-            //Try disabling after timer end, not sure if enemy will bug out
-            //this.gameObject.SetActive(false);
-            /*if (CheckAllEnemiesDestroyed())
-            {
-                Debug.Log("Grace Reward"); //If player kill the enemy before the grace period, then they get bonus reward
-            }*/
-            //waveCompleted = true;
             isActive = false;
-            //WaveManager.Instance.OnWaveCompleted();
-
-
         }
     }
 
@@ -128,13 +99,11 @@ public class WaveSpawner : MonoBehaviour
                 newEnemy.GetComponent<DropItem>().canDropItem = true;
                 newEnemy.GetComponent<Health>().Revive();
                 spawnedEnemies.Add(newEnemy);
-                //uniqueSpawnedEnemies.Add(newEnemy);
             }
             enemiesToSpawn.RemoveAt(0);
             spawnTimer = spawnInterval;
         }
     }
-    //------------------------------------------------------------------------------GET SPAWNER DIRECTION---------------------------------------------------------------------------------------------
 
 
 
@@ -199,10 +168,6 @@ public class WaveSpawner : MonoBehaviour
 
         Debug.Log("Still Got Enemy");
         return false;
-    }
-
-    private void OnEnable()
-    {
     }
 
 

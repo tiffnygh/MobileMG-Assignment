@@ -6,28 +6,20 @@ public class WaveManager : Singleton<WaveManager>
 {
     [SerializeField] private List<WaveSpawner> allSpawners = new List<WaveSpawner>();
 
-    public int currentWave = 0;
     private float waveTimer { get; set; }
 
+    public int currentWave = 0;
     public float waveDuration;
-
     public float spawnInterval;
-
     public float waveValue;
-    
 
     [SerializeField] private float delayBeforeNextWave;
 
 
     private Dictionary<string, WaveSpawner> spawnerDict = new Dictionary<string, WaveSpawner>();
-
-    private SpawnGenerator spawnGenerator;
-
     //Enemy spawner positions
-    private List<GameObject> thisWaveCurrentSpawnPositions { get; set; } // Store the current spawner direction for the wave
-    
     public List<GameObject> currentSpawnPositions; // Store the current spawner direction for the wave
-
+    private SpawnGenerator spawnGenerator;
 
 
     protected override void Awake()
