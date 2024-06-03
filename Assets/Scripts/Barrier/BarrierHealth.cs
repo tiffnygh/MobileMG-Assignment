@@ -5,10 +5,10 @@ using UnityEngine;
 public class BarrierHealth : MonoBehaviour
 {
     // Create instances for each segment
-    [SerializeField] public SegmentHealth topSegment = new SegmentHealth { name = "Top"};
-    [SerializeField] public SegmentHealth downSegment = new SegmentHealth { name = "Down"};
-    [SerializeField] public SegmentHealth leftSegment = new SegmentHealth { name = "Left"};
-    [SerializeField] public SegmentHealth rightSegment = new SegmentHealth { name = "Right"};
+    [SerializeField] public SegmentHealth topSegment = new SegmentHealth { name = "Top" };
+    [SerializeField] public SegmentHealth downSegment = new SegmentHealth { name = "Down" };
+    [SerializeField] public SegmentHealth leftSegment = new SegmentHealth { name = "Left" };
+    [SerializeField] public SegmentHealth rightSegment = new SegmentHealth { name = "Right" };
 
     [System.Serializable]
     public class SegmentHealth
@@ -19,10 +19,14 @@ public class BarrierHealth : MonoBehaviour
         public int currentHealth { get; set; }
     }
 
+    private GameOverController gameOverController;
+
     private void Awake()
     {
         UIManager.Instance.UpdateBarrierHealth(topSegment.maxHealt, topSegment.currentHealth, downSegment.currentHealth, leftSegment.currentHealth, rightSegment.currentHealth);
+        gameOverController = FindObjectOfType<GameOverController>(); // Find the GameOverController in the scene
     }
+
     // Start is called before the first frame update
     void Start()
     {
@@ -60,10 +64,8 @@ public class BarrierHealth : MonoBehaviour
         {
             segment.currentHealth -= damage;
             segment.currentHealth = Mathf.Max(segment.currentHealth, 0);
-            //Debug.Log(segmentName + " segment took " + damage + " damage, remaining health: " + segment.currentHealth);
             CheckGameOver();
         }
-
     }
 
     private SegmentHealth GetSegment(string name)
@@ -93,9 +95,6 @@ public class BarrierHealth : MonoBehaviour
         Debug.Log("Game Over: One of the barrier segments has reached 0 health.");
         SoundManager.Instance.musicAudioSource.clip = SoundManager.Instance.GameOverMusicClip;
         SoundManager.Instance.musicAudioSource.Play();
-        Time.timeScale = 0f;
-        // Implement additional game over logic here, such as displaying a game over screen, stopping the game, etc.
+        gameOverController.ShowGameOver();
     }
 }
-
-

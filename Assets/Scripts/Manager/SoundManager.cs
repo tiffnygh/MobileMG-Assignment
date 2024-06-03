@@ -10,16 +10,12 @@ public class SoundManager : Singleton<SoundManager>
     [SerializeField] private AudioClip bossMusicClip;
     [SerializeField] private AudioClip gameOverMusicClip;
 
-
-
     [Header("Sounds")]
     [SerializeField] private AudioClip defaultShootClip;
     [SerializeField] private AudioClip defaultImpactClip;
     [SerializeField] private AudioClip enemyDeadClip;
     [SerializeField] private AudioClip enemyBarrierDeadClip;
     [SerializeField] private AudioClip gameOverClip;
-
-
     [SerializeField] private AudioClip coinClip;
     [SerializeField] private AudioClip fireAOEClip;
 
@@ -31,9 +27,10 @@ public class SoundManager : Singleton<SoundManager>
     public AudioClip BossMusicClip => bossMusicClip;
     public AudioClip GameOverMusicClip => gameOverMusicClip;
 
-
     public AudioSource musicAudioSource;
     private ObjectPooler soundObjectPooler;
+
+    private float soundVolume = 1f;
 
     protected override void Awake()
     {
@@ -41,6 +38,7 @@ public class SoundManager : Singleton<SoundManager>
         musicAudioSource = GetComponent<AudioSource>();
 
         PlayMusic();
+        LoadSettings();
     }
 
     private void PlayMusic()
@@ -62,7 +60,7 @@ public class SoundManager : Singleton<SoundManager>
         }
 
         audioSource.clip = clipToPlay;
-        audioSource.volume = volume;
+        audioSource.volume = volume * soundVolume; // Apply sound volume
         audioSource.Play();
 
         StartCoroutine(ReturnToPool(audioPooled, clipToPlay.length + 1));
@@ -73,7 +71,33 @@ public class SoundManager : Singleton<SoundManager>
         yield return new WaitForSeconds(delay);
         objectPool.SetActive(false);
     }
+
+    public void SetMusicVolume(float volume)
+    {
+        musicAudioSource.volume = volume;
+    }
+
+    public void SetSoundVolume(float volume)
+    {
+        soundVolume = volume;
+    }
+
+    public void SaveSettings()
+    {
+        PlayerPrefs.SetFloat("MusicVolume", musicAudioSource.volume);
+        PlayerPrefs.SetFloat("SoundVolume", soundVolume);
+        PlayerPrefs.Save();
+    }
+
+    public void LoadSettings()
+    {
+        if (PlayerPrefs.HasKey("MusicVolume"))
+        {
+            SetMusicVolume(PlayerPrefs.GetFloat("MusicVolume"));
+        }
+        if (PlayerPrefs.HasKey("SoundVolume"))
+        {
+            SetSoundVolume(PlayerPrefs.GetFloat("SoundVolume"));
+        }
+    }
 }
-
-
-
