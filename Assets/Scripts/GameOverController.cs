@@ -20,6 +20,6 @@ public class GameOverController : MonoBehaviour
     public void ReturnToMainMenu()
     {
         Time.timeScale = 1f; // Resume the game before returning to the main menu
-        SceneManager.LoadScene("MainMenu");
+        SceneManager.LoadScene("MenuScene");
     }
 }

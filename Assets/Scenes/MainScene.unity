@@ -4914,20 +4914,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   topSegment:
     name: Top
-    maxHealt: 50
-    initialHealth: 50
+    maxHealt: 1
+    initialHealth: 1
   downSegment:
     name: Down
-    maxHealt: 50
-    initialHealth: 50
+    maxHealt: 1
+    initialHealth: 1
   leftSegment:
     name: Left
-    maxHealt: 50
-    initialHealth: 50
+    maxHealt: 1
+    initialHealth: 1
   rightSegment:
     name: Right
-    maxHealt: 50
-    initialHealth: 50
+    maxHealt: 1
+    initialHealth: 1
 --- !u!1 &649845931
 GameObject:
   m_ObjectHideFlags: 0
@@ -5420,7 +5420,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &693812093
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -16660,7 +16660,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   scoreText: {fileID: 1486402586}
-  highScoreText: {fileID: 693812093}
+  highScoreText: {fileID: 1853553987}
 --- !u!4 &2051356801
 Transform:
   m_ObjectHideFlags: 0
