@@ -31,4 +31,12 @@ public class PauseMenuController : MonoBehaviour
         Time.timeScale = 1; // Ensure the game is running
         SceneManager.LoadScene("MenuScene"); // Load the main menu scene
     }
+
+    // Method to resume the game
+    public void ResumeGame()
+    {
+        isPaused = false;
+        pauseMenuCanvas.SetActive(false);
+        Time.timeScale = 1; // Resume the game
+    }
 }
